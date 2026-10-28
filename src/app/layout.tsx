@@ -29,7 +29,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${outfit.variable} ${bricolage.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${bricolage.variable} h-full antialiased`}
+      // Browser extensions often add attributes to <html> before React loads.
+      suppressHydrationWarning
+    >
       <body className="min-h-full flex flex-col">
         <TopBar />
         <SiteHeader firstVote={ELECTION_DAYS.first.short} secondVote={ELECTION_DAYS.second.short} />

@@ -128,6 +128,15 @@ export async function getCandidate(id: string): Promise<CandidateWithContext | n
   return { candidate, race, state, rivals, partner };
 }
 
+/** Ids of every candidate for the given offices, read from the search index in one go. */
+export async function listCandidateIds(offices: Office[]): Promise<string[]> {
+  "use cache";
+  cacheLife("max");
+  const file = path.join(process.cwd(), "src/data/search.json");
+  const rows = JSON.parse(await readFile(file, "utf8")) as [string, string, string, Office][];
+  return rows.filter((r) => offices.includes(r[3])).map((r) => r[0]);
+}
+
 /** Light search across every candidate: name, party, state or constituency. */
 export async function searchCandidates(query: string, limit = 20) {
   "use cache";

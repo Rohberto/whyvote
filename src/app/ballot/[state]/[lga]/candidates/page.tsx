@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { CandidateRow } from "@/components/candidates/candidate-cards";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { PageSkeleton } from "@/components/ui/page-skeleton";
 import { TabList, TabPanel, Tabs } from "@/components/ui/tabs";
 import { compareRaceNames, getLga, getNational, getState, getStateData, type Candidate, type Race } from "@/lib/candidates";
 import { FEATURED_PARTIES } from "@/lib/parties";
@@ -78,7 +80,15 @@ function RacePanel({ races, candidates, label }: { races: Race[]; candidates: Ca
   );
 }
 
-export default async function OtherCandidatesPage({ params }: PageProps<"/ballot/[state]/[lga]/candidates">) {
+export default function OtherCandidatesPage({ params }: PageProps<"/ballot/[state]/[lga]/candidates">) {
+  return (
+    <Suspense fallback={<PageSkeleton label="Loading candidates" />}>
+      <OtherCandidates params={params} />
+    </Suspense>
+  );
+}
+
+async function OtherCandidates({ params }: Pick<PageProps<"/ballot/[state]/[lga]/candidates">, "params">) {
   const { state: stateSlug, lga: lgaSlug } = await params;
   const state = getState(stateSlug);
   const lga = getLga(stateSlug, lgaSlug);

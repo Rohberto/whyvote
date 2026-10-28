@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { BeforeYouChoose } from "@/components/ballot/before-you-choose";
 import { ZikiCard } from "@/components/candidates/candidate-cards";
 import { CandidatePhoto } from "@/components/candidates/candidate-photo";
@@ -10,7 +11,8 @@ import { PledgeBand } from "@/components/layout/pledge-band";
 import { Chip } from "@/components/ui/chip";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { GEO, getCandidate, getNational, getStateData, type Candidate } from "@/lib/candidates";
+import { PageSkeleton } from "@/components/ui/page-skeleton";
+import { getCandidate, listCandidateIds, type Candidate } from "@/lib/candidates";
 import { electionDate, raceLabel, RUNNING_FOR, seatName } from "@/lib/offices";
 import { party } from "@/lib/parties";
 import { ZIKI_HEADLINES } from "@/lib/ziki-notes";
@@ -20,20 +22,11 @@ import { ZIKI_HEADLINES } from "@/lib/ziki-notes";
  * (about 15,000) render on first visit and are then served from the cache.
  */
 export async function generateStaticParams() {
-  const national = getNational().map((c) => ({ slug: c.id }));
-  const governorship = (
-    await Promise.all(
-      GEO.filter((s) => s.hasGovernorship).map(async (s) => {
-        const data = await getStateData(s.slug);
-        return (data?.candidates ?? [])
-          .filter((c) => c.office === "governor" || c.office === "deputy-governor")
-          .map((c) => ({ slug: c.id }));
-      }),
-    )
-  ).flat();
   // These two have hand-written articles at their own static routes.
   const editorial = new Set(["bola-tinubu", "gbadebo-rhodes-vivour"]);
-  return [...national, ...governorship].filter((p) => !editorial.has(p.slug));
+  return (await listCandidateIds(["president", "vice-president", "governor", "deputy-governor"]))
+    .filter((id) => !editorial.has(id))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/ziki/[slug]">): Promise<Metadata> {
@@ -62,7 +55,15 @@ function ageText(c: Candidate) {
   return "Not given";
 }
 
-export default async function ZikiProfilePage({ params }: PageProps<"/ziki/[slug]">) {
+export default function ZikiProfilePage({ params }: PageProps<"/ziki/[slug]">) {
+  return (
+    <Suspense fallback={<PageSkeleton label="Loading profile" />}>
+      <ZikiProfile params={params} />
+    </Suspense>
+  );
+}
+
+async function ZikiProfile({ params }: Pick<PageProps<"/ziki/[slug]">, "params">) {
   const { slug } = await params;
   const found = await getCandidate(slug);
   if (!found) notFound();

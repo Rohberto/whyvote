@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { BallotView } from "@/components/ballot/ballot-view";
+import { PageSkeleton } from "@/components/ui/page-skeleton";
 import { GEO, getLga, getState } from "@/lib/candidates";
 
 export function generateStaticParams() {
@@ -17,7 +19,15 @@ export async function generateMetadata({ params }: PageProps<"/ballot/[state]/[l
   };
 }
 
-export default async function LgaBallotPage({ params }: PageProps<"/ballot/[state]/[lga]">) {
+export default function LgaBallotPage({ params }: PageProps<"/ballot/[state]/[lga]">) {
+  return (
+    <Suspense fallback={<PageSkeleton label="Loading ballot" />}>
+      <LgaBallot params={params} />
+    </Suspense>
+  );
+}
+
+async function LgaBallot({ params }: Pick<PageProps<"/ballot/[state]/[lga]">, "params">) {
   const { state, lga } = await params;
   return <BallotView stateSlug={state} lgaSlug={lga} />;
 }
