@@ -1,6 +1,7 @@
 "use server";
 
 import { STATES } from "@/lib/nigeria";
+import { supabase } from "@/lib/supabase";
 
 export type PledgeState =
   | { status: "idle" }
@@ -29,15 +30,27 @@ export async function submitPledge(_prev: PledgeState, formData: FormData): Prom
   const pledge = {
     name,
     email,
-    phone: phoneRaw || null,
+    // Stored in international format (+234...) so SMS providers can use it as is.
+    phone: phoneRaw ? phoneRaw.replace(/^(?:\+?234|0)/, "+234") : null,
     state: (STATES as readonly string[]).includes(state) ? state : null,
     lga: lga || null,
-    sms: sms && Boolean(phoneRaw),
-    createdAt: new Date().toISOString(),
+    sms_opt_in: sms && Boolean(phoneRaw),
   };
 
-  // TODO: persist the pledge (for example a Supabase `pledges` table) and queue the reminder messages.
-  void pledge;
+  const db = supabase();
+  if (!db) {
+    console.error("Pledge not saved: SUPABASE_URL or SUPABASE_SECRET_KEY is not set.");
+    return { status: "error", message: "We couldn’t save your pledge just now. Please try again in a moment." };
+  }
+  // One pledge per email: pledging again updates the earlier one.
+  const { error } = await db.from("pledges").upsert(
+    { ...pledge, updated_at: new Date().toISOString() },
+    { onConflict: "email" },
+  );
+  if (error) {
+    console.error("Pledge not saved:", error.message);
+    return { status: "error", message: "We couldn’t save your pledge just now. Please try again in a moment." };
+  }
 
   return { status: "done", firstName: name.split(/\s+/)[0], email, phone: pledge.phone };
 }
