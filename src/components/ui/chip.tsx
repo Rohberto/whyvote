@@ -14,12 +14,18 @@ const tones: Record<ChipTone, string> = {
   night: "bg-night text-white",
 };
 
-/** Small uppercase pill used for tags, dates and statuses. */
-export function Chip({ tone = "lime", className, ...props }: ComponentProps<"span"> & { tone?: ChipTone }) {
+/** Small uppercase pill used for tags, dates and statuses. Pass `wrap` where it may sit in a narrow column. */
+export function Chip({
+  tone = "lime",
+  wrap = false,
+  className,
+  ...props
+}: ComponentProps<"span"> & { tone?: ChipTone; wrap?: boolean }) {
   return (
     <span
       className={[
-        "inline-flex items-center gap-1.5 px-2.5 py-[5px] rounded-full text-[12px] font-semibold tracking-[0.4px] uppercase whitespace-nowrap",
+        "inline-flex items-center gap-1.5 px-2.5 py-[5px] rounded-full text-[12px] font-semibold tracking-[0.4px] uppercase",
+        wrap ? "max-w-full" : "whitespace-nowrap",
         tones[tone],
         className,
       ]

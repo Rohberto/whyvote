@@ -33,7 +33,7 @@ export function BallotCard({ candidate, tone, officeholder }: { candidate: Candi
       <div className="flex gap-2.5 items-center px-1">
         <PartyBadge code={candidate.party} decorative />
         <div className="min-w-0">
-          <p className="text-[15px] font-bold">{candidate.name}</p>
+          <p className="text-[15px] font-bold wrap-anywhere">{candidate.name}</p>
           <p className="text-[12px] text-ink-soft">{party(candidate.party).name}</p>
         </div>
       </div>
@@ -81,13 +81,14 @@ export function ZikiCard({ candidate, headline }: { candidate: Candidate; headli
   return (
     <Link className="flex flex-col gap-2.5 bg-mist rounded-lg p-4.5 no-underline text-ink hover:bg-mist-deep hover:text-ink" href={`/ziki/${candidate.id}`}>
       <CandidateAvatar candidate={candidate} />
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center min-w-0">
         <PartyBadge code={candidate.party} size="xs" />
-        <b className="text-[17px] text-ink">{candidate.name}</b>
+        <b className="min-w-0 text-[17px] text-ink wrap-anywhere">{candidate.name}</b>
       </div>
       <span className="text-[14px] font-semibold leading-[1.4]">{headline ?? party(candidate.party).name}</span>
       <div className="flex flex-wrap gap-1.5">
-        <Chip>{CHIP[candidate.office]}</Chip>
+        {/* Cards are narrow on small phones: let the tag wrap instead of spilling out. */}
+        <Chip wrap>{CHIP[candidate.office]}</Chip>
       </div>
       <span className="text-[14px] font-semibold text-green mt-0.5">View profile</span>
     </Link>
