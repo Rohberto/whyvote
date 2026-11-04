@@ -3,11 +3,11 @@ import Link from "next/link";
 import { NAV_ITEMS, OFFICIAL_SOURCES } from "@/components/layout/nav";
 import logo from "@/assets/logo.png";
 
-// TODO: replace with the real PoliZ social profiles.
+// whyVote on Instagram and X; PoliZ on LinkedIn.
 const SOCIALS = [
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/whyvote.ng/",
     icon: (
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -18,7 +18,7 @@ const SOCIALS = [
   },
   {
     label: "X",
-    href: "#",
+    href: "https://x.com/whyvoteng",
     icon: (
       <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
         <path d="M4 4l16 16M20 4L4 20" />
@@ -27,7 +27,7 @@ const SOCIALS = [
   },
   {
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/company/polizng/",
     icon: (
       <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <path d="M6 10v8M6 6v.5M10 18v-8M10 13c0-2 1.5-3 3.5-3s3.5 1 3.5 3.5V18" />
@@ -45,7 +45,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1240px] px-5 pt-11 pb-8 lg:pt-16 lg:pb-10">
         <div className="flex flex-wrap gap-10 justify-between">
           <div className="flex-[1_1_300px] flex flex-col gap-4 items-start">
-            <Image src={logo} alt="whyvote" className="block h-9.5 w-auto" />
+            <Image src={logo} alt="whyVote" className="block h-9.5 w-auto" />
             <p className="text-[14px] leading-[1.6] text-ink-soft max-w-[320px]">
               Civic infrastructure for young Nigerians, built by PoliZ. Two Saturdays. Five offices. Your future.
             </p>
@@ -99,7 +99,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-9 pt-6 border-t border-line flex flex-wrap gap-5 items-center justify-between">
           <p className="text-[13px] leading-[1.6] text-ink-soft max-w-[640px]">
-            whyvote does not support, oppose, endorse or rank any political party or candidate, and takes no money from
+            whyVote does not support, oppose, endorse or rank any political party or candidate, and takes no money from
             parties or candidates. The only ask is that you vote. We never ask who for.
           </p>
           <div className="flex gap-2">
@@ -107,7 +107,9 @@ export function SiteFooter() {
               <a
                 key={s.label}
                 href={s.href}
-                aria-label={s.label}
+                target="_blank"
+                rel="noopener"
+                aria-label={s.label === "LinkedIn" ? "PoliZ on LinkedIn" : `whyVote on ${s.label}`}
                 className="w-11 h-11 rounded-sm bg-white border border-line inline-flex items-center justify-center text-ink hover:bg-mist-deep"
               >
                 {s.icon}

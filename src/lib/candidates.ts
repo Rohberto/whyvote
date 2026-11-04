@@ -54,6 +54,13 @@ export const OFFICE_LABEL: Record<Office, string> = {
   assembly: "Member, State House of Assembly",
 };
 
+/** States and LGAs for the place pickers. */
+export const PICKER_STATES = GEO.map((s) => ({
+  slug: s.slug,
+  name: s.name,
+  lgas: s.lgas.map((l) => ({ slug: l.slug, name: l.name })),
+}));
+
 export function getState(slug: string): StateGeo | undefined {
   return GEO.find((s) => s.slug === slug);
 }

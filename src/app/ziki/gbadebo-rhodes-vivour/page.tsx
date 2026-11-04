@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ZikiCard } from "@/components/candidates/candidate-cards";
 import { CandidatePhoto } from "@/components/candidates/candidate-photo";
@@ -10,12 +9,16 @@ import { Chip } from "@/components/ui/chip";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { PledgeBand } from "@/components/layout/pledge-band";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Gbadebo Rhodes-Vivour",
   description:
     "Ziki profile: Gbadebo Rhodes-Vivour, candidate for Governor of Lagos in the 6 February 2027 election.",
-};
+  path: "/ziki/gbadebo-rhodes-vivour",
+  type: "profile",
+  ownImage: true,
+});
 
 export default async function RhodesVivourPage() {
   const found = await getCandidate("gbadebo-rhodes-vivour");
@@ -107,16 +110,18 @@ export default async function RhodesVivourPage() {
                 <li className="relative pb-5.5 pl-7 border-l-2 border-l-brand ml-[7px]">
                   <span className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-brand box-content" />
                   <div className="flex flex-wrap gap-2 items-center">
-                    <b className="text-[18px]">Governor of Lagos State</b>
+                    <b className="text-[18px]">Ran for Governor of Lagos State</b>
+                    <span className="inline-flex items-center py-[3px] px-2.5 rounded-full bg-mist text-ink-soft text-[12px] font-semibold tracking-[0.4px] uppercase">Not elected</span>
                   </div>
-                  <p className="mt-1 text-[14px] text-ink-soft">Labour Party · finished second · 2023</p>
+                  <p className="mt-1 text-[14px] text-ink-soft">Labour Party candidate · came second · 2023</p>
                 </li>
                 <li className="relative pb-5.5 pl-7 border-l-2 border-l-line ml-[7px]">
                   <span className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-brand box-content" />
                   <div className="flex flex-wrap gap-2 items-center">
-                    <b className="text-[18px]">Senator, Lagos West</b>
+                    <b className="text-[18px]">Ran for Senator, Lagos West</b>
+                    <span className="inline-flex items-center py-[3px] px-2.5 rounded-full bg-mist text-ink-soft text-[12px] font-semibold tracking-[0.4px] uppercase">Not elected</span>
                   </div>
-                  <p className="mt-1 text-[14px] text-ink-soft">Peoples Democratic Party · 2019</p>
+                  <p className="mt-1 text-[14px] text-ink-soft">Peoples Democratic Party candidate · 2019</p>
                 </li>
               </ol>
               <h2 className="mt-3.5 font-display text-[32px]" id="c4">Accomplishments</h2>
@@ -140,7 +145,7 @@ export default async function RhodesVivourPage() {
                   <a href="#">Hamzat, Rhodes-Vivour, 15 others make INEC’s Lagos governorship list (Tribune, Oct 2026)</a>
                 </li>
                 <li className="text-[14px] leading-[1.5]" id="ref-2">
-                  <a href="#">Gbadebo Rhodes-Vivour (Wikipedia)</a>
+                  <a href="https://en.wikipedia.org/wiki/Gbadebo_Rhodes-Vivour" target="_blank" rel="noopener">Gbadebo Rhodes-Vivour (Wikipedia)</a>
                 </li>
                 <li className="text-[14px] leading-[1.5]" id="ref-3">
                   <a href="#">INEC releases 2027 governorship list (The Journal)</a>
@@ -149,7 +154,7 @@ export default async function RhodesVivourPage() {
               <p className="text-[12px] leading-[1.6] text-ink-faint">Last checked against sources on 18 October 2026.</p>
             </div>
             <aside className="flex-[1_1_300px] max-w-full bg-mist rounded-lg p-4 flex flex-col gap-3 self-start lg:max-w-[360px] box-content">
-              <CandidatePhoto candidate={found.candidate} tone={1} className="h-[260px] rounded-md" sizes="360px" priority />
+              <CandidatePhoto candidate={found.candidate} tone={1} className="aspect-[4/5] w-full max-w-[300px] mx-auto rounded-md" sizes="300px" priority />
               <p className="font-display text-[24px]">Gbadebo Rhodes-Vivour</p>
               <div>
                 <div className="flex flex-col gap-0.5 py-2.5 border-b border-b-line">
@@ -182,7 +187,7 @@ export default async function RhodesVivourPage() {
                   </span>
                 </div>
               </div>
-              <a className="text-[13px] font-semibold" href="#">Report a correction</a>
+              <a className="text-[13px] font-semibold" href="mailto:ijoba@poliz.ng?subject=Gbadebo%20Rhodes-Vivour%20profile%3A%20correction">Report a correction</a>
             </aside>
           </div>
         </Container>
@@ -209,7 +214,7 @@ export default async function RhodesVivourPage() {
               <Eyebrow>Before you choose</Eyebrow>
               <h2 className="font-display text-[36px] leading-[0.95] text-ink uppercase lg:text-[48px]">What to check before you choose.</h2>
               <p className="text-[15px] leading-[1.6] text-ink-soft">
-                A useful profile separates verified facts, public claims and missing information. Nothing on whyvote is an endorsement.
+                A useful profile separates verified facts, public claims and missing information. Nothing on whyVote is an endorsement.
               </p>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(min(240px,100%),1fr))] gap-4">

@@ -6,7 +6,10 @@ export function candidatePhotoSrc(id: string) {
   return `/images/candidates/${id}.webp`;
 }
 
-/** Rectangular photo used on ballot cards and profile asides. Falls back to the "Photo pending" figure. */
+/**
+ * Portrait photo (INEC photos are 4:5) used on ballot cards and profile asides. Give it a 4:5 box
+ * so faces are not cropped. Falls back to the "Photo pending" figure.
+ */
 export function CandidatePhoto({
   candidate,
   tone = 0,
@@ -30,7 +33,7 @@ export function CandidatePhoto({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover object-[50%_32%]"
+          className="object-cover object-[50%_20%]"
         />
       </div>
     );

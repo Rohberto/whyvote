@@ -15,7 +15,8 @@ import { PageSkeleton } from "@/components/ui/page-skeleton";
 import { getCandidate, listCandidateIds, type Candidate } from "@/lib/candidates";
 import { electionDate, raceLabel, RUNNING_FOR, seatName } from "@/lib/offices";
 import { party } from "@/lib/parties";
-import { ZIKI_HEADLINES } from "@/lib/ziki-notes";
+import { OFFICEHOLDERS, ZIKI_HEADLINES } from "@/lib/ziki-notes";
+import { jsonLd, pageMetadata, SITE_URL } from "@/lib/site";
 
 /**
  * Prerender every presidential and governorship ticket. Legislative candidates
@@ -32,12 +33,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/ziki/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const found = await getCandidate(slug);
-  if (!found) return { title: "Ziki" };
+  if (!found) return { title: "Ziki", robots: { index: false } };
   const { candidate, race, state } = found;
-  return {
+  return pageMetadata({
     title: candidate.name,
     description: `${candidate.name} (${party(candidate.party).name}), candidate for ${seatName(candidate, race, state)} on ${electionDate(candidate.office)}. From INEC’s final list of candidates.`,
-  };
+    path: `/ziki/${candidate.id}`,
+    ownImage: true,
+    type: "profile",
+  });
 }
 
 function Fact({ label, children }: { label: string; children: React.ReactNode }) {
@@ -76,8 +80,20 @@ async function ZikiProfile({ params }: Pick<PageProps<"/ziki/[slug]">, "params">
   const raceLga = race.lgas?.[0] ? state?.lgas.find((l) => l.name === race.lgas![0]) : state?.lgas[0];
   const raceHref = state && raceLga ? `/ballot/${state.slug}/${raceLga.slug}` : "/ziki";
 
+  const structured = jsonLd({
+    "@type": "Person",
+    name: c.name,
+    alternateName: c.inecName,
+    url: `${SITE_URL}/ziki/${c.id}`,
+    ...(c.photo ? { image: `${SITE_URL}/images/candidates/${c.id}.webp` } : {}),
+    ...(c.gender ? { gender: c.gender === "M" ? "Male" : "Female" } : {}),
+    affiliation: { "@type": "PoliticalParty", name: p.name, alternateName: c.party },
+    description: `Candidate for ${seat}, ${electionDate(c.office)}.`,
+  });
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={structured} />
       <Breadcrumb items={[{ label: "Ziki", href: "/ziki" }, { label: raceLabel(c, race, state), href: raceHref }, { label: c.name }]} />
       <section className="pt-8 pb-5 lg:pt-12 lg:pb-7">
         <Container>
@@ -92,6 +108,7 @@ async function ZikiProfile({ params }: Pick<PageProps<"/ziki/[slug]">, "params">
             <div className="flex flex-wrap gap-2">
               <Chip>For {RUNNING_FOR[c.office]}</Chip>
               <Chip tone="mist">{p.name}</Chip>
+              {OFFICEHOLDERS[c.race]?.runningAgain === c.id && <Chip tone="ink">Officeholder · {OFFICEHOLDERS[c.race].since}</Chip>}
               {c.courtOrder && <Chip tone="warn">Listed by court order</Chip>}
             </div>
           </div>
@@ -154,7 +171,7 @@ async function ZikiProfile({ params }: Pick<PageProps<"/ziki/[slug]">, "params">
             </div>
 
             <aside className="flex-[1_1_300px] max-w-full bg-mist rounded-lg p-4 flex flex-col gap-3 self-start lg:max-w-[360px] box-content">
-              <CandidatePhoto candidate={c} tone={1} className="h-[260px] rounded-md" sizes="360px" priority />
+              <CandidatePhoto candidate={c} tone={1} className="aspect-[4/5] w-full max-w-[300px] mx-auto rounded-md" sizes="300px" priority />
               <p className="font-display text-[24px]">{c.name}</p>
               <dl>
                 <Fact label="Party">{p.name}</Fact>

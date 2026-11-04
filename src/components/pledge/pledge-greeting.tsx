@@ -26,7 +26,10 @@ function read(): StoredPledge | null {
 
 const subscribe = () => () => {};
 
-function useStoredPledge() {
+/** +2348030000000 → 0803 000 0000 */
+const localPhone = (p: string) => p.replace(/^\+234/, "0").replace(/^(\d{4})(\d{3})(\d{4})$/, "$1 $2 $3");
+
+export function useStoredPledge() {
   return useSyncExternalStore(subscribe, read, () => null);
 }
 
@@ -48,7 +51,7 @@ export function PledgeReminderNote({ className }: { className?: string }) {
   return (
     <p className={className}>
       Here is your ballot. Reminders will go to {pledge.email}
-      {pledge.phone ? `, and by text to ${pledge.phone},` : ","} before PVC collection closes and before each Saturday.
+      {pledge.phone ? `, and by text to ${localPhone(pledge.phone)},` : ","} before PVC collection closes and before each Saturday.
     </p>
   );
 }

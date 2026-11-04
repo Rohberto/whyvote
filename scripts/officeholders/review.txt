@@ -1,0 +1,276 @@
+NOT ON 2027 LIST  senate Abia Central: Austin Akobundu
+RUNNING    senate Abia North: Orji Uzor Kalu -> KALU ORJI UZOR (APC)
+RUNNING    senate Abia South: Enyinnaya Abaribe -> ABARIBE ENYINNAYA HARCOURT (LP)
+NOT ON 2027 LIST  senate Adamawa Central: Abbas Aminu Iya
+NOT ON 2027 LIST  senate Adamawa North: Amos Yohanna
+RUNNING    senate Adamawa South: Binos Dauda Yaroe -> BINOS DAUDA YAROE (ADC)
+RUNNING    senate Akwa Ibom North East: Bassey Aniekan Etim -> BASSEY ANIEKAN ETIM (APC)
+RUNNING    senate Akwa Ibom North West: Godswill Akpabio -> AKPABIO GODSWILL OBOT (APC)
+RUNNING    senate Akwa Ibom South: Akpan Ekong Sampson -> AKPAN EKONG SAMPSON (APC)
+RUNNING    senate Anambra Central: Umeh Victor Chukwunonyelu -> UMEH VICTOR CHUKWUNONYELUM (NDC)
+RUNNING    senate Anambra North: Tony Nwoye -> NWOYE TONY OKECHUKWU (NDC)
+RUNNING    senate Bauchi Central: Ahmed Abdul Ningi -> ABDUL AHMED NINGI (ADC)
+RUNNING    senate Bauchi North: Samaila Dahuwa Kaila -> KAILA SAMAILA DAHUWA (PRP)
+NOT ON 2027 LIST  senate Bauchi South: Umar Shehu Buba
+RUNNING    senate Bayelsa Central: Benson Friday Konbowei -> BENSON FRIDAY KONBOWEI (APC)
+NOT ON 2027 LIST  senate Bayelsa East: Agadaga Benson Sunday
+RUNNING    senate Bayelsa West: Henry Seriake Dickson -> DICKSON SERIAKE HENRY (NDC)
+RUNNING    senate Benue North East: Udende Memsa Emmanuel -> UDENDE EMMANUEL MEMGA (APC)
+RUNNING    senate Benue North West: Titus Tartengar Zam -> ZAM TITUS TARTENGER (APC)
+RUNNING    senate Benue South: Patrick Abba Moro -> MORO ABBA PATRICK (PDP)
+RUNNING    senate Borno Central: Kaka Shehu Lawan -> LAWAN KAKA SHEHU (APC)
+RUNNING    senate Borno North: Mohammed Tahir Monguno -> MONGUNO MOHAMMED TAHIR (APC)
+RUNNING    senate Borno South: Mohammed Ali Ndume -> NDUME MOHAMMED ALI (APC)
+NOT ON 2027 LIST  senate Cross River Central: Williams Eteng Jonah
+RUNNING    senate Cross River North: Agom Jarigbe -> JARIGBE JARIGBE AGOM (APC)
+NOT ON 2027 LIST  senate Cross River South: Ekpeyong Asuquo
+RUNNING    senate Delta Central: Dafinone Edeh Omueya -> DAFINONE EDE OMUEYA (APC)
+NOT ON 2027 LIST  senate Delta North: Nwoko Chinedu Munir
+RUNNING    senate Delta South: Joel-Onowakpo Thomas -> JOEL-ONOWAKPO THOMAS EWOMAZINO (APC)
+RUNNING    senate Ebonyi Central: Eze Kenneth Emeka -> EZE KENNETH EMEKA (APC)
+RUNNING    senate Ebonyi North: Nwebonyi Onyeka Peter -> NWEBONYI ONYEKA PETER (APC)
+RUNNING    senate Edo North: Adams Aliyu Oshiomole -> OSHIOMHOLE ADAMS ALIYU (APC)
+NOT ON 2027 LIST  senate Edo South: Imasuen Neda Bernards
+RUNNING    senate Ekiti Central: Michael Opeyemi Bamidele -> BAMIDELE MICHAEL OPEYEMI (APC)
+RUNNING    senate Ekiti North: Fasuyi Cyril Oluwole -> FASUYI CYRIL OLUWOLE (APC)
+RUNNING    senate Ekiti South: Adaramodu Adeyemi Raphael -> ADARAMODU ADEYEMI RAPHAEL (APC)
+RUNNING    senate Enugu East: Kelvin Chukwu -> CHUKWU KELVIN CHIZOBA (APC)
+NOT ON 2027 LIST  senate Enugu North: Ezea Okechukwu
+RUNNING    senate Enugu West: Ngwu Osita -> NGWU OSITA (APC)
+RUNNING    senate Federal Capital Territory: Ireti Kingibe -> IRETI HEEBAH KINGIBE (ADC)
+NOT ON 2027 LIST  senate Gombe Central: Mohammed Danjuma Goje
+RUNNING    senate Gombe North: Ibrahim Hassan Dankwambo -> DANKWAMBO IBRAHIM HASSAN (PDP)
+RUNNING    senate Gombe South: Anthony Siyako Yaro -> SIYAKO ANTHONY YARO (PDP)
+NOT ON 2027 LIST  senate Imo East: Ezenwa Francis Onyewuchi
+RUNNING    senate Imo North: Patrick Ndubueze -> NDUBUEZE PATRICK CHIWUBA (APC)
+NOT ON 2027 LIST  senate Imo West: Osita Izunaso
+RUNNING    senate Jigawa North-East: Ahmad Abdulhamid Malam Madori -> MADORI AHMED ABDULHAMID MALAM (APC)
+RUNNING    senate Jigawa North-West: Babangida Hussaini -> HUSSAINI BABANGIDA UBA (APC)
+NOT ON 2027 LIST  senate Jigawa South-West: Mustapha Khabeeb
+RUNNING    senate Kaduna Central: Lawal Adamu Usman -> LAWAL ADAMU USMAN (ADC)
+RUNNING    senate Kaduna North: Khalid Mustapha -> KHALID IBRAHIM MUSTAPHA (ADC)
+RUNNING    senate Kaduna South: Sunday Marshall Katung -> MARSHALL SUNDAY KATUNG (APC)
+NOT ON 2027 LIST  senate Kano Central: Rufai Sani Hanga
+RUNNING    senate Kano North: Barau Jibrin -> BARAU I. JIBRIN (APC)
+RUNNING    senate Kano South: Suleiman Abdurrahman Kawu Sumaila -> KAWU SULEIMAN ABDURRAHAMAN (APC)
+RUNNING    senate Katsina Central: Abdul'aziz Musa Yar'adua -> YAR'ADUA MUSA ABDULAZIZ (APC)
+NOT ON 2027 LIST  senate Katsina North: Sani Daura
+RUNNING    senate Katsina South: Mohammed Muntari Dandutse -> DANDUTSE MUNTARI MOHAMMED (APC)
+RUNNING    senate Kebbi Central: Adamu Aliero -> ADAMU MUHAMMAD ALIERO (APC)
+RUNNING    senate Kebbi North: Yahaya Abubakar Abdullahi -> ABDULLAHI YAHAYA ABUBAKAR (APC)
+RUNNING    senate Kogi Central: Natasha Akpoti-Uduaghan -> AKPOTI-UDUAGHAN NATASHA HADIZA (PDP)
+NOT ON 2027 LIST  senate Kogi East: Jibrin Isah
+RUNNING    senate Kogi West: Sunday Karimi -> KARIMI SUNDAY (APC)
+RUNNING    senate Kwara Central: Saliu Mustapha -> MUSTAPHA SALIU (PDP)
+NOT ON 2027 LIST  senate Kwara North: Suleiman Sadiq Umar
+NOT ON 2027 LIST  senate Kwara South: Lola Ashiru
+RUNNING    senate Lagos Central: Wasiu Eshinlokun-Sanni -> SANNI ESHILOKUN WASIU OLATUNJI (APC)
+NOT ON 2027 LIST  senate Lagos East: Tokunbo Abiru
+RUNNING    senate Lagos West: Oluranti Adebule -> ADEBULE IDIAT OLURANTI (APC)
+NOT ON 2027 LIST  senate Nassarawa North: Godiya Akwashiki
+NOT ON 2027 LIST  senate Nassarawa South: Mohammed Ogoshi Onawo
+NOT ON 2027 LIST  senate Nassarawa West: Ahmed Aliyu Wadada
+RUNNING    senate Niger East: Sani Musa -> MUSA MOHAMMED SANI (APC)
+RUNNING    senate Niger North: Abubakar Sani Bello -> BELLO ABUBAKAR SANI (APC)
+RUNNING    senate Niger South: Peter Ndalikali Jiya -> JIYA PETER NDALIKALI (PDP)
+RUNNING    senate Ogun Central: Shuaibu Salisu -> SALISU SHUAIBU AFOLABI (APC)
+NOT ON 2027 LIST  senate Ogun East: Gbenga Daniel
+NOT ON 2027 LIST  senate Ogun West: Solomon Olamilekan Adeola
+RUNNING    senate Ondo Central: Adeniyi Adegbonmire -> ADEGBONMIRE ADENIYI AYODELE (APC)
+NOT ON 2027 LIST  senate Ondo North: Jide Ipinsagba
+NOT ON 2027 LIST  senate Ondo South: Jimoh Ibrahim
+RUNNING    senate Osun Central: Olubiyi Fadeyi -> FADEYI OLUBIYI OLUWOLE (PDP)
+RUNNING    senate Osun East: Fadahunsi Francis Adenigba -> FADAHUNSI ADENIGBA FRANCIS (APC)
+NOT ON 2027 LIST  senate Osun West: Lere Oyewumi
+RUNNING    senate Oyo Central: Yunus Akintunde -> AKINTUNDE YUNUS ABIODUN (APC)
+NOT ON 2027 LIST  senate Oyo North: Abdulfatai Buhari
+NOT ON 2027 LIST  senate Oyo South: Sharafadeen Alli
+NOT ON 2027 LIST  senate Plateau North: Pam Dachungyang
+RUNNING    senate Plateau South: Simon Bako Lalong -> LALONG SIMON BAKO (APC)
+NOT ON 2027 LIST  senate Rivers East: Allwell Onyeso
+NOT ON 2027 LIST  senate Rivers South East: Barry Mpigi
+NOT ON 2027 LIST  senate Rivers West: Ipalibo Banigo
+NOT ON 2027 LIST  senate Sokoto East: Ibrahim Gobir
+RUNNING    senate Sokoto North: Aliyu Wamakko -> MAGATAKARDA ALIYU WAMAKKO (APC)
+NOT ON 2027 LIST  senate Sokoto South: Aminu Tambuwal
+RUNNING    senate Taraba Central: Haruna Manu -> MANU HARUNA (APC)
+RUNNING    senate Taraba North: Shuaibu Isa Lau -> SHUAIBU ISA LAU (APC)
+RUNNING    senate Taraba South: David Jimkuta -> DAVID JIMKUTA S. (APC)
+NOT ON 2027 LIST  senate Yobe North: Ahmed Lawan
+RUNNING    senate Yobe South: Ibrahim Mohammed Bomai -> BOMAI IBRAHIM MOHAMMED (APC)
+RUNNING    senate Zamfara North: Sahabi Alhaji Yaú -> YA'U SAHABI ALHAJI (APC)
+RUNNING    senate Zamfara West: Abdul'aziz Abubakar Yari -> ABUBAKAR ABDULAZIZ YARI (APC)
+NOT ON 2027 LIST  senate Plateau Central: Diket Plang
+RUNNING    senate Kebbi South: Garba Musa Maidoki -> MAIDOKI GARBA MUSA (ADC)
+RUNNING    reps Aba North/Aba South: Alex Ikwechegh -> IKWECHEGH ALEX MASCOT (LP)
+RUNNING    reps Arochukwu/Ohafia: Ibe Osonwa -> OSONWA IBE OKWARA (LP)
+RUNNING    reps Bende: Benjamin Kalu -> KALU BENJAMIN OKEZIE (APC)
+NOT ON 2027 LIST  reps Umuahia North/Umuahia South/Ikwuano: Obi Aguocha
+RUNNING    reps Isiala Ngwa North/Isiala Ngwa South: Ginger Onwusibe -> ONWUSIBE OBINNA GINGER (LP)
+RUNNING    reps Isuikwuato/Umu-Nneochi: Amobi Ogah -> OGAH AMOBI GODWIN (LP)
+RUNNING    reps Obingwa/Ugwunagbo/Osisioma: Munachim Alozie -> ALOZIE MUNACHIM IKECHI (APP)
+NOT ON 2027 LIST  reps Ukwa East/Ukwa West: Chris Nkwonta
+RUNNING    reps Demsa/Numan/Lamurde: Kwamoti Laori -> LAORI KWAMOTI BITRUS (APC)
+RUNNING    reps Fufore/song: Aliyu Wakili Boya -> WAKILI BOYA ALIYU (APC)
+NOT ON 2027 LIST  reps Mayo Belwa/Ganye/Jada/Toungo: Mohammed Inuwa Bassi
+NOT ON 2027 LIST  reps Yola North/Yola South/Girei: Abubakar Baba Zango
+RUNNING    reps Gombi/Hong: James Shuaibu Barka -> BARKA JAMES SHUAIBU (APC)
+RUNNING    reps Guyuk/Shelleng: Kobis Ari Thimnu -> THIMNU KOBIS ARI (ADC)
+RUNNING    reps Madagali/Michika: Zakaria Dauda Nyampa -> NYAMPA ZAKARIA DAUDA (APC)
+RUNNING    reps Maiha/Mubi North/Mubi South: Ja'afar Abubakar Magaji -> MAGAJI JAAFAR ABUBAKAR (LP)
+RUNNING    reps Abak/Etim Ekpo/Ika: Jimbo Ernest Clement -> JIMBO INEMESIT CLEMENT (APC)
+NOT ON 2027 LIST  reps Eket/Onna/Esit Eket/Ibeno: Etteh Ikpong Okpolupm
+RUNNING    reps Ikot Ekpene/Essien Udim/Obot Akara: Patrick Umoh -> UMOH PATRICK (APC)
+RUNNING    reps Etinan/Nsit Ibom/Nsit ubium: Ekpo Paul Asuquo -> EKPO PAUL ASUQUO (APC)
+RUNNING    reps Uyo/Uruan/Nsit Atai/Ibesikpo Asutan: Esset Mark Udo -> MARK ESSET UDO (APC)
+RUNNING    reps Itu/Ibiono Ibom: Okon Ime Bassey -> OKON IME BASSEY (APC)
+RUNNING    reps Ikono/Ini: Emmanuel Ukpong-Udo -> UKPONG-UDO EMMANUEL EFFIONG (APC)
+RUNNING    reps Ikot Abasi/Mkpat Enin/Eastern Obolo: Odudoh Uduak Alphonsus -> ODUDOH UDUAK ALPHONSUS (APC)
+RUNNING    reps Oron/Mbo/Okobo/Udung Uko/Urue Offong/Oruko: Esin Martins Etim -> ESIN MARTINS ETIM (APC)
+RUNNING    reps Ukanafun/Oruk Anam: Unyime Idem -> IDEM UNYIME JOSIAH (APC)
+NOT ON 2027 LIST  reps Aguata: Ifeanyi Dominic Okafor
+RUNNING    reps Anambra East/Anambra West: Aniekwe Peter Udogalanya -> ANIEKWE PETER UDOGALANYA (NDC)
+RUNNING    reps Awka North/Awka South: Lilian Orogbu Obiageli -> OROGBU OBIAGELI LILIAN (NDC)
+NOT ON 2027 LIST  reps Idemili North/Idemili South: Harris Uchenna Okonkwo
+RUNNING    reps Ihiala: Agbodike Paschal -> AGBODIKE PASCHAL (APGA)
+NOT ON 2027 LIST  reps Njikoka/Dunukofia/Anaocha: George Ozodinobi
+NOT ON 2027 LIST  reps Nnewi North/Nnewi South/Ekwusigo: Uchenna Nwachukwu
+RUNNING    reps Ogbaru: Afam Ogene -> OGENE VICTOR AFAM (NDC)
+RUNNING    reps Onitsha North/Onitsha South: Emeka Obiajulu -> EMEKA IDU GODWIN OBIAJULU (NDC)
+NOT ON 2027 LIST  reps Orumba North/Orumba South: Clara Chinwe Nnabuife
+RUNNING    reps Oyi/Ayamelum: Maureen Gwacham -> GWACHAM MAUREEN CHINWE (APGA)
+RUNNING    reps Alkaleri/kerfi: Kabiru Yusuf Alhaji -> ALHAJI KABIRU YUSUF (APC)
+RUNNING    reps Bauchi: Aliyu Aminu Garu -> AMINU ALIYU GARU (APM)
+RUNNING    reps Bogoro/Dass/Tafawa Balewa: Leko Jafaru Gambo -> LEKO JAFARU GAMBO (APC)
+NOT ON 2027 LIST  reps Darazo/ganjuwa: Mansur Manu Soro
+RUNNING    reps Gamawa: Adamu Ibrahim Gamawa -> GAMAWA ADAMU IBRAHIM (APC)
+RUNNING    reps Shira/Giade: Sani Ibrahim Tanko -> IBRAHIM SANI TANKO (APM)
+RUNNING    reps Jama'are/Itas-Gadau: Rabilu Bala -> RABILU BALA (PRP)
+RUNNING    reps Katagum: Auwalu Abdu Gwalabe -> GWALABE AUWALU ABDU (APM)
+RUNNING    reps Misau/damban: Aliyu Bappa Misau -> ALIYU BAPPA MISAU (APM)
+RUNNING    reps Ningi/Warji: Hashimu Adamu -> HASHIMU RANGA ADAMU (PRP)
+RUNNING    reps Toro: Dabo Ismaila Haruna -> DABO ISMAILA HARUNA (APC)
+RUNNING    reps Zaki: Muhammed Dan Abba Shehu -> SHEHU DAN ABBA MOHAMMED (APM)
+NOT ON 2027 LIST  reps Brass/Nembe: Marie Ebikake
+NOT ON 2027 LIST  reps Sagbama/Ekeremor: Fred Agbedi
+RUNNING    reps Yenagoa/Kolokuna/Opokuma: Oboku Abonsizibe Oforji -> OBOKU ABONSIZIBE OFORJI (APC)
+NOT ON 2027 LIST  reps Ogbia: Obordor Mitema
+RUNNING    reps Southern Ijaw: Rodney Ebikebina Ambaiowei -> AMBAIOWEI RODNEY EBIKEBINA (APC)
+RUNNING    reps Ado/Ogbadigbo/Okpokwu: Philip Agbese -> AGBESE PHILIP OKANGA (LP)
+RUNNING    reps Apa/Agatu: Ojotu Ojema -> OJEMA OJOTU (APC)
+RUNNING    reps Buruku: Dzua Sekav Iyortyom -> IYORTYOM SEKAV DZUA (APC)
+RUNNING    reps Gboko/Tarka: Regina Akume -> AKUME REGINA (APC)
+RUNNING    reps Guma/Makurdi: Dickson Tarkighir -> TARKIGHIR DICKSON (APC)
+RUNNING    reps Gwer East/Gwer West: Austin Asema Achado -> ACHADO AUSTIN ASEMA (APC)
+RUNNING    reps Katsina-Ala/Ukum/Logo: Solomon Wombo -> WOMBO SOLOMON (APC)
+NOT ON 2027 LIST  reps Konshisha/Vandeikya: Sesoo Ikpacher
+RUNNING    reps Kwande/Ushongo: Terseer Ugbor -> UGBOR TERSEER (APC)
+RUNNING    reps Oju/Obi: David Ogewu -> OGEWU DAVID (APC)
+RUNNING    reps Otukpo/Ohimini: Blessing Onuh -> ONUH ONYECHE BLESSING (APC)
+NOT ON 2027 LIST  reps Kukawa/Mobbar/Abadam/Guzamali: Gana Mallam Bukar
+RUNNING    reps Askira-Uba/Hawul: Midala Usman Balami -> USMAN MIDALA BALAMI (A)
+NOT ON 2027 LIST  reps Bama/Ngala/Kala-Balge: Zainab Gimba
+RUNNING    reps Biu/Kwaya-Kusar, Shani/Bayo: Muktar Aliyu Betara -> ALIYU MUKTAR BETARA (APC)
+RUNNING    reps Damboa/Gwoza/Chibok: Ahmadu Usman Jaha -> JAHA AHMADU USMAN (APC)
+NOT ON 2027 LIST  reps Dikwa/Mafa/Konduga: Mohammed Ibrahim Bukar
+NOT ON 2027 LIST  reps Jere: Ahmad Satomi
+NOT ON 2027 LIST  reps Kaga/Gubio/Magumeri: Usman Zannah
+NOT ON 2027 LIST  reps Maiduguri (Metropolitan): Abdukadir Rahis
+RUNNING    reps Monguno/Nganzai/Marte: Bukar Talba -> TALBA BUKAR (APC)
+RUNNING    reps Yakurr/Abi: Alex Egbona -> EGBONA ALEX EGBONA (PDP)
+NOT ON 2027 LIST  reps Akamkpa/Biase: Emil Inyang
+RUNNING    reps Calabar South/Akpabuyo/Bakassi: Joseph Bassey -> BASSEY JOSEPH (APC)
+RUNNING    reps Obanliku/Obudu/Bekwarra: Peter Akpanke -> AKPANKE PETER ATIANASHIE (APC)
+RUNNING    reps Boki/Ikom: Victor Abang -> ABANG VICTOR BISONG (APC)
+RUNNING    reps Calabar Municipal/Odukpani: Bassey Akiba -> AKIBA BASSEY EKPENYONG (PDP)
+NOT ON 2027 LIST  reps Obubra/Etung: Michael Etaba
+RUNNING    reps Ogoja/Yala: Ekpo Godwin Odey Offiong -> ODEY-EKPO STELLA OREME (APC)
+NOT ON 2027 LIST  reps Aniocha North/Aniocha South/Oshimili North & South: Ngozi Okolie
+NOT ON 2027 LIST  reps Bomadi/Patani: Nicholas Mutu
+RUNNING    reps Burutu: Julius Gbabojor Pondi -> PONDI JULIUS GBABOJOR (APC)
+RUNNING    reps Ethiope East/Ethiope West: Erhiatake Ibori-Suenu -> IBORI-SUENU ERHIATAKE (APC)
+NOT ON 2027 LIST  reps Ika North East/Ika South: Victor Onyemaechi Nwokolo
+RUNNING    reps Isoko North/Isoko South: Ukodhiko Ajirioghene Jonathan -> UKODHIKO JONATHAN OYIBO AJIRIOGHENE (APC)
+RUNNING    reps Ndokwa East/Ndokwa West/Ukwuani: Nnamdi Ezechi -> EZECHI NNAMDI PRINCE (APC)
+NOT ON 2027 LIST  reps Okpe/Sapele/Uvwie: Benedict Etanabene
+RUNNING    reps Ughelli North, Ughelli South/Udu: Francis E. Waive -> WAIVE EJIROGHENE FRANCIS (APC)
+RUNNING    reps Warri North/Warri South/Warri South West: Thomas Ereyitomi -> EREYITOMI THOMAS (APC)
+RUNNING    reps Abakaliki/Izzi: Uguru Emmanuel -> UGURU EMMANUEL NWIBO (APC)
+NOT ON 2027 LIST  reps Afikpo North/Afikpo South: Iduma Igariwey Enwo
+RUNNING    reps Ebonyi/Ohaukwu: Eze Nwachukwu Eze -> EZE NWACHUKWU EZE (APC)
+NOT ON 2027 LIST  reps Ezza North/Ishielu: Nwobashi Joseph
+RUNNING    reps Ezza South/Ikwo: Ogah Chinedu Nweke -> OGAH NWEKE CHINEDU (APC)
+RUNNING    reps Ivo-Ohaozara/Onicha: Osi Kama Nkemkanma Standy -> OSI KAMA NKEMKANMA ST.ANDY (APC)
+NOT ON 2027 LIST  reps Akoko-Edo: Peter Akpatason
+RUNNING    reps Egor/Ikpoba-Okha: Omoruyi Murphy Osaro -> OMORUYI MURPHY OSARO (NDC)
+NOT ON 2027 LIST  reps Esan Central/Esan South/Igueben: Marcus Onobun
+RUNNING    reps Esan North East/Esan South East: Okojie Odianosen -> OKOJIE HENRY ODIANOSEN (APC)
+RUNNING    reps Etsako East/Etsako West/Etsako Central: Anamero Sunday Dekeri -> DEKERI SUNDAY ANAMERO (APC)
+NOT ON 2027 LIST  reps Oredo: Esosa Iyawe
+RUNNING    reps Orhionmwon/Uhunmwonde: Osawaru Billy Famous Adesuwa -> OSAWARU BILLY FAMOUS ADESUWA (APC)
+NOT ON 2027 LIST  reps Ovia North East/Ovia South West: Dennis Amadi Idahosa
+NOT ON 2027 LIST  reps Owan East/Owan West: Julius Ihonvbere
+RUNNING    reps Ado Ekiti/Irepodun/Ifelodun: Olusola Steve Fatoba -> FATOBA STEVE OLUSOLA GBADURA (APC)
+NOT ON 2027 LIST  reps Ijero/Ekiti West/Efon: Biodun Omoleye
+NOT ON 2027 LIST  reps Ekiti South West/Ikere/Orun/Ise: Ojuawo Rufus Adeniyi
+RUNNING    reps Emure/Gbonyin/Ekiti East: Richard Bamisile -> BAMISILE OLUFEMI RICHARD (APC)
+NOT ON 2027 LIST  reps Ido/Osi, Moba/Ilejeme: Kolawole Davidson Akinlayo
+RUNNING    reps Ikole/Oye: Rotimi Akintunde Oluwaseun -> ROTIMI AKINTUNDE OLUWASEUN (APC)
+RUNNING    reps Aninri/Awgu/Oji River: Anayo Onwuegbu -> ONWUEGBU BEFFORD ANAYO (APC)
+NOT ON 2027 LIST  reps Enugu East/Isi Uzo: Nnamchi Paul Sunday
+RUNNING    reps Enugu North/Enugu South: Chimaobi Sam Atu -> ATU CHIMAOBI SAM (APC)
+NOT ON 2027 LIST  reps Ezeagu/Udi: Sunday Cyriacus Umeha
+NOT ON 2027 LIST  reps Igbo-Etiti/Uzo-Uwani: Nwodo Stainless Chijioke
+RUNNING    reps Igbo-Eze North/Udenu: Dennis Nnamdi Agbo -> AGBO DENNIS NNAMDI (APC)
+RUNNING    reps Nkanu East/Nkanu West: Nnolim Nnaji -> NNAJI NNOLIM JOHN (APC)
+RUNNING    reps Nsukka/Igbo-Eze South: Obetta Chidi -> OBETTA MARK CHIDI (APC)
+RUNNING    reps Akko: Usman Bello Kumo -> KUMO USMAN BELLO (APC)
+RUNNING    reps Balanga/Billiri: Ali Isa -> ISA ALI (APC)
+NOT ON 2027 LIST  reps Dukku/Nafada: Abdullahi El-Rasheed
+NOT ON 2027 LIST  reps Gombe/Kwami/Funakaye: Yaya Bauchi Tongo
+RUNNING    reps Kaltungo/Shongom: Paul Obed Shehu -> SHEHU OBED PAUL (PDP)
+RUNNING    reps Yamaltu/Deba: Garba Inuwa -> GARBA INUWA (APC)
+NOT ON 2027 LIST  reps Aboh Mbaise/Ngor Okpala: Matthew Nwogu
+RUNNING    reps Ahiazu Mbaise/Ezinihitte: Emeka Chinedu -> CHINEDU EMEKA MARTINS (YPP)
+RUNNING    reps Ehime Mbano/Ihite-Uboma/Obowo: Okeke Jonas Onwuegbuchulam -> OKEKE ONWUEGBUCHULAM JONAS (APC)
+NOT ON 2027 LIST  reps Ideato North/Ideato South: Ikenga Ugochinyere
+RUNNING    reps Ikeduru/Mbaitoli: Akarachi Etinosa Amadi -> AMADI AKARACHI ETINOSA (APC)
+NOT ON 2027 LIST  reps Isiala Mbano/Okigwe/Onuimo: Miriam Onuoha
+NOT ON 2027 LIST  reps Isu/Njaba/Nkwerre/Nwangele: Ugonna Ozurigbo
+RUNNING    reps Oguta/Ohaji-Egbema/Oru West: Dibiagwu Eugene Okechukwu -> DIBIAGWU OKECHUKWU EUGENE (APC)
+RUNNING    reps Oru East/Orsu/Orlu: Chukwugozie Nwachukwu -> NWACHUKWU CANICEMOORE CHUKWUGOZIE (APC)
+RUNNING    reps Owerri Municipal/Owerri North/Owerri West: Chinedu Tochukwu Okere -> OKERE TOCHUKWU CHINEDU (APC)
+NOT ON 2027 LIST  reps Apapa: Adedayo Adesola
+NOT ON 2027 LIST  reps Amuwo-Odofin: George Oluwande
+RUNNING    reps Lagos Island II: Akiolu Moshood -> AKIOLU MOSHOOD KAYODE (APC)
+RUNNING    reps Mushin I: Alli Taofik -> ALLI ADEYEMI TAOFIK (APC)
+NOT ON 2027 LIST  reps Alimosho: Ganiyu Adele
+NOT ON 2027 LIST  reps Ibeju Lekki: Adebayo Oluseun
+RUNNING    reps Ikorodu: Babajimi Benson -> BENSON BABAJIMI ADEGOKE (APC)
+NOT ON 2027 LIST  reps Oshodi/Isolo I: Bashiru Ayinla
+NOT ON 2027 LIST  reps Lagos Island I: Dolapo-Badaru Enitan
+RUNNING    reps Ikeja: James Faleke -> FALEKE JAMES ABIODUN (APC)
+RUNNING    reps Mushin II: Fayinka Oluwatoyin -> FAYINKA MOSES OLUWATOYIN (APC)
+RUNNING    reps Surulere I: Fuad Laguda -> LAGUDA FUAD KAYODE (APC)
+NOT ON 2027 LIST  reps Agege: Adewale Waheed
+RUNNING    reps Oshodi/Isolo II: Okey-Joe Onuakalusi -> ONUAKALUSI JESSE OKEY-JOE (NDC)
+RUNNING    reps Ajeromi/Ifelodun: Paul Adeboye -> KALEJAIYE ADEBOYE PAUL (APC)
+NOT ON 2027 LIST  reps Shomolu: Ademorin Aliu
+NOT ON 2027 LIST  reps Kosofe: Kafilat Ogbara
+RUNNING    reps Surulere II: Lanre Okunlola -> OKUNLOLA LANRE (APC)
+RUNNING    reps Ifako/Ijaiye: Olabinjo Benjamin -> OLABINJO BENJAMIN ADEYEMI (APC)
+RUNNING    reps Ojo: Oluwaseyi Ayopo -> AYOPO OLUWASEYI SOWUNMI (NDC)
+NOT ON 2027 LIST  reps Lagos Mainland: Moshood Olanrewaju
+RUNNING    reps Epe: Tasir Olawale -> RAJI TASIR OLAWALE (APC)
+NOT ON 2027 LIST  reps Eti-Osa: Thaddeus Attah
+NOT ON 2027 LIST  reps Badagry: Sesi Whingan
+RUNNING    reps Mallam Madori/Kaugama: Abubakar Makki Yalleman -> ABUBAKAR MAKKI YALLEMAN (APC)
+RUNNING    reps Birnin Kudu/Buji: Adamu Yakubu -> ADAMU YAKUBU (PDP)
+RUNNING    reps Birniwa Guri/Kirikasamma: Fulata Abubakar Hassan -> FULATA ABUBAKAR HASSAN (APC)
+NOT ON 2027 LIST  reps Hadejia/Kafin Hausa/Auyo: Ibrahim Auyo Usman
+NOT ON 2027 LIST  reps Dutse/Kiyawa: Madaki Dahiru
+NOT ON 2027 LIST  reps Kazaure/Roni/Gwiwa/Yankwashi: Muktar Muhammad
+NOT ON 2027 LIST  reps Ringim/Taura: Sa'ad Wada Taura
+RUNNING    reps Gumel/Maigatari/Sule Tankarkar/Gagarawa: Sani Nazifi -> SANI NAZIFI (APC)
+NOT ON 2027 LIST  reps Jahun/Miga: Yusuf Saidu Miga
+RUNNING    reps Gwaram: Yusuf Shitu Galambi -> SHITU YUSUF (APC)

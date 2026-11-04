@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ZikiCard } from "@/components/candidates/candidate-cards";
@@ -11,12 +10,16 @@ import { Chip } from "@/components/ui/chip";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { PledgeBand } from "@/components/layout/pledge-band";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Bola Tinubu",
   description:
     "Ziki profile: Bola Ahmed Tinubu, President of Nigeria and presidential candidate in the 16 January 2027 election.",
-};
+  path: "/ziki/bola-tinubu",
+  type: "profile",
+  ownImage: true,
+});
 
 export default async function TinubuPage() {
   const found = await getCandidate("bola-tinubu");
@@ -143,7 +146,7 @@ export default async function TinubuPage() {
               </ol>
               <h2 className="mt-3.5 font-display text-[32px]" id="c4">Accomplishments</h2>
               <p className="text-[14px] leading-[1.6] text-ink-faint">
-                Actions taken in office, each linked to a source. whyvote records what was done, not whether it worked. That judgement is yours.
+                Actions taken in office, each linked to a source. whyVote records what was done, not whether it worked. That judgement is yours.
               </p>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-4 items-start py-3.5 px-4 bg-white border border-line rounded-md">
@@ -204,16 +207,16 @@ export default async function TinubuPage() {
                   <a href="#">INEC releases final list of 18 presidential candidates (Metro Daily, 13 Sep 2026)</a>
                 </li>
                 <li className="text-[14px] leading-[1.5]" id="ref-2">
-                  <a href="#">Bola Tinubu (Wikipedia)</a>
+                  <a href="https://en.wikipedia.org/wiki/Bola_Tinubu" target="_blank" rel="noopener">Bola Tinubu (Wikipedia)</a>
                 </li>
                 <li className="text-[14px] leading-[1.5]" id="ref-3">
-                  <a href="#">2027 Nigerian general election (Wikipedia)</a>
+                  <a href="https://en.wikipedia.org/wiki/2027_Nigerian_general_election" target="_blank" rel="noopener">2027 Nigerian general election (Wikipedia)</a>
                 </li>
               </ol>
               <p className="text-[12px] leading-[1.6] text-ink-faint">Last checked against sources on 18 October 2026.</p>
             </div>
             <aside className="flex-[1_1_300px] max-w-full bg-mist rounded-lg p-4 flex flex-col gap-3 self-start lg:max-w-[360px] box-content">
-              <CandidatePhoto candidate={found.candidate} tone={1} className="h-[260px] rounded-md" sizes="360px" priority />
+              <CandidatePhoto candidate={found.candidate} tone={1} className="aspect-[4/5] w-full max-w-[300px] mx-auto rounded-md" sizes="300px" priority />
               <p className="font-display text-[24px]">Bola Tinubu</p>
               <div>
                 <div className="flex flex-col gap-0.5 py-2.5 border-b border-b-line">
@@ -255,7 +258,7 @@ export default async function TinubuPage() {
                   <span className="text-[14px] leading-[1.5]">Chicago State University (BSc, Accounting)</span>
                 </div>
               </div>
-              <a className="text-[13px] font-semibold" href="#">Report a correction</a>
+              <a className="text-[13px] font-semibold" href="mailto:ijoba@poliz.ng?subject=Bola%20Tinubu%20profile%3A%20correction">Report a correction</a>
             </aside>
           </div>
         </Container>
@@ -282,7 +285,7 @@ export default async function TinubuPage() {
               <Eyebrow>Before you choose</Eyebrow>
               <h2 className="font-display text-[36px] leading-[0.95] text-ink uppercase lg:text-[48px]">What to check before you choose.</h2>
               <p className="text-[15px] leading-[1.6] text-ink-soft">
-                A useful profile separates verified facts, public claims and missing information. Nothing on whyvote is an endorsement.
+                A useful profile separates verified facts, public claims and missing information. Nothing on whyVote is an endorsement.
               </p>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(min(240px,100%),1fr))] gap-4">

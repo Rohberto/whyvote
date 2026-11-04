@@ -2,9 +2,9 @@
 
 import { useChecklist } from "@/lib/checklist";
 import Link from "next/link";
-import { Container } from "@/components/ui/container";
-import { ButtonLink } from "@/components/ui/button";
+import { UnitCodeForm } from "@/components/polling-unit/unit-code-form";
 import { Chip } from "@/components/ui/chip";
+import { Container } from "@/components/ui/container";
 
 export function ReadyChecklist() {
   const { done, toggle, count: n } = useChecklist();
@@ -15,17 +15,17 @@ export function ReadyChecklist() {
     <section className="pb-6">
       <Container>
         <div className="flex flex-col gap-3">
-          <div className="bg-night text-white rounded-lg py-5.5 px-6 flex flex-wrap gap-5 items-center justify-between">
+          <div className="sticky top-2 z-20 bg-night text-white rounded-lg py-3.5 px-5 flex flex-wrap gap-x-5 gap-y-2 items-center justify-between shadow-[0_6px_20px_rgba(15,37,24,0.25)] lg:py-5.5 lg:px-6">
             <div className="flex items-baseline gap-2">
-              <span className="font-display text-[64px]" aria-live="polite">{n}</span>
-              <span className="font-display text-[26px] text-sage-light">of 6 done</span>
+              <span className="font-display text-[44px] leading-none lg:text-[64px]" aria-live="polite">{n}</span>
+              <span className="font-display text-[20px] text-sage-light lg:text-[26px]">of 6 done</span>
             </div>
             <div className="flex-[1_1_260px] flex gap-1.5" aria-hidden="true">
               {done.map((isDone, i) => (
                 <i key={i} className={`flex-1 h-2.5 rounded-xs ${isDone ? "bg-mint" : "bg-white/18"}`} />
               ))}
             </div>
-            <p className="flex-[1_1_100%] text-[13px] text-sage-pale">Your progress stays on this device.</p>
+            <p className="flex-[1_1_100%] text-[13px] text-sage-pale max-sm:hidden">Your progress stays on this device.</p>
           </div>
           <label className="flex gap-4 items-start p-5 bg-white border border-line rounded-lg cursor-pointer">
             <input className="w-6.5 h-6.5 mt-0.5 accent-green flex-none" type="checkbox" checked={c0} onChange={t0} />
@@ -41,9 +41,13 @@ export function ReadyChecklist() {
             <input className="w-6.5 h-6.5 mt-0.5 accent-green flex-none" type="checkbox" checked={c1} onChange={t1} />
             <span className="flex flex-col gap-1.5">
               <span className="text-[12px] font-semibold tracking-[1px] text-green">STEP 02</span>
-              <span className="font-display text-[26px]">Find out where your PVC is waiting</span>
+              <span className="font-display text-[26px]">Find out where your PVC is</span>
               <span className="text-[15px] leading-[1.6] text-ink-soft">
-                Cards are collected in person, usually at the INEC office in your local government area or at your registration ward during collection drives. INEC announces collection centres and dates by state. Bring the slip you were given at registration if you still have it, and a form of identification.
+                You can get your card from your{" "}
+                <b className="text-ink">INEC local government office, 9am to 3pm</b>
+                . Collection opened on{" "}
+                <b className="text-ink">Friday 9 October 2026</b>
+                . INEC has not announced a deadline yet, so collect yours now rather than later. You must go yourself, in person. Bring the slip you were given at registration if you still have it, and a form of identification.
               </span>
             </span>
           </label>
@@ -53,7 +57,7 @@ export function ReadyChecklist() {
               <span className="text-[12px] font-semibold tracking-[1px] text-green">STEP 03</span>
               <span className="font-display text-[26px]">Collect the card yourself</span>
               <span className="text-[15px] leading-[1.6] text-ink-soft">
-                Nobody can collect your PVC for you without formal authorisation. Uncollected cards are the single largest category of wasted votes in Nigeria. Around six million sat in INEC offices through the 2023 election.
+                Nobody can collect your PVC for you. Around six million cards sat uncollected in INEC offices through the 2023 election. Those votes were lost before election day even started.
               </span>
             </span>
           </label>
@@ -69,7 +73,7 @@ export function ReadyChecklist() {
           </label>
           <div className="-mt-1 mb-1 bg-mint-pale border border-[#CFE6D6] rounded-lg py-4.5 px-4 flex flex-wrap gap-4.5 items-center lg:ml-10.5 lg:py-5.5 lg:px-6">
             <div className="flex-[1_1_320px] flex flex-col gap-2.5">
-              <Chip tone="white">
+              <Chip tone="white" className="self-start">
                 <svg className="flex-none" aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" />
                   <circle cx="12" cy="9.5" r="2.5" />
@@ -77,31 +81,8 @@ export function ReadyChecklist() {
                 Polling unit locator
               </Chip>
               <p className="font-display text-[26px]">Find yours in under a minute</p>
-              <div className="flex gap-1.5 items-start flex-wrap">
-                <label className="flex flex-col gap-1.5 items-center">
-                  <input className="w-14 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="State code" defaultValue="" maxLength={2} />
-                  <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">State</span>
-                </label>
-                <span className="text-[26px] text-ink-faint pt-2.5" aria-hidden="true">/</span>
-                <label className="flex flex-col gap-1.5 items-center">
-                  <input className="w-14 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="LGA code" defaultValue="" maxLength={2} />
-                  <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">LGA</span>
-                </label>
-                <span className="text-[26px] text-ink-faint pt-2.5" aria-hidden="true">/</span>
-                <label className="flex flex-col gap-1.5 items-center">
-                  <input className="w-14 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="Ward code" defaultValue="" maxLength={2} />
-                  <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">Ward</span>
-                </label>
-                <span className="text-[26px] text-ink-faint pt-2.5" aria-hidden="true">/</span>
-                <label className="flex flex-col gap-1.5 items-center">
-                  <input className="w-19 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="Unit code" defaultValue="" maxLength={3} />
-                  <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">Unit</span>
-                </label>
-              </div>
-              <div className="flex flex-wrap gap-2.5 items-center">
-                <ButtonLink href="/get-ready/polling-unit/result">Find my unit</ButtonLink>
-                <Link className="text-[14px] font-semibold" href="/get-ready/polling-unit/area">No PVC with you? Search by area</Link>
-              </div>
+              <UnitCodeForm />
+              <Link className="text-[14px] font-semibold" href="/get-ready/polling-unit/area">No PVC with you? Search by area</Link>
             </div>
             <div className="flex-[0_0_auto] max-lg:hidden">
               <figure className="flex flex-col gap-2.5 items-start">
@@ -128,9 +109,9 @@ export function ReadyChecklist() {
             <input className="w-6.5 h-6.5 mt-0.5 accent-green flex-none" type="checkbox" checked={c4} onChange={t4} />
             <span className="flex flex-col gap-1.5">
               <span className="text-[12px] font-semibold tracking-[1px] text-green">STEP 05</span>
-              <span className="font-display text-[26px]">Decide whether you need a transfer</span>
+              <span className="font-display text-[26px]">Plan to vote where you registered</span>
               <span className="text-[15px] leading-[1.6] text-ink-soft">
-                If you no longer live where you registered, apply to transfer to your current polling unit while the window is open. If you are not transferring, plan to be physically in your registered area the night before.
+                The window to transfer your polling unit has closed, so you can only vote at the unit where you registered. If you have moved and are no longer close to your polling unit, make plans to be back before each election day.
               </span>
             </span>
           </label>

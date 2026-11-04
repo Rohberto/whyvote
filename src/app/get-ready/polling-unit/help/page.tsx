@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { ButtonLink } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Polling unit help",
   description:
     "What to do if your polling unit code is not recognised, your unit has moved, or the details look wrong.",
-};
+  path: "/get-ready/polling-unit/help",
+  noIndex: true,
+});
 
 export default function PollingUnitHelpPage() {
   return (
@@ -97,7 +99,7 @@ export default function PollingUnitHelpPage() {
               <Chip tone="mist">Not available yet</Chip>
               <h2 className="font-display text-[28px] leading-[0.95] text-ink lg:text-[32px]">We are still loading your area</h2>
               <p className="text-[15px] leading-[1.6] text-ink-soft">
-                Polling units for this state are not on whyvote yet. INEC’s own locator has the full national list.
+                Polling units for this state are not on whyVote yet. INEC’s own locator has the full national list.
               </p>
               <div className="flex flex-wrap gap-2">
                 <ButtonLink href="#">

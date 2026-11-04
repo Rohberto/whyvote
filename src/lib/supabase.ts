@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 /**
- * Server-side Supabase client for whyvote's own project.
+ * Server-side Supabase client for whyVote's own project.
  * Uses the secret key: never import this from a Client Component.
  */
 function connect(url: string, key: string) {

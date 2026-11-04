@@ -23,7 +23,7 @@ export function BeforeYouChoose() {
             <Eyebrow>Before you choose</Eyebrow>
             <h2 className="font-display text-[36px] leading-[0.95] text-ink uppercase lg:text-[48px]">What to check before you choose.</h2>
             <p className="text-[15px] leading-[1.6] text-ink-soft">
-              A useful profile separates verified facts, public claims and missing information. Nothing on whyvote is an
+              A useful profile separates verified facts, public claims and missing information. Nothing on whyVote is an
               endorsement.
             </p>
           </div>

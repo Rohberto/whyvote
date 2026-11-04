@@ -24,3 +24,9 @@ Notes:
 - Names keep INEC's order, title-cased. Common-usage names for well-known candidates are set in `DISPLAY` in `extract.py`; a name change changes that candidate's URL.
 - Photos are only kept when the downloaded file's name matches the candidate. Wikipedia-only photos are skipped.
 - Ages INEC printed impossibly (e.g. 147) are shown as "Not given".
+
+## Hand-fixed photos
+
+These photos were trimmed by hand after download, so re-running `photos.py` will undo the fix:
+- `peter-obi`: removed green strips along the top and bottom edges.
+- `aliyu-ahmed-sokoto`: cropped the portrait out of a framed poster with a caption.

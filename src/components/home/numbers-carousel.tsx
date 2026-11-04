@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
+import pvcCards from "@/assets/pvc-cards.webp";
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/button";
 
@@ -35,143 +37,29 @@ export function NumbersCarousel() {
             <>
               <div className="flex flex-wrap gap-10 items-center">
                 <div className="flex-[1_1_340px] flex flex-col gap-3.5">
-                  <h2 className="font-display text-[88px] leading-[0.95] text-[#8A6400] lg:text-[120px]">6.2m</h2>
-                  <h2 className="font-display text-[30px] leading-[0.95] text-ink lg:text-[38px]">PVCs have not been collected</h2>
+                  <h2 className="font-display text-[88px] leading-[0.95] text-[#8A6400] lg:text-[120px]">10.7m</h2>
+                  <h2 className="font-display text-[30px] leading-[0.95] text-ink lg:text-[38px]">new voter cards are waiting to be collected</h2>
                   <p className="text-[16px] leading-[1.6] text-ink-soft">
-                    Over 6 million registered voters have not collected their Permanent Voter Cards (PVCs), meaning they could not vote even if they wanted to.
+                    INEC registered over 10.7 million new voters for 2027. Their PVCs are now sitting at INEC offices, on top of the millions of older cards that were never picked up. A card left on the shelf is a vote that cannot be cast.
                   </p>
                   <div className="mt-1.5">
                     <ButtonLink variant="mint" href="/pledge">Take the pledge</ButtonLink>
                   </div>
                 </div>
-                <div className="flex-[1_1_340px] flex flex-wrap gap-6 items-center">
-                  <div className="flex-[0_0_220px] grid grid-cols-[repeat(10,minmax(0,1fr))] gap-[5px] lg:flex-[0_0_260px] lg:gap-[7px]" role="img" aria-label="100 dots for every 100 registered voters in 2023: 27 voted, 7 had no PVC, 66 had a PVC and did not vote">
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-brand" />
-                    <i className="block aspect-square rounded-full bg-sun" />
-                    <i className="block aspect-square rounded-full bg-sun" />
-                    <i className="block aspect-square rounded-full bg-sun" />
-                    <i className="block aspect-square rounded-full bg-sun" />
-                    <i className="block aspect-square rounded-full bg-sun" />
-                    <i className="block aspect-square rounded-full bg-sun" />
-                    <i className="block aspect-square rounded-full bg-sun" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                    <i className="block aspect-square rounded-full bg-line-soft" />
-                  </div>
-                  <div className="flex-[1_1_180px] flex flex-col gap-3">
-                    <p className="font-display text-[40px] leading-[0.95] text-ink lg:text-[48px]">
-                      73 in 100{" "}
-                      <span className="text-ink-soft">did not vote in 2023</span>
-                    </p>
-                    <div className="flex gap-2.5 items-start">
-                      <i className="w-3.5 h-3.5 rounded-full bg-brand flex-none mt-1" />
-                      <span className="text-[14px] leading-[1.45] text-ink-soft">
-                        <b className="text-ink">27</b>
-                        {" "}voted
-                      </span>
+                <div className="flex-[1_1_320px] flex items-center justify-center gap-5.5">
+                  <Image src={pvcCards} alt="A tall stack of PVCs waiting to be collected" className="w-[150px] h-auto lg:w-[190px]" />
+                  <div className="flex flex-col gap-7">
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-display text-[30px] leading-none text-[#8A6400]">10.7m</span>
+                      <span className="text-[13px] leading-[1.4] text-ink-soft max-w-[160px]">new cards printed for 2027</span>
                     </div>
-                    <div className="flex gap-2.5 items-start">
-                      <i className="w-3.5 h-3.5 rounded-full bg-sun flex-none mt-1" />
-                      <span className="text-[14px] leading-[1.45] text-ink-soft">
-                        <b className="text-ink">7</b>
-                        {" "}never collected their PVC
-                      </span>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-display text-[30px] leading-none text-ink">6m+</span>
+                      <span className="text-[13px] leading-[1.4] text-ink-soft max-w-[160px]">older cards still uncollected from 2023</span>
                     </div>
-                    <div className="flex gap-2.5 items-start">
-                      <i className="w-3.5 h-3.5 rounded-full bg-line-soft flex-none mt-1" />
-                      <span className="text-[14px] leading-[1.45] text-ink-soft">
-                        <b className="text-ink">66</b>
-                        {" "}had a PVC and stayed home
-                      </span>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-display text-[30px] leading-none text-brand">You</span>
+                      <span className="text-[13px] leading-[1.4] text-ink-soft max-w-[160px]">collect yours at your INEC LGA office</span>
                     </div>
                   </div>
                 </div>
@@ -362,8 +250,8 @@ export function NumbersCarousel() {
               <p className="mt-1.5 text-[14px] text-ink-soft">Turnout in 2023, the lowest since 1999</p>
             </div>
             <div className="border-t-3 border-t-ink pt-3">
-              <h2 className="font-display text-[40px] leading-[0.95] text-ink lg:text-[48px]">6.2m</h2>
-              <p className="mt-1.5 text-[14px] text-ink-soft">PVCs not collected</p>
+              <h2 className="font-display text-[40px] leading-[0.95] text-ink lg:text-[48px]">10.7m</h2>
+              <p className="mt-1.5 text-[14px] text-ink-soft">New voters registered for 2027</p>
             </div>
             <div className="border-t-3 border-t-ink pt-3">
               <h2 className="font-display text-[40px] leading-[0.95] text-ink lg:text-[48px]">39.7%</h2>

@@ -1,10 +1,11 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useActionState, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { submitPledge, type PledgeState } from "@/app/pledge/actions";
+import { BALLOT_STORAGE_KEY, type PickerState } from "@/components/ballot/ballot-picker";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { STATES } from "@/lib/nigeria";
 import { PLEDGE_STORAGE_KEY } from "@/lib/pledge";
 
 const HOLD_MS = 1250;
@@ -12,26 +13,52 @@ const fieldLabel = "text-[12px] font-semibold tracking-[1px] uppercase text-ink-
 const fieldInput =
   "min-h-13 px-3.5 border border-line rounded-md text-[16px] text-ink bg-white box-content aria-invalid:border-danger";
 
-export function PledgeForm() {
+function readSavedPlace() {
+  try {
+    return localStorage.getItem(BALLOT_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+const noSubscribe = () => () => {};
+
+export function PledgeForm({ states }: { states: PickerState[] }) {
+  const router = useRouter();
   const [state, formAction, pending] = useActionState<PledgeState, FormData>(submitPledge, { status: "idle" });
+  // Start from the place saved on My ballot, if any; the voter can change it.
+  const savedRaw = useSyncExternalStore(noSubscribe, readSavedPlace, () => null);
+  const saved = (() => {
+    try {
+      const v = JSON.parse(savedRaw ?? "null");
+      return v && states.some((s) => s.slug === v.state) ? (v as { state: string; lga: string }) : null;
+    } catch {
+      return null;
+    }
+  })();
+  const [place, setPlace] = useState<{ state: string; lga: string } | null>(null);
+  const stateSlug = place?.state ?? saved?.state ?? "";
+  const lgaSlug = place ? place.lga : (saved?.lga ?? "");
+  const lgas = states.find((s) => s.slug === stateSlug)?.lgas ?? [];
   const [progress, setProgress] = useState(0);
   const formRef = useRef<HTMLFormElement>(null);
   const frame = useRef<number | null>(null);
   const done = state.status === "done";
   const errors = state.status === "error" ? state.fields ?? {} : {};
 
-  // Keep the details for the confirmation screen (this tab only).
+  // Keep the details for the confirmation screen (this tab only), then go there.
   useEffect(() => {
     if (state.status !== "done") return;
     try {
       sessionStorage.setItem(
         PLEDGE_STORAGE_KEY,
-        JSON.stringify({ firstName: state.firstName, email: state.email, phone: state.phone }),
+        JSON.stringify({ firstName: state.firstName, email: state.email, phone: state.phone, state: state.state, lga: state.lga }),
       );
+      if (state.state && state.lga) localStorage.setItem(BALLOT_STORAGE_KEY, JSON.stringify({ state: state.state, lga: state.lga }));
     } catch {
       // Storage unavailable: the confirmation screen falls back to generic copy.
     }
-  }, [state]);
+    router.push(state.state && state.lga ? `/pledge/done?state=${state.state}&lga=${state.lga}` : "/pledge/done");
+  }, [state, router]);
 
   useEffect(
     () => () => {
@@ -126,16 +153,37 @@ export function PledgeForm() {
               </label>
               <label className="flex flex-col gap-1.5">
                 <span className={fieldLabel}>State</span>
-                <select className={fieldInput} name="state" defaultValue="">
-                  <option value="">Select</option>
-                  {STATES.map((s) => (
-                    <option key={s}>{s}</option>
+                <select
+                  className={fieldInput}
+                  name="state"
+                  value={stateSlug}
+                  onChange={(e) => setPlace({ state: e.target.value, lga: "" })}
+                >
+                  <option value="">Select your state</option>
+                  {states.map((s) => (
+                    <option key={s.slug} value={s.slug}>
+                      {s.name === "FCT" ? "Abuja (FCT)" : s.name}
+                    </option>
                   ))}
                 </select>
               </label>
               <label className="flex flex-col gap-1.5">
                 <span className={fieldLabel}>Local government area</span>
-                <input className={fieldInput} type="text" name="lga" placeholder="For example, Surulere" />
+                <select
+                  className={`${fieldInput} disabled:opacity-60`}
+                  name="lga"
+                  value={lgaSlug}
+                  disabled={!stateSlug}
+                  onChange={(e) => setPlace({ state: stateSlug, lga: e.target.value })}
+                >
+                  <option value="">Select your LGA</option>
+                  {lgas.map((l) => (
+                    <option key={l.slug} value={l.slug}>
+                      {l.name}
+                    </option>
+                  ))}
+                </select>
+                <span className="text-[13px] text-ink-faint">The list updates to match the state you choose.</span>
               </label>
             </div>
             <label className="flex gap-3 items-start bg-mint-pale rounded-md py-3.5 px-4 cursor-pointer">
@@ -182,8 +230,7 @@ export function PledgeForm() {
               {label}
             </p>
             <p className="text-[14px] text-ink-faint text-center max-w-[260px]">
-              <span className="max-lg:hidden">Click and hold the fingerprint with your mouse until it fills.</span>
-              <span className="lg:hidden">Press and hold the fingerprint with your finger until it fills.</span>
+              Press your fingerprint until it fills.
             </p>
             {state.status === "error" && (
               <p role="alert" className="mt-2 text-[14px] font-semibold text-danger text-center">
@@ -192,6 +239,7 @@ export function PledgeForm() {
             )}
             {done && (
               <div className="mt-3.5">
+                {/* Shown only if the automatic move to the summary is slow. */}
                 <ButtonLink href="/pledge/done">See your ballot summary</ButtonLink>
               </div>
             )}

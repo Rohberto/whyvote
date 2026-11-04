@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import { PledgeForm } from "@/components/pledge/pledge-form";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { PICKER_STATES } from "@/lib/candidates";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Take the pledge",
   description:
     "Promise yourself you will vote on both Saturdays. Get your ballot summary, a reminder to collect your PVC and a nudge in the final week.",
-};
+  path: "/pledge",
+});
 
 export default function PledgePage() {
   return (
@@ -18,13 +20,13 @@ export default function PledgePage() {
             <Eyebrow>Take the pledge</Eyebrow>
             <h1 className="font-display text-[52px] leading-[0.95] text-ink uppercase lg:text-[84px]">Put your thumb on it.</h1>
             <p className="text-[17px] leading-[1.6] text-ink-soft max-w-[640px] lg:text-[19px]">
-              One promise to yourself: you will vote on both Saturdays. You get your ballot summary right away, a reminder
-              to collect your PVC, and a nudge in the final week.
+              One promise to yourself: you will vote on both Saturdays. Once you pledge, you will get your ballot summary
+              right away, a reminder to collect your PVC, and a nudge in the final week.
             </p>
           </div>
         </Container>
       </section>
-      <PledgeForm />
+      <PledgeForm states={PICKER_STATES} />
     </>
   );
 }

@@ -1,15 +1,19 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
-import { ButtonLink } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { BallotPicker } from "@/components/ballot/ballot-picker";
+import { UnitCodeForm } from "@/components/polling-unit/unit-code-form";
+import { PICKER_STATES } from "@/lib/candidates";
+import { PU_AS_OF, PU_COUNTS, PU_SOURCE } from "@/lib/polling-units";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Find your polling unit",
   description:
     "Find the only place you can vote using the polling unit code on your PVC, or search by state, LGA and ward.",
-};
+  path: "/get-ready/polling-unit",
+});
 
 export default function PollingUnitPage() {
   return (
@@ -55,65 +59,16 @@ export default function PollingUnitPage() {
                     </svg>
                     <figcaption className="text-[12px] text-ink-faint max-w-[300px] lg:max-w-[360px]">Illustration. The code is on the back of the card; the layout of real cards may differ.</figcaption>
                   </figure>
-                  <div className="flex flex-col gap-3.5">
-                    <div className="flex gap-1.5 items-start flex-wrap">
-                      <label className="flex flex-col gap-1.5 items-center">
-                        <input className="w-14 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="State code" defaultValue="24" maxLength={2} />
-                        <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">State</span>
-                      </label>
-                      <span className="text-[26px] text-ink-faint pt-2.5" aria-hidden="true">/</span>
-                      <label className="flex flex-col gap-1.5 items-center">
-                        <input className="w-14 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="LGA code" defaultValue="02" maxLength={2} />
-                        <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">LGA</span>
-                      </label>
-                      <span className="text-[26px] text-ink-faint pt-2.5" aria-hidden="true">/</span>
-                      <label className="flex flex-col gap-1.5 items-center">
-                        <input className="w-14 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="Ward code" defaultValue="05" maxLength={2} />
-                        <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">Ward</span>
-                      </label>
-                      <span className="text-[26px] text-ink-faint pt-2.5" aria-hidden="true">/</span>
-                      <label className="flex flex-col gap-1.5 items-center">
-                        <input className="w-19 h-14 text-center border-2 border-line rounded-md text-[22px] font-bold text-ink bg-white" inputMode="numeric" aria-label="Unit code" defaultValue="012" maxLength={3} />
-                        <span className="text-[11px] font-semibold tracking-[0.8px] uppercase text-ink-soft">Unit</span>
-                      </label>
-                    </div>
-                    <ButtonLink size="lg" href="/get-ready/polling-unit/result">
-                      Find my unit
-                      <svg className="flex-none" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
-                    </ButtonLink>
-                  </div>
+                  <UnitCodeForm />
                 </div>
               </div>
               <div className="flex-[1_1_300px] bg-mist rounded-lg p-5 flex flex-col gap-4 lg:p-8 box-content">
                 <Chip tone="white">No PVC with you?</Chip>
                 <h2 className="font-display text-[30px] leading-[0.95] text-ink lg:text-[38px]">Search by area</h2>
                 <p className="text-[15px] leading-[1.6] text-ink-soft">
-                  Choose your state, LGA and ward, then pick your unit from the list. We fill in what you already set on My ballot.
+                  Choose your state and LGA, then pick your ward and unit from INEC’s list.
                 </p>
-                <div className="flex flex-col gap-2">
-                  <div className="flex justify-between items-center bg-white rounded-md py-3 px-3.5 text-[15px]">
-                    <span className="text-ink-soft">State</span>
-                    <b>Lagos</b>
-                  </div>
-                  <div className="flex justify-between items-center bg-white rounded-md py-3 px-3.5 text-[15px]">
-                    <span className="text-ink-soft">LGA</span>
-                    <b>Ajeromi-Ifelodun</b>
-                  </div>
-                  <div className="flex justify-between items-center bg-white rounded-md py-3 px-3.5 text-[15px]">
-                    <span className="text-ink-soft">Ward</span>
-                    <b>Choose a ward</b>
-                  </div>
-                </div>
-                <div className="mt-auto">
-                  <ButtonLink variant="white" size="lg" href="/get-ready/polling-unit/area">
-                    Search by area
-                    <svg className="flex-none" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </ButtonLink>
-                </div>
+                <BallotPicker states={PICKER_STATES} state="" lga="" basePath="/get-ready/polling-unit" />
               </div>
             </div>
             <div className="flex gap-3 items-start bg-mist rounded-md py-3.5 px-4">
@@ -122,8 +77,8 @@ export default function PollingUnitPage() {
                 <path d="M12 11v6M12 7.5v.5" />
               </svg>
               <p className="text-[14px] leading-[1.55] text-ink-soft">
-                Every result comes from INEC’s published polling unit list. We never change addresses ourselves.{" "}
-                <a className="font-semibold" href="#">Confirm on INEC’s official locator</a>
+                Every result comes from INEC’s published polling unit list ({PU_COUNTS.polling_units.toLocaleString("en-NG")} units, as of {PU_AS_OF}). We never change addresses ourselves.{" "}
+                <a className="font-semibold" href={PU_SOURCE} target="_blank" rel="noopener">Confirm on INEC’s official locator</a>
                 .
               </p>
             </div>

@@ -23,7 +23,8 @@ function Officeholder({ raceId }: { raceId: string }) {
         Current officeholder
       </Chip>
       <span>
-        <b className="text-[15px]">{o.name}</b> <span className="text-[14px] text-ink-soft">({o.party})</span>
+        <b className="text-[15px]">{o.name}</b>
+        {o.party && <span className="text-[14px] text-ink-soft"> ({o.party})</span>}
         <span className="text-[14px] text-ink-soft"> · {o.since}</span>
       </span>
       {o.status && <span className="text-[13px] text-ink-soft">{o.status}</span>}
@@ -31,15 +32,14 @@ function Officeholder({ raceId }: { raceId: string }) {
   );
 }
 
-function RaceGrid({ race, candidates, otherHref }: { race: Race; candidates: Candidate[]; otherHref: string }) {
+function RaceGrid({ race, candidates, otherHref }: { race: Race; candidates: Candidate[]; otherHref?: string }) {
   const featured = featuredOf(candidates);
-  const others = candidates.length - featured.length;
   const holder = OFFICEHOLDERS[race.id]?.runningAgain;
   return (
     <>
       <Officeholder raceId={race.id} />
       {featured.length > 0 ? (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(min(150px,100%),1fr))] gap-3 lg:grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))]">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(min(150px,100%),1fr))] gap-3 lg:grid-cols-[repeat(auto-fill,minmax(min(170px,100%),1fr))]">
           {featured.map((c, i) => (
             <BallotCard key={c.id} candidate={c} tone={i} officeholder={c.id === holder} />
           ))}
@@ -47,12 +47,12 @@ function RaceGrid({ race, candidates, otherHref }: { race: Race; candidates: Can
       ) : (
         <p className="text-[15px] leading-[1.6] text-ink-soft">None of the six largest parties has a candidate in this race.</p>
       )}
-      {others > 0 && (
+      {otherHref && candidates.length > featured.length && (
         <Link
           className="flex justify-between items-center min-h-13 px-4 bg-mist rounded-md text-ink no-underline text-[15px] font-semibold hover:bg-mist-deep hover:text-ink"
           href={otherHref}
         >
-          Other candidates on this ballot ({others})
+          See all {candidates.length} candidates
           <svg className="flex-none" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
@@ -78,7 +78,8 @@ export function RaceBlock({
   subtitle: (race: Race) => string;
   races: Race[];
   candidates: Candidate[];
-  otherHref: (race: Race) => string;
+  /** Link to the full candidate list; omitted when no place is chosen yet. */
+  otherHref: (race: Race) => string | undefined;
   splitNote?: string;
 }) {
   const byRace = (r: Race) => candidates.filter((c) => c.race === r.id);

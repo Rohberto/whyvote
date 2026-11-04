@@ -20,7 +20,7 @@ export function BallotCard({ candidate, tone, officeholder }: { candidate: Candi
       href={`/ziki/${candidate.id}`}
     >
       <div className="relative rounded-md overflow-hidden">
-        <CandidatePhoto candidate={candidate} tone={tone} className="h-[120px] rounded-md lg:h-[150px]" />
+        <CandidatePhoto candidate={candidate} tone={tone} className="aspect-[4/5] w-full rounded-md" sizes="(min-width: 1024px) 200px, 50vw" />
         {officeholder && (
           <span className="absolute left-0 right-0 bottom-0 flex items-center justify-center gap-[5px] py-[5px] px-1.5 bg-ink text-white text-[11px] font-semibold tracking-[0.4px] uppercase">
             <svg className="flex-none" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -46,7 +46,7 @@ export function BallotCard({ candidate, tone, officeholder }: { candidate: Candi
 }
 
 /** Numbered row on the Other candidates list. */
-export function CandidateRow({ candidate, index }: { candidate: Candidate; index: number }) {
+export function CandidateRow({ candidate, index, officeholder }: { candidate: Candidate; index: number; officeholder?: boolean }) {
   return (
     <Link
       className="flex gap-3.5 items-center py-3.5 px-4 border-b border-line last:border-b-0 no-underline text-ink bg-white hover:bg-mist-light hover:text-ink"
@@ -55,7 +55,10 @@ export function CandidateRow({ candidate, index }: { candidate: Candidate; index
       <span className="w-7 text-[13px] text-ink-faint flex-none">{String(index + 1).padStart(2, "0")}</span>
       <PartyBadge code={candidate.party} size="md" decorative />
       <span className="flex-1 min-w-0 flex flex-col gap-0.5">
-        <b className="text-[15px]">{candidate.name}</b>
+        <span className="flex flex-wrap gap-x-2 gap-y-1 items-center">
+          <b className="text-[15px] wrap-anywhere">{candidate.name}</b>
+          {officeholder && <Chip tone="ink">Officeholder</Chip>}
+        </span>
         <span className="text-[13px] text-ink-soft">{party(candidate.party).name}</span>
       </span>
       <span className="text-[14px] font-semibold text-green inline-flex gap-1.5 items-center flex-none">

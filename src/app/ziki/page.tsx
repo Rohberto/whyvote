@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ZikiCard } from "@/components/candidates/candidate-cards";
 import { PartyBadge } from "@/components/candidates/party-badge";
@@ -9,11 +8,14 @@ import { ZikiSearch } from "@/components/ziki/ziki-search";
 import { GEO, getNational, getStateData } from "@/lib/candidates";
 import { PARTIES } from "@/lib/parties";
 import { ZIKI_HEADLINES } from "@/lib/ziki-notes";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Ziki",
-  description: "Plain, sourced profiles of the candidates and officeholders on your 2027 ballot.",
-};
+  description:
+    "Plain, sourced profiles of the candidates and officeholders on your 2027 ballot.",
+  path: "/ziki",
+});
 
 const ELECTIONS = [
   ["2027 Nigerian general election", "16 January and 6 February 2027."],
@@ -55,7 +57,7 @@ export default async function ZikiPage() {
         <Container>
           <div className="flex flex-col gap-4.5">
             <Eyebrow>Ziki</Eyebrow>
-            <h1 className="font-display text-[52px] leading-[0.95] text-ink uppercase lg:text-[84px]">whyvote ziki</h1>
+            <h1 className="font-display text-[52px] leading-[0.95] text-ink uppercase lg:text-[84px]">whyVote ziki</h1>
             <p className="text-[17px] leading-[1.6] text-ink-soft max-w-[640px] lg:text-[19px]">
               Plain, sourced profiles of the people, parties and rules on your ballot.
             </p>

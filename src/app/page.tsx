@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
@@ -6,17 +5,20 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Chip } from "@/components/ui/chip";
 import { PledgeBand } from "@/components/layout/pledge-band";
-import heroCollage from "@/assets/hero-collage.webp";
+import heroVoters from "@/assets/hero-voters.webp";
 import checklist from "@/assets/checklist.webp";
 import { NumbersCarousel } from "@/components/home/numbers-carousel";
 import { ReadyProgress } from "@/components/home/ready-progress";
 import { getDaysToVote } from "@/lib/election";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: { absolute: "whyvote: 2027 general election guide" },
+export const metadata = pageMetadata({
+  title: "whyvote: 2027 general election guide",
   description:
     "They have already decided. So why vote? Plain answers to the eight common reasons young Nigerians do not vote, and what is on your 2027 ballot.",
-};
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default async function HomePage() {
   const days = await getDaysToVote();
@@ -28,23 +30,31 @@ export default async function HomePage() {
             <div className="flex-[1_1_520px] flex flex-col gap-5.5">
               <Eyebrow>2027 general election guide</Eyebrow>
               <h1 className="font-display text-[56px] leading-[0.9] uppercase text-ink lg:text-[92px]">
-                They have already decided.{" "}
-                <span className="text-brand">So why vote?</span>
+                Your vote.{" "}
+                <span className="text-brand">Your future.</span>
               </h1>
               <p className="text-[17px] leading-[1.6] text-ink-soft max-w-[640px] lg:text-[19px]">
-                Fair question. It deserves a real answer, not a slogan. Here are the answers to the eight common reasons why people do not vote.
+                On 16 January and 6 February 2027, you will choose five people who run your country. whyVote shows who is running, what each office controls, and why your vote counts.
               </p>
               <div className="flex flex-wrap gap-3">
-                <ButtonLink variant="mint" size="lg" href="/why-vote">Read the answers</ButtonLink>
-                <ButtonLink variant="soft" size="lg" href="/ballot">See my ballot</ButtonLink>
+                <ButtonLink variant="mint" size="lg" href="/why-vote">Why you should vote</ButtonLink>
+                <ButtonLink variant="sun" size="lg" href="/pledge">
+                  Pledge to vote
+                </ButtonLink>
               </div>
             </div>
             <div className="flex-[1_1_340px] flex justify-center">
-              <div className="relative w-[300px] max-w-full lg:w-[400px]">
-                <Image priority src={heroCollage} alt="Collage of a young Nigerian woman’s face set inside an orange map of Nigeria" className="block w-full h-auto" />
-                <div className="absolute -left-3 top-[56%] w-[56%] min-h-[32%] bg-lime flex flex-col justify-center py-2.5 px-3.5">
-                  <span className="font-display text-[44px] leading-[0.85] lg:text-[58px]">5 offices</span>
-                  <span className="text-[13px] font-semibold">on 2 Saturdays</span>
+              <div className="relative w-[320px] max-w-full mb-9 lg:w-[520px]">
+                <Image
+                  priority
+                  src={heroVoters}
+                  alt="Two young Nigerians smiling and holding up their voter cards"
+                  sizes="(min-width: 1024px) 520px, 320px"
+                  className="block w-full h-auto"
+                />
+                <div className="absolute -left-4 -bottom-9 w-[56%] bg-lime flex flex-col justify-center py-2.5 px-3.5">
+                  <span className="font-display text-[35px] leading-[0.85] lg:text-[58px]">5 offices</span>
+                  <span className="text-[11px] font-semibold lg:text-[13px]">on 2 Saturdays</span>
                 </div>
               </div>
             </div>
@@ -79,7 +89,7 @@ export default async function HomePage() {
             </div>
           </div>
           <p className="mt-4 text-[13px] leading-[1.6] text-ink-faint">
-            whyvote is a PoliZ programme. It does not support, oppose, endorse or rank any party or candidate. The only ask is that you vote. We never ask who for.
+            whyVote is built by PoliZ. It does not support, oppose, endorse or rank any party or candidate. The only ask is that you vote. We never ask who for.
           </p>
         </Container>
       </section>
@@ -116,7 +126,7 @@ export default async function HomePage() {
                 </span>
               </Link>
               <Link className="flex items-center justify-between gap-4 bg-sun text-ink no-underline rounded-2xl py-5 px-5.5 [transform:rotate(-1.0deg)] shadow-[0_8px_20px_rgba(15,37,24,0.08)] lg:[transform:rotate(-2deg)] lg:ml-7.5" href="/why-vote">
-                <span className="text-[17px] font-semibold">“One vote does not count”</span>
+                <span className="text-[17px] font-semibold">“My vote does not count”</span>
                 <span className="w-10 h-10 rounded-full bg-ink text-white inline-flex items-center justify-center flex-none">
                   <svg className="flex-none" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M7 17L17 7M9 7h8v8" />
@@ -145,7 +155,7 @@ export default async function HomePage() {
                 <span className="text-brand">Not one.</span>
               </h2>
               <p className="mt-3.5 mb-2.5 text-[16px] leading-[1.6] text-ink-soft max-w-[620px]">
-                Most people vote the top line with attention and the rest blindly. The lines below the president are the ones that decide your road, your clinic and your school.
+                Most people think hard about who becomes President and forget the rest. But your Senator, House of Reps member, Governor and State Assembly member decide a lot about your road, your clinic and your school.
               </p>
               <div>
                 <Link className="flex gap-4 items-start py-4.5 border-b border-b-line no-underline text-ink" href="/who-does-what">
@@ -163,7 +173,7 @@ export default async function HomePage() {
                   <span className="flex-1 flex flex-col gap-1">
                     <span className="font-display text-[26px] text-brand">Senator</span>
                     <span className="text-[14px] leading-[1.5] text-ink-soft">
-                      If it is a federal road, a federal agency, or a national law, this office approved the money for it.
+                      If it is a federal road, a federal agency, or a national law, this office approves the money for it.
                     </span>
                   </span>
                   <Chip>16 Jan</Chip>
@@ -183,7 +193,7 @@ export default async function HomePage() {
                   <span className="flex-1 flex flex-col gap-1">
                     <span className="font-display text-[26px] text-brand">Governor</span>
                     <span className="text-[14px] leading-[1.5] text-ink-soft">
-                      If the road is state road, the hospital is a general hospital, or the teachers have not been paid, this is the office.
+                      If the road is a state road, the hospital is a general hospital, or state school teachers have not been paid, this is the office.
                     </span>
                   </span>
                   <Chip tone="sky">6 Feb</Chip>
@@ -193,7 +203,7 @@ export default async function HomePage() {
                   <span className="flex-1 flex flex-col gap-1">
                     <span className="font-display text-[26px] text-brand">State House of Assembly</span>
                     <span className="text-[14px] leading-[1.5] text-ink-soft">
-                      The most powerful office almost nobody can name. If the state budget is nonsense and nobody objected, this is who did not object.
+                      Most people cannot name their member, yet this office approves your state’s budget. If state money is wasted and nobody speaks up, this is who stayed quiet.
                     </span>
                   </span>
                   <Chip tone="sky">6 Feb</Chip>

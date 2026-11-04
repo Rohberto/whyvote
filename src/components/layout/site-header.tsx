@@ -47,8 +47,8 @@ export function SiteHeader({ firstVote, secondVote }: Props) {
     <header className="bg-white border-b border-line">
       {/* Desktop */}
       <div className="mx-auto max-w-[1240px] px-5 py-4 hidden lg:flex flex-wrap gap-4 items-center justify-between">
-        <Link href="/" aria-label="whyvote home" className="no-underline">
-          <Image src={logo} alt="whyvote" priority className="block h-8 w-auto" />
+        <Link href="/" aria-label="whyVote home" className="no-underline">
+          <Image src={logo} alt="whyVote" priority className="block h-8 w-auto" />
         </Link>
         <nav aria-label="Main" className="flex flex-wrap border border-line rounded-sm overflow-hidden">
           {NAV_ITEMS.map((item) => {
@@ -75,8 +75,8 @@ export function SiteHeader({ firstVote, secondVote }: Props) {
 
       {/* Mobile */}
       <div className="flex lg:hidden items-center justify-between px-5 py-3.5">
-        <Link href="/" aria-label="whyvote home" className="no-underline">
-          <Image src={logo} alt="whyvote" priority className="block h-6 w-auto" />
+        <Link href="/" aria-label="whyVote home" className="no-underline">
+          <Image src={logo} alt="whyVote" priority className="block h-6 w-auto" />
         </Link>
         <button
           ref={menuButton}
@@ -103,8 +103,8 @@ export function SiteHeader({ firstVote, secondVote }: Props) {
           className="fixed inset-0 z-50 overflow-y-auto bg-night text-white flex flex-col lg:hidden"
         >
           <div className="flex items-center justify-between px-5 py-3.5">
-            <Link href="/" aria-label="whyvote home" onClick={close} className="no-underline">
-              <Image src={logoLight} alt="whyvote" className="block h-6.5 w-auto" />
+            <Link href="/" aria-label="whyVote home" onClick={close} className="no-underline">
+              <Image src={logoLight} alt="whyVote" className="block h-6.5 w-auto" />
             </Link>
             <button
               ref={closeButton}
@@ -149,7 +149,7 @@ export function SiteHeader({ firstVote, secondVote }: Props) {
               </div>
             </div>
             <p className="mt-2 text-[12px] text-sage-light leading-[1.5]">
-              whyvote does not endorse any party or candidate. We never ask who you vote for.
+              whyVote does not endorse any party or candidate. We never ask who you vote for.
             </p>
           </div>
         </div>

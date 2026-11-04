@@ -1,3 +1,5 @@
+import legislators from "@/data/officeholders.json";
+
 /**
  * Short, sourced one-line context shown on Ziki cards, keyed by candidate id.
  * Candidates without a line show their party name instead. Add lines only with a source.
@@ -22,10 +24,11 @@ export const ZIKI_HEADLINES: Record<string, string> = {
  * Current officeholders shown in the "Current officeholder" strip on My ballot, keyed by race id.
  * Only filled where confirmed. Incumbents are not part of INEC's candidate list.
  */
-export const OFFICEHOLDERS: Record<
-  string,
-  { name: string; party: string; since: string; runningAgain?: string; status?: string }
-> = {
+export type Officeholder = { name: string; party?: string; since: string; runningAgain?: string; status?: string; source?: string };
+
+export const OFFICEHOLDERS: Record<string, Officeholder> = {
+  // Senators and House members running again, from scripts/officeholders (see its README).
+  ...(legislators as Record<string, Officeholder>),
   "president:national": {
     name: "Bola Tinubu",
     party: "APC",
