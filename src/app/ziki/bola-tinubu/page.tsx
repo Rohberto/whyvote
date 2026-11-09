@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ZikiCard } from "@/components/candidates/candidate-cards";
 import { CandidatePhoto } from "@/components/candidates/candidate-photo";
+import { ProfileSections } from "@/components/candidates/profile-sections";
 import { PartyBadge } from "@/components/candidates/party-badge";
 import { getCandidate } from "@/lib/candidates";
 import { ZIKI_HEADLINES } from "@/lib/ziki-notes";
@@ -73,7 +74,13 @@ export default async function TinubuPage() {
                     <a href="#c3">Past offices</a>
                   </li>
                   <li>
+                    <a href="#s-manifesto">Manifesto</a>
+                  </li>
+                  <li>
                     <a href="#c4">Accomplishments</a>
+                  </li>
+                  <li>
+                    <a href="#s-controversies">Controversies</a>
                   </li>
                   <li>
                     <a href="#c5">Sources</a>
@@ -144,6 +151,7 @@ export default async function TinubuPage() {
                   <p className="mt-1 text-[14px] text-ink-soft">Senate of Nigeria · 1992 to 1993</p>
                 </li>
               </ol>
+              <ProfileSections id={found.candidate.id} only={["manifesto"]} />
               <h2 className="mt-3.5 font-display text-[32px]" id="c4">Accomplishments</h2>
               <p className="text-[14px] leading-[1.6] text-ink-faint">
                 Actions taken in office, each linked to a source. whyVote records what was done, not whether it worked. That judgement is yours.
@@ -195,11 +203,12 @@ export default async function TinubuPage() {
                   </span>
                 </div>
               </div>
+              <ProfileSections id={found.candidate.id} only={["controversies"]} />
               <h2 className="mt-3.5 font-display text-[32px]">See also</h2>
               <div className="flex flex-wrap gap-2">
                 <Link className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold" href="/ziki/kashim-shettima">Kashim Shettima</Link>
-                <span className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold">All Progressives Congress</span>
-                <span className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold">2023 Nigerian presidential election</span>
+                <Link className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold" href="/ziki/parties/apc">All Progressives Congress</Link>
+                <a className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold" href="https://en.wikipedia.org/wiki/2023_Nigerian_presidential_election" target="_blank" rel="noopener">2023 Nigerian presidential election</a>
               </div>
               <h2 className="mt-3.5 font-display text-[32px]" id="c5">Sources</h2>
               <ol className="pl-5 flex flex-col gap-2 list-decimal">

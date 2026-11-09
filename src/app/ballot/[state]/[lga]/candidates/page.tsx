@@ -9,6 +9,8 @@ import { PageSkeleton } from "@/components/ui/page-skeleton";
 import { TabList, TabPanel, Tabs } from "@/components/ui/tabs";
 import { compareRaceNames, getLga, getNational, getState, getStateData, type Candidate, type Race } from "@/lib/candidates";
 import { OFFICEHOLDERS } from "@/lib/ziki-notes";
+import { PartyFilter } from "@/components/ballot/party-filter";
+import { party } from "@/lib/parties";
 import { pageMetadata } from "@/lib/site";
 
 /** Prerender the design's example; every other LGA renders on first visit and is then cached. */
@@ -41,7 +43,7 @@ function List({ candidates }: { candidates: Candidate[] }) {
     );
   }
   return (
-    <div className="border border-line rounded-lg overflow-hidden">
+    <div className="border border-line rounded-lg overflow-hidden" data-race-list>
       {candidates.map((c, i) => (
         <CandidateRow key={c.id} candidate={c} index={i} officeholder={OFFICEHOLDERS[c.race]?.runningAgain === c.id} />
       ))}
@@ -104,6 +106,11 @@ async function OtherCandidates({ params }: Pick<PageProps<"/ballot/[state]/[lga]
       .filter((r): r is Race => Boolean(r))
       .sort((a, b) => compareRaceNames(a.name ?? "", b.name ?? ""));
   const presidential = getNational().filter((c) => c.office === "president");
+  // Parties with at least one candidate in a race on this ballot, for the party filter.
+  const ballotRaces = new Set([...lga.senate, ...lga.reps, ...lga.assembly, ...data.races.filter((r) => r.office === "governor").map((r) => r.id)]);
+  const onBallot = [...new Set([...presidential, ...data.candidates.filter((c) => ballotRaces.has(c.race))].map((c) => c.party))]
+    .map((code) => ({ code, name: party(code).name }))
+    .sort((a, b) => a.name.localeCompare(b.name));
   const governor = data.races.filter((r) => r.office === "governor");
   const count = (cs: Candidate[]) => cs.length;
 
@@ -147,6 +154,9 @@ async function OtherCandidates({ params }: Pick<PageProps<"/ballot/[state]/[lga]
       </section>
       <section className="pb-10">
         <Container>
+          <div className="mb-5">
+            <PartyFilter parties={onBallot} />
+          </div>
           <Tabs count={panels.length} hashes={panels.map((p) => p.hash)}>
             <TabList
               label="Races"

@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BallotPicker } from "@/components/ballot/ballot-picker";
+import { ShareBallot } from "@/components/ballot/share-ballot";
+import { PartyFilter } from "@/components/ballot/party-filter";
+import { party } from "@/lib/parties";
+import { SITE_URL } from "@/lib/site";
 import { BeforeYouChoose } from "@/components/ballot/before-you-choose";
 import { RaceBlock } from "@/components/ballot/race-block";
 import { PledgeBand } from "@/components/layout/pledge-band";
@@ -58,6 +62,13 @@ export async function BallotView({ stateSlug, lgaSlug }: { stateSlug?: string; l
   const pick = (list: Race[], one: (r: Race) => string) =>
     list.length === 1 ? one(list[0]) : `${list.length} options · check your PVC`;
   const after = <span className="text-ink-faint font-medium">Shows after you choose</span>;
+  // Parties with a candidate in any race on this ballot, for "Filter by party".
+  const ballotRaceIds = new Set([...senate, ...reps, ...assembly, ...(governor ? [governor] : [])].map((r) => r.id));
+  const ballotParties = [
+    ...new Set([...national.filter((c) => c.office === "president"), ...(data?.candidates ?? []).filter((c) => ballotRaceIds.has(c.race))].map((c) => c.party)),
+  ]
+    .map((code) => ({ code, name: party(code).name }))
+    .sort((x, y) => x.name.localeCompare(y.name));
 
   return (
     <>
@@ -124,6 +135,22 @@ export async function BallotView({ stateSlug, lgaSlug }: { stateSlug?: string; l
           </div>
         </Container>
       </section>
+
+      {chosen && (
+        <section className="pb-2">
+          <Container>
+            <ShareBallot
+              siteUrl={SITE_URL}
+              stateSlug={stateSlug!}
+              lgaSlug={lgaSlug!}
+              place={`${lga!.name}, ${state!.name === "FCT" ? "Abuja (FCT)" : state!.name}`}
+            />
+            <div className="mt-4">
+              <PartyFilter href={`/ballot/${stateSlug}/${lgaSlug}/candidates`} parties={ballotParties} />
+            </div>
+          </Container>
+        </section>
+      )}
 
       <section className="py-6">
         <Container>

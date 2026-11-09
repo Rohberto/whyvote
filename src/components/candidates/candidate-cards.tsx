@@ -51,6 +51,7 @@ export function CandidateRow({ candidate, index, officeholder }: { candidate: Ca
     <Link
       className="flex gap-3.5 items-center py-3.5 px-4 border-b border-line last:border-b-0 no-underline text-ink bg-white hover:bg-mist-light hover:text-ink"
       href={`/ziki/${candidate.id}`}
+      data-party={candidate.party}
     >
       <span className="w-7 text-[13px] text-ink-faint flex-none">{String(index + 1).padStart(2, "0")}</span>
       <PartyBadge code={candidate.party} size="md" decorative />

@@ -168,3 +168,20 @@ export async function searchCandidates(query: string, limit = 20) {
 export function compareRaceNames(a: string, b: string) {
   return a.localeCompare(b, "en", { numeric: true });
 }
+
+/** One party's 2027 candidates from INEC's list: counts by office, the presidential ticket and governorship candidates. */
+export async function partyCandidates(code: string) {
+  "use cache";
+  cacheLife("max");
+  const file = path.join(process.cwd(), "src/data/search.json");
+  const rows = (JSON.parse(await readFile(file, "utf8")) as [string, string, string, Office, string, string][]).filter(
+    (r) => r[2] === code,
+  );
+  const counts = Object.fromEntries((Object.keys(OFFICE_LABEL) as Office[]).map((o) => [o, rows.filter((r) => r[3] === o).length])) as Record<Office, number>;
+  const ticket = getNational().filter((c) => c.party === code);
+  const governors = rows
+    .filter((r) => r[3] === "governor")
+    .map((r) => ({ id: r[0], name: r[1], state: r[4] }))
+    .sort((a, b) => a.state.localeCompare(b.state));
+  return { counts, total: rows.length, ticket, governors };
+}

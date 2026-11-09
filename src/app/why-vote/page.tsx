@@ -104,7 +104,7 @@ export default function WhyVotePage() {
       <section className="pt-2 pb-10">
         <Container>
           <div className="flex flex-col gap-6">
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="vote-buying">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="vote-buying">
               <div className="bg-mint py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">01 / 08</span>
@@ -195,7 +195,7 @@ export default function WhyVotePage() {
                 <AnswerShareRow slug="vote-buying" />
               </div>
             </article>
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="courts">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="courts">
               <div className="bg-[#F3E8D8] py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">02 / 08</span>
@@ -274,7 +274,7 @@ export default function WhyVotePage() {
                 <AnswerShareRow slug="courts" />
               </div>
             </article>
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="one-vote">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="one-vote">
               <div className="bg-sun py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">03 / 08</span>
@@ -354,7 +354,7 @@ export default function WhyVotePage() {
                 <AnswerShareRow slug="one-vote" />
               </div>
             </article>
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="all-the-same">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="all-the-same">
               <div className="bg-[#F07A6A] py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">04 / 08</span>
@@ -446,7 +446,7 @@ export default function WhyVotePage() {
                 <AnswerShareRow slug="all-the-same" />
               </div>
             </article>
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="not-in-state">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="not-in-state">
               <div className="bg-lime py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">05 / 08</span>
@@ -528,7 +528,7 @@ export default function WhyVotePage() {
                 <AnswerShareRow slug="not-in-state" />
               </div>
             </article>
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="nothing-changed">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="nothing-changed">
               <div className="bg-sky py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">06 / 08</span>
@@ -616,7 +616,7 @@ export default function WhyVotePage() {
                 <AnswerShareRow slug="nothing-changed" />
               </div>
             </article>
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="dont-know-candidates">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="dont-know-candidates">
               <div className="bg-[#E7D8F2] py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">07 / 08</span>
@@ -699,7 +699,7 @@ export default function WhyVotePage() {
                 <AnswerShareRow slug="dont-know-candidates" />
               </div>
             </article>
-            <article className="bg-white border border-line rounded-lg overflow-hidden" id="japa">
+            <article className="bg-white border border-line rounded-lg overflow-hidden scroll-mt-6" id="japa">
               <div className="bg-[#FBD9C9] py-5.5 px-5 flex justify-between gap-4 items-start lg:py-8 lg:px-9">
                 <div className="flex flex-col gap-2">
                   <span className="text-[13px] font-semibold tracking-[1px]">08 / 08</span>

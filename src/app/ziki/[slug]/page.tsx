@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { BeforeYouChoose } from "@/components/ballot/before-you-choose";
 import { ZikiCard } from "@/components/candidates/candidate-cards";
 import { CandidatePhoto } from "@/components/candidates/candidate-photo";
+import { ProfileSections } from "@/components/candidates/profile-sections";
 import { PartyBadge } from "@/components/candidates/party-badge";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { PledgeBand } from "@/components/layout/pledge-band";
@@ -152,7 +153,9 @@ async function ZikiProfile({ params }: Pick<PageProps<"/ziki/[slug]">, "params">
               </p>
               <dl className="bg-white border border-line rounded-md px-4">
                 <Fact label="Name as printed">{c.inecName}</Fact>
-                <Fact label="Party">{`${p.name} (${c.party})`}</Fact>
+                <Fact label="Party">
+                  <Link href={`/ziki/parties/${c.party.toLowerCase()}`}>{`${p.name} (${c.party})`}</Link>
+                </Fact>
                 <Fact label="Contesting">{seat}</Fact>
                 <Fact label="Age">{ageText(c)}</Fact>
                 <Fact label="Gender">{c.gender === "M" ? "Male" : c.gender === "F" ? "Female" : "Not given"}</Fact>
@@ -160,6 +163,8 @@ async function ZikiProfile({ params }: Pick<PageProps<"/ziki/[slug]">, "params">
                 <Fact label="Disability declared">{c.pwd ?? "None"}</Fact>
                 {c.stateOfOrigin && <Fact label="State of origin">{c.stateOfOrigin}</Fact>}
               </dl>
+
+              <ProfileSections id={c.id} />
 
               <div className="bg-mist rounded-md py-4 px-5 flex flex-col gap-1.5">
                 <b className="text-[15px]">This profile is still being written.</b>
@@ -174,7 +179,9 @@ async function ZikiProfile({ params }: Pick<PageProps<"/ziki/[slug]">, "params">
               <CandidatePhoto candidate={c} tone={1} className="aspect-[4/5] w-full max-w-[300px] mx-auto rounded-md" sizes="300px" priority />
               <p className="font-display text-[24px]">{c.name}</p>
               <dl>
-                <Fact label="Party">{p.name}</Fact>
+                <Fact label="Party">
+                  <Link href={`/ziki/parties/${c.party.toLowerCase()}`}>{p.name}</Link>
+                </Fact>
                 <Fact label="Running for">
                   {RUNNING_FOR[c.office]}
                   {race.name ? `, ${race.name}` : ""}

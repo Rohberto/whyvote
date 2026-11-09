@@ -7,7 +7,7 @@ import { BALLOT_STORAGE_KEY, type PickerState } from "@/components/ballot/ballot
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { track } from "@/lib/analytics";
-import { PLEDGE_STORAGE_KEY } from "@/lib/pledge";
+import { PLEDGE_STORAGE_KEY, PLEDGED_KEY } from "@/lib/pledge";
 
 const HOLD_MS = 1250;
 const fieldLabel = "text-[12px] font-semibold tracking-[1px] uppercase text-ink-soft";
@@ -54,11 +54,13 @@ export function PledgeForm({ states }: { states: PickerState[] }) {
         PLEDGE_STORAGE_KEY,
         JSON.stringify({ firstName: state.firstName, email: state.email, phone: state.phone, state: state.state, lga: state.lga }),
       );
+      localStorage.setItem(PLEDGED_KEY, "1");
       if (state.state && state.lga) localStorage.setItem(BALLOT_STORAGE_KEY, JSON.stringify({ state: state.state, lga: state.lga }));
     } catch {
       // Storage unavailable: the confirmation screen falls back to generic copy.
     }
-    track("pledge_complete", { state: state.state ?? undefined, lga: state.lga ?? undefined, phone_added: Boolean(state.phone) });
+    const ref = new URLSearchParams(window.location.search).get("ref") ?? undefined;
+    track("pledge_complete", { state: state.state ?? undefined, lga: state.lga ?? undefined, phone_added: Boolean(state.phone), source: ref });
     router.push(state.state && state.lga ? `/pledge/done?state=${state.state}&lga=${state.lga}` : "/pledge/done");
   }, [state, router]);
 

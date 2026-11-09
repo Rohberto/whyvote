@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Outfit } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { PledgePopup } from "@/components/pledge/pledge-popup";
+import { ReferralTracker } from "@/components/share/referral-tracker";
 import { SiteHeader } from "@/components/layout/site-header";
 import { TopBar } from "@/components/layout/top-bar";
 import { ELECTION_DAYS } from "@/lib/election";
@@ -105,6 +107,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader firstVote={ELECTION_DAYS.first.short} secondVote={ELECTION_DAYS.second.short} />
         <main className="flex-1 overflow-x-clip">{children}</main>
         <SiteFooter />
+        <PledgePopup />
+        <ReferralTracker />
         <Analytics />
       </body>
     </html>

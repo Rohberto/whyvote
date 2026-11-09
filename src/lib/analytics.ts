@@ -11,7 +11,15 @@ type Gtag = (command: "event", name: string, params?: Record<string, string | nu
  * Never pass names, emails or phone numbers: GA must not receive personal details.
  */
 export function track(name: string, params?: Record<string, string | number | boolean | undefined>) {
-  if (typeof window === "undefined") return;
-  const gtag = (window as unknown as { gtag?: Gtag }).gtag;
-  gtag?.("event", name, params);
+  if (typeof window === "undefined" || !GA_ID) return;
+  // Queue the event if GA has not loaded yet; gtag.js replays the queue when it starts.
+  const w = window as unknown as { gtag?: Gtag; dataLayer?: unknown[] };
+  w.dataLayer = w.dataLayer || [];
+  w.gtag =
+    w.gtag ||
+    function gtag() {
+      // eslint-disable-next-line prefer-rest-params -- gtag.js needs the Arguments object
+      w.dataLayer!.push(arguments);
+    };
+  w.gtag("event", name, params);
 }

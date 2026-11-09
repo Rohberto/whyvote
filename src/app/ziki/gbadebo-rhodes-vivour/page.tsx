@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ZikiCard } from "@/components/candidates/candidate-cards";
 import { CandidatePhoto } from "@/components/candidates/candidate-photo";
+import { ProfileSections } from "@/components/candidates/profile-sections";
 import { PartyBadge } from "@/components/candidates/party-badge";
 import { getCandidate } from "@/lib/candidates";
 import { ZIKI_HEADLINES } from "@/lib/ziki-notes";
@@ -69,7 +71,13 @@ export default async function RhodesVivourPage() {
                     <a href="#c3">Previous elections</a>
                   </li>
                   <li>
+                    <a href="#s-manifesto">Manifesto</a>
+                  </li>
+                  <li>
                     <a href="#c4">Accomplishments</a>
+                  </li>
+                  <li>
+                    <a href="#s-controversies">Controversies</a>
                   </li>
                   <li>
                     <a href="#c5">Sources</a>
@@ -124,6 +132,7 @@ export default async function RhodesVivourPage() {
                   <p className="mt-1 text-[14px] text-ink-soft">Peoples Democratic Party candidate · 2019</p>
                 </li>
               </ol>
+              <ProfileSections id={found.candidate.id} only={["manifesto"]} />
               <h2 className="mt-3.5 font-display text-[32px]" id="c4">Accomplishments</h2>
               <div className="flex gap-3 items-start bg-mist-light border [border-top-style:dashed] border-line [border-right-style:dashed] [border-bottom-style:dashed] [border-left-style:dashed] rounded-md p-4">
                 <svg className="flex-none" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#43574A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -134,10 +143,11 @@ export default async function RhodesVivourPage() {
                   Accomplishments are listed for time spent in public office. With no office on record, there is nothing to list here yet. His professional background is in the infobox.
                 </p>
               </div>
+              <ProfileSections id={found.candidate.id} only={["controversies"]} />
               <h2 className="mt-3.5 font-display text-[32px]">See also</h2>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold">Lagos State</span>
-                <span className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold">African Democratic Congress</span>
+                <Link className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold" href="/ziki#lagos-governorship">Lagos State</Link>
+                <Link className="inline-flex min-h-11 items-center px-3.5 rounded-full bg-mist text-ink no-underline text-[14px] font-semibold" href="/ziki/parties/adc">African Democratic Congress</Link>
               </div>
               <h2 className="mt-3.5 font-display text-[32px]" id="c5">Sources</h2>
               <ol className="pl-5 flex flex-col gap-2 list-decimal">

@@ -1,3 +1,4 @@
+import { PARTIES } from "@/lib/parties";
 import type { MetadataRoute } from "next";
 import { GEO, listCandidateIds } from "@/lib/candidates";
 import { SITE_URL } from "@/lib/site";
@@ -29,7 +30,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     await listCandidateIds(["president", "vice-president", "governor", "deputy-governor", "senate", "reps", "assembly"])
   ).map((id) => ({ url: `${SITE_URL}/ziki/${id}`, changeFrequency: "monthly" as const, priority: 0.5 }));
 
+  const parties = Object.keys(PARTIES).map((c) => ({ url: `${SITE_URL}/ziki/parties/${c.toLowerCase()}`, changeFrequency: "monthly" as const, priority: 0.5 }));
+
   return [
+    ...parties,
     ...STATIC.map((s) => ({ url: `${SITE_URL}${s.path}`, changeFrequency: s.changeFrequency, priority: s.priority })),
     ...ballots,
     ...profiles,

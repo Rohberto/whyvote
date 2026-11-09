@@ -22,3 +22,6 @@ export const pledgeCardHref = (firstName?: string | null) =>
 /** Invite link for friends. `from` lets a later version credit the person who invited them. */
 export const pledgeInviteUrl = (siteUrl: string, firstName?: string | null) =>
   `${siteUrl}/pledge${firstName ? `?from=${encodeURIComponent(firstName.toLowerCase())}` : ""}`;
+
+/** localStorage flag set once this browser has pledged; hides the pledge pop-up for good. */
+export const PLEDGED_KEY = "whyvote:pledged";

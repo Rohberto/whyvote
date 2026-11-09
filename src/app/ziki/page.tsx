@@ -96,7 +96,7 @@ export default async function ZikiPage() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <h2 className={sectionTitle}>Lagos governorship candidates, 2027</h2>
+              <h2 className={`${sectionTitle} scroll-mt-6`} id="lagos-governorship">Lagos governorship candidates, 2027</h2>
               <div className={cardGrid}>
                 {lagosGov.map((c) => (
                   <ZikiCard key={c.id} candidate={c} headline={ZIKI_HEADLINES[c.id]} />
