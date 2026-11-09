@@ -76,5 +76,10 @@ export async function sendPledgeEmail(p: { email: string; firstName: string; sta
       headers: { "List-Unsubscribe": `<${SITE_URL}/api/unsubscribe?${unsubscribeQuery(p.email)}>`, "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" },
     }),
   });
-  if (!res.ok) console.error("Pledge email failed:", res.status, await res.text());
+  if (!res.ok) {
+    // Common causes: EMAIL_FROM uses a domain not verified in Resend (403), or a bad API key (401).
+    console.error("Pledge email rejected by Resend:", res.status, await res.text());
+    return;
+  }
+  console.log("Pledge email sent:", (await res.json()).id);
 }

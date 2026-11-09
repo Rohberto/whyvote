@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useStoredPledge } from "@/components/pledge/pledge-greeting";
 import { shareOrDownload, ShareLinkButton } from "@/components/share/share-actions";
 import { Button, ButtonLink } from "@/components/ui/button";
+import { track } from "@/lib/analytics";
 import { PLEDGE_PHOTO, pledgeCardHref, pledgeInviteUrl } from "@/lib/pledge";
 
 function loadImage(src: string) {
@@ -101,7 +102,8 @@ export function PledgeCard() {
     try {
       const blob = await compose(src, photo);
       const name = pledge?.firstName ? `-${pledge.firstName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` : "";
-      await shareOrDownload(blob, `whyvote-pledge-card${name}.png`);
+      const method = await shareOrDownload(blob, `whyvote-pledge-card${name}.png`);
+      track("save_pledge_card", { with_photo: Boolean(photo), method });
     } finally {
       setBusy(false);
     }
@@ -152,7 +154,14 @@ export function WhatsAppInvite({ siteUrl, className }: { siteUrl: string; classN
   const pledge = useStoredPledge();
   const text = `I just pledged to vote on 16 January and 6 February 2027, for all five positions, not just the President. Pledge with me: ${pledgeInviteUrl(siteUrl, pledge?.firstName)}`;
   return (
-    <ButtonLink size="lg" className={className} href={`https://wa.me/?text=${encodeURIComponent(text)}`} target="_blank" rel="noopener">
+    <ButtonLink
+      size="lg"
+      className={className}
+      href={`https://wa.me/?text=${encodeURIComponent(text)}`}
+      target="_blank"
+      rel="noopener"
+      onClick={() => track("share_link", { content: "pledge_invite", method: "whatsapp" })}
+    >
       {icon.whatsapp}
       Send to a friend on WhatsApp
     </ButtonLink>

@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import { buttonClasses, type ButtonSize, type ButtonVariant } from "@/components/ui/button";
+import { track } from "@/lib/analytics";
 
 type Common = { variant?: ButtonVariant; size?: ButtonSize; className?: string; children: ReactNode };
 
@@ -64,6 +65,7 @@ export function ShareImageButton({
       const res = await fetch(href);
       if (!res.ok) throw new Error(String(res.status));
       const result = await shareOrDownload(await res.blob(), filename, text);
+      track("share_image", { content: filename.replace(/\.png$/, ""), method: result });
       setState(result === "cancelled" ? "idle" : "done");
       setTimeout(() => setState("idle"), 2500);
     } catch {
@@ -85,6 +87,7 @@ export function ShareImageButton({
 export function CopyButton({ text, variant, size, className, children, copied = "Copied" }: Common & { text: string; copied?: string }) {
   const [done, setDone] = useState(false);
   async function go() {
+    track("copy_text", { content: text.slice(0, 80) });
     try {
       await navigator.clipboard.writeText(text);
     } catch {
@@ -111,6 +114,7 @@ export function ShareLinkButton({ url, text, variant, size, className, children 
   const [copied, setCopied] = useState(false);
   async function go() {
     const data = { url, ...(text ? { text } : {}) };
+    track("share_link", { content: url.replace(/^https?:\/\/[^/]+/, "") });
     if (navigator.share && window.matchMedia("(pointer: coarse)").matches) {
       try {
         await navigator.share(data);

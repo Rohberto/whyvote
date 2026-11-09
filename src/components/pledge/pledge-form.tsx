@@ -6,6 +6,7 @@ import { submitPledge, type PledgeState } from "@/app/pledge/actions";
 import { BALLOT_STORAGE_KEY, type PickerState } from "@/components/ballot/ballot-picker";
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { track } from "@/lib/analytics";
 import { PLEDGE_STORAGE_KEY } from "@/lib/pledge";
 
 const HOLD_MS = 1250;
@@ -57,6 +58,7 @@ export function PledgeForm({ states }: { states: PickerState[] }) {
     } catch {
       // Storage unavailable: the confirmation screen falls back to generic copy.
     }
+    track("pledge_complete", { state: state.state ?? undefined, lga: state.lga ?? undefined, phone_added: Boolean(state.phone) });
     router.push(state.state && state.lga ? `/pledge/done?state=${state.state}&lga=${state.lga}` : "/pledge/done");
   }, [state, router]);
 

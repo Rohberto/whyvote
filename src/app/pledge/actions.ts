@@ -58,7 +58,13 @@ export async function submitPledge(_prev: PledgeState, formData: FormData): Prom
 
   // Send the ballot summary after responding, so the voter is not kept waiting.
   const firstName = name.split(/\s+/)[0];
-  after(() => sendPledgeEmail({ email, firstName, state: state?.slug ?? null, lga: lga?.slug ?? null }));
+  after(async () => {
+    try {
+      await sendPledgeEmail({ email, firstName, state: state?.slug ?? null, lga: lga?.slug ?? null });
+    } catch (err) {
+      console.error("Pledge email failed:", err);
+    }
+  });
 
   return {
     status: "done",

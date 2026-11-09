@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
+import { track } from "@/lib/analytics";
 
 const FIELDS = [
   { label: "State", max: 2, width: "w-14" },
@@ -40,6 +41,7 @@ export function UnitCodeForm({ initial = ["", "", "", ""], invalid = false }: { 
       return;
     }
     const code = parts.map((p, i) => p.padStart(FIELDS[i].max, "0")).join("-");
+    track("find_polling_unit", { method: "code" });
     startTransition(() => router.push(`/get-ready/polling-unit/unit/${code}`));
   }
 
