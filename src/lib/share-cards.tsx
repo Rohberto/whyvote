@@ -224,17 +224,94 @@ export async function pledgeCard(firstName: string) {
   );
 }
 
+/** Ring colours for the six largest parties' badges on the ballot card (the design's standard badge). */
+const PARTY_RING: Record<string, string> = {
+  ADC: "#0F766E",
+  APC: "#1D4ED8",
+  APM: "#C2410C",
+  LP: "#15803D",
+  NDC: "#7C3AED",
+  PDP: "#C81E1E",
+};
+
+/** Short race names for the card: "House of Reps", "State Assembly". */
+const CARD_TITLE: Record<string, string> = { "House of Representatives": "House of Reps", "State House of Assembly": "State Assembly" };
+
 /**
- * "My 2027 ballot" card for sharing after a ballot check: the place and the offices on the
- * ballot, with a "Check yours" line. No candidates, parties or colours, and never a vote choice.
+ * "My ballot" card shared after a ballot check (My ballot design): the place, each race with the
+ * candidates of the six largest parties, A to Z by party, and a link to see every candidate.
+ * Never a vote choice. Story 9:16 for WhatsApp status and Instagram, or square 1:1.
  */
 export async function ballotCard(summary: BallotSummary, size: "status" | "square") {
   const dims = CARD_SIZES[size];
   const tall = size === "status";
+  // One design, drawn at the preview's scale (340px wide in the design is 1080px here), shrunk
+  // when a ballot has more candidates than fit, so the footer link always shows.
+  const raceHeight = (r: BallotSummary["days"][number]["races"][number]) =>
+    27 + (r.constituencies.length === 1 ? Math.ceil(r.constituencies[0].featured.length / 2) * 20 + 5 : 14);
+  const dayHeight = (d: BallotSummary["days"][number]) => 17 + (d.races.length ? d.races.reduce((h, r) => h + raceHeight(r), 0) : 20);
+  const body = tall
+    ? summary.days.reduce((h, d) => h + dayHeight(d), 10)
+    : Math.max(...summary.days.map(dayHeight));
+  const designHeight = 36 + 14 + 44 + (tall ? 54 : 40) + 40 + 31 + body;
+  const u = Math.min(tall ? 3.18 : 2.3, (dims.height - 40) / designHeight);
   const logo = await logoDataUrl();
-  const place = `${summary.lga.name}, ${summary.state.name === "FCT" ? "Abuja (FCT)" : summary.state.name}`;
-  const races = summary.days.reduce((n, d) => n + d.races.length, 0);
-  const lineSize = tall ? 38 : races > 4 ? 28 : 31;
+  const stateName = summary.state.name === "FCT" ? "FCT" : summary.state.name;
+
+  const day = (d: BallotSummary["days"][number]) => (
+    <div key={d.date} style={{ display: "flex", flexDirection: "column", gap: 6 * u, minWidth: 0, ...(tall ? {} : { flex: 1 }) }}>
+      <span style={{ fontSize: 9 * u, letterSpacing: 1 * u, textTransform: "uppercase", color: C.green }}>{d.date}</span>
+      {d.races.length === 0 && (
+        <span style={{ fontSize: 9 * u, color: C.inkSoft, paddingTop: 6 * u, borderTop: `${u}px solid #BFDCC7` }}>No state election here</span>
+      )}
+      {d.races.map((r) => {
+        const single = r.constituencies.length === 1 ? r.constituencies[0] : null;
+        return (
+          <div key={r.title} style={{ display: "flex", flexDirection: "column", paddingTop: 6 * u, borderTop: `${u}px solid #BFDCC7` }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 4 * u }}>
+              <span style={{ fontSize: 12 * u, color: C.ink, whiteSpace: "nowrap", flexShrink: 0 }}>{CARD_TITLE[r.title] ?? r.title}</span>
+              <span style={{ fontSize: 9 * u, color: C.inkSoft, maxWidth: "55%", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>{r.seat}</span>
+            </div>
+            {single ? (
+              single.featured.length ? (
+                <div style={{ display: "flex", flexWrap: "wrap", marginTop: 5 * u, rowGap: 3 * u }}>
+                  {single.featured.map((c) => (
+                    <div key={c.id} style={{ display: "flex", alignItems: "center", gap: 5 * u, width: "50%", paddingRight: 7 * u, minWidth: 0 }}>
+                      <span
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          width: 17 * u,
+                          height: 17 * u,
+                          borderRadius: 999,
+                          background: "#fff",
+                          border: `${2 * u}px solid ${PARTY_RING[c.party] ?? C.inkSoft}`,
+                          color: PARTY_RING[c.party] ?? C.inkSoft,
+                          fontSize: 6 * u,
+                        }}
+                      >
+                        {c.party}
+                      </span>
+                      <span style={{ fontSize: 8 * u, color: C.ink, overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>{c.name}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <span style={{ marginTop: 3 * u, fontSize: 9 * u, color: C.inkSoft }}>None of the six largest parties is fielding a candidate here.</span>
+              )
+            ) : (
+              <span style={{ marginTop: 3 * u, fontSize: 9 * u, color: C.inkSoft }}>
+                {r.constituencies.length} constituencies in this LGA. Check yours at whyvote.ng
+              </span>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+
   return render(
     <div
       style={{
@@ -242,45 +319,40 @@ export async function ballotCard(summary: BallotSummary, size: "status" | "squar
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        gap: 10 * u,
         background: C.mintPale,
-        padding: tall ? "110px 90px" : "70px 80px",
+        padding: 18 * u,
         fontFamily: "Outfit",
         color: C.ink,
-        position: "relative",
       }}
     >
-      <div style={{ position: "absolute", right: -80, top: tall ? 160 : 40, display: "flex", opacity: 0.12 }}>
-        <Fingerprint size={tall ? 560 : 380} color={C.brand} />
+      <img src={logo} height={14 * u} width={14 * u * 4.48} alt="" style={{ flexShrink: 0 }} />
+      <div style={{ display: "flex", flexDirection: "column", flexShrink: 0 }}>
+        <span style={{ fontFamily: "Bricolage", fontSize: 32 * u, lineHeight: 0.9 }}>MY BALLOT</span>
+        <span style={{ marginTop: 3 * u, fontSize: 10 * u, color: C.inkSoft }}>
+          {stateName} · {summary.lga.name} · six largest parties, A to Z
+        </span>
       </div>
-      <img src={logo} width={tall ? 300 : 240} height={tall ? 67 : 54} alt="" />
-      <div style={{ display: "flex", flexDirection: "column", gap: tall ? 44 : 22 }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          <span style={{ fontSize: tall ? 34 : 26, letterSpacing: 3, color: C.green }}>MY 2027 BALLOT</span>
-          <span style={{ fontFamily: "Bricolage", fontSize: (tall ? 104 : 74) * (place.length > 24 ? 0.78 : 1), lineHeight: 0.95, letterSpacing: -1 }}>{place}</span>
-        </div>
-        {summary.days.map((d) => (
-          <div key={d.date} style={{ display: "flex", flexDirection: "column", gap: tall ? 14 : 8 }}>
-            <span style={{ fontSize: tall ? 30 : 23, color: C.inkSoft }}>{d.date}</span>
-            {d.races.length ? (
-              d.races.map((r) => (
-                <div key={r.title} style={{ display: "flex", alignItems: "flex-start", gap: 16, fontSize: lineSize, lineHeight: 1.25 }}>
-                  <span style={{ width: tall ? 16 : 12, height: tall ? 16 : 12, borderRadius: 4, background: C.brand, marginTop: tall ? 14 : 11, flexShrink: 0 }} />
-                  <span style={{ display: "flex", flexWrap: "wrap" }}>
-                    {r.title}
-                    {r.title === "President" ? "" : `: ${r.seat.length > 44 ? `${r.constituencies.length} options` : r.seat}`}
-                  </span>
-                </div>
-              ))
-            ) : (
-              <span style={{ fontSize: lineSize, color: C.inkSoft }}>No state election here</span>
-            )}
-          </div>
-        ))}
+      <div style={{ display: "flex", flexDirection: "column", flexShrink: 0, background: "#FFF4CF", borderRadius: 6 * u, padding: `${6 * u}px ${8 * u}px`, fontSize: 10 * u, lineHeight: 1.4, color: C.inkSoft }}>
+        <span style={{ color: C.ink }}>Not the full list.</span>
+        <span>This shows the six largest parties only. See every candidate on your ballot at whyvote.ng.</span>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 6, borderTop: `6px solid ${C.brand}`, paddingTop: tall ? 30 : 20 }}>
-        <span style={{ fontFamily: "Bricolage", fontSize: tall ? 64 : 46 }}>Check yours.</span>
-        <span style={{ fontSize: tall ? 38 : 30, color: C.green }}>whyvote.ng/ballot</span>
+      <div style={{ display: "flex", flexShrink: 0, flexDirection: tall ? "column" : "row", gap: tall ? 10 * u : 14 * u }}>{summary.days.map(day)}</div>
+      <div
+        style={{
+          marginTop: "auto",
+          flexShrink: 0,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          background: C.ink,
+          color: "#fff",
+          borderRadius: 7 * u,
+          padding: `${8 * u}px ${10 * u}px`,
+        }}
+      >
+        <span style={{ fontSize: 11 * u }}>See all candidates. Check yours.</span>
+        <span style={{ fontSize: 10 * u, color: "#E3F07A" }}>whyvote.ng</span>
       </div>
     </div>,
     dims,

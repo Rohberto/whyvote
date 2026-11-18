@@ -139,15 +139,7 @@ export async function BallotView({ stateSlug, lgaSlug }: { stateSlug?: string; l
       {chosen && (
         <section className="pb-2">
           <Container>
-            <ShareBallot
-              siteUrl={SITE_URL}
-              stateSlug={stateSlug!}
-              lgaSlug={lgaSlug!}
-              place={`${lga!.name}, ${state!.name === "FCT" ? "Abuja (FCT)" : state!.name}`}
-            />
-            <div className="mt-4">
-              <PartyFilter href={`/ballot/${stateSlug}/${lgaSlug}/candidates`} parties={ballotParties} />
-            </div>
+            <PartyFilter href={`/ballot/${stateSlug}/${lgaSlug}/candidates`} parties={ballotParties} />
           </Container>
         </section>
       )}
@@ -238,6 +230,19 @@ export async function BallotView({ stateSlug, lgaSlug }: { stateSlug?: string; l
           </div>
         </Container>
       </section>
+
+      {chosen && (
+        <section className="pt-6 pb-12">
+          <Container>
+            <ShareBallot
+              siteUrl={SITE_URL}
+              stateSlug={stateSlug!}
+              lgaSlug={lgaSlug!}
+              place={`${lga!.name}, ${state!.name === "FCT" ? "Abuja (FCT)" : state!.name}`}
+            />
+          </Container>
+        </section>
+      )}
 
       <BeforeYouChoose />
       <PledgeBand />
