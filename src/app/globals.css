@@ -103,3 +103,12 @@
 .fp-ink {
   background: #0d974c;
 }
+
+/* Ziki profile sections: collapsible on phones, always open on desktop (before hydration too). */
+@media (min-width: 64rem) {
+  .profile-section::details-content {
+    content-visibility: visible;
+    display: block;
+    block-size: auto;
+  }
+}

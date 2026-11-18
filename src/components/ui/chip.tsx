@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 
-export type ChipTone = "lime" | "ink" | "white" | "mist" | "sky" | "mint" | "danger" | "warn" | "night";
+export type ChipTone = "lime" | "ink" | "white" | "mist" | "sky" | "mint" | "danger" | "warn" | "night" | "green";
 
 const tones: Record<ChipTone, string> = {
   lime: "bg-lime text-ink",
@@ -12,6 +12,7 @@ const tones: Record<ChipTone, string> = {
   danger: "bg-danger-pale text-danger",
   warn: "bg-warn-pale text-warn",
   night: "bg-night text-white",
+  green: "bg-[#e5f4e4] text-green",
 };
 
 /** Small uppercase pill used for tags, dates and statuses. Pass `wrap` where it may sit in a narrow column. */
