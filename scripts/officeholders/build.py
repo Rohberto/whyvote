@@ -1,74 +1,131 @@
-"""Mark sitting legislators who are on INEC's 2027 list for the same seat.
+"""Current officeholder for every race we have one for, running again or not.
 
-    python3 scripts/officeholders/build.py
+    python3 scripts/officeholders/build.py "path/to/2027 INEC Final List ... officeholders.xlsx"
 
-Reads senate.csv, reps.csv (and assembly.csv if present) in this folder: one row per seat,
-with the person who holds it now. Each row is matched to a 2027 race in the same state by
-seat name, then to a candidate in that race by name. Only matches are written to
-src/data/officeholders.json, and every decision is listed in review.txt for a human check.
+Two sources, both from the content team's sheet:
+- running.json, written by scripts/candidates/extract.py from the CURRENT OFFICEHOLDER column
+  ("Yes" only; "Flagged" and "Likely, confirm" rows are left out until confirmed).
+- the "Officeholders Not Contesting" tab: sitting holders who are not on the 2027 list for their seat.
+
+Writes src/data/officeholders.json, keyed by race id, and review.txt listing every row that
+could not be placed or needs a human check. Run it after extract.py.
 """
-import csv, difflib, json, os, re, unicodedata
+import collections, difflib, json, os, re, sys, unicodedata
+
+import openpyxl
 
 HERE = os.path.dirname(__file__)
-STOP = {"alhaji", "senator", "sen", "dr", "chief", "engr", "prof", "hon", "rep", "mrs", "barr", "mr", "otunba", "sir"}
+if len(sys.argv) != 2:
+    sys.exit(__doc__)
+
+ROLE = {
+    "president": "Serving President",
+    "vice-president": "Serving Vice President",
+    "governor": "Serving governor",
+    "deputy-governor": "Serving deputy governor",
+    "senate": "Serving senator",
+    "reps": "Serving member of the House of Representatives",
+    "assembly": "Serving member of the State House of Assembly",
+}
+OFFICE = {"Governor": "governor", "Senate": "senate", "House of Reps": "reps", "State House of Assembly": "assembly", "President": "president"}
 
 
 def ascii_lower(s):
-    return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower().replace("'", "")
-
-
-def name_tokens(s):
-    return {t for t in re.split(r"[^a-z]+", ascii_lower(s)) if len(t) > 2 and t not in STOP}
+    return unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower().replace("'", "")
 
 
 def seat_key(s):
     """Order-free key: "Owan West/East" and "Owan East/Owan West" compare equal-ish."""
-    s = ascii_lower(s).replace("&", "/").replace(" and ", "/").replace("federal capital territory", "fct")
-    words = sorted(set(re.findall(r"[a-z]+", s)))
-    return " ".join(words)
+    s = ascii_lower(s).replace("&", "/").replace(" and ", "/").replace("(lga)", "").replace("federal capital territory", "fct")
+    return " ".join(sorted(set(re.findall(r"[a-z0-9]+", s))))
 
 
-geo = {s["name"].lower(): s["slug"] for s in json.load(open("src/data/geo.json"))}
-geo["fct"] = "fct"
+STOP = {"alhaji", "senator", "sen", "dr", "chief", "engr", "prof", "hon", "rep", "mrs", "barr", "mr", "otunba", "sir"}
+
+
+def tokens(name):
+    return {t for t in re.split(r"[^a-z]+", ascii_lower(name)) if len(t) > 2 and t not in STOP}
+
+
+def same_person(a, b):
+    return len(tokens(a) & tokens(b)) >= 2
+
+
 out, review = {}, []
 
-for office in ("senate", "reps", "assembly"):
-    path = os.path.join(HERE, f"{office}.csv")
-    if not os.path.exists(path):
+# ---------------------------------------------------------------- running again
+running = json.load(open(os.path.join(HERE, "running.json")))
+by_race = collections.defaultdict(list)
+for r in running:
+    by_race[r["race"]].append(r)
+for race, holders in by_race.items():
+    if len(holders) > 1:
+        review.append(f"TWO HOLDERS {race}: " + ", ".join(f"{h['name']} ({h['party']})" for h in holders) + " (none marked)")
         continue
-    for row in csv.DictReader(open(path, encoding="utf-8")):
-        slug = geo.get(row["state"].strip().lower())
+    h = holders[0]
+    out[race] = {"name": h["name"], "party": h["party"], "since": ROLE[h["office"]], "runningAgain": h["id"],
+                 "status": "Running again", "source": h["note"] or ""}
+
+# ---------------------------------------------------------------- not contesting
+geo = {s["name"].lower(): s["slug"] for s in json.load(open("src/data/geo.json"))}
+geo["fct"] = "fct"
+wb = openpyxl.load_workbook(sys.argv[1])
+ws = wb["Officeholders Not Contesting"]
+placed = 0
+for row in ws.iter_rows(min_row=4, values_only=True):
+    office, state, seat, name, status, elsewhere, note = (list(row) + [None] * 7)[:7]
+    office = OFFICE.get(office)
+    if not office or not name:
+        continue
+    if office == "president":
+        race_id = "president:national"
+    else:
+        slug = geo.get(str(state).strip().lower())
         if not slug:
-            review.append(f"NO STATE   {office} {row['state']} / {row['seat']}")
+            review.append(f"NO STATE    {office} {state} / {seat}: {name}")
             continue
-        data = json.load(open(f"src/data/states/{slug}.json"))
-        races = [r for r in data["races"] if r["office"] == office]
-        if not races:
-            review.append(f"NO RACES   {office} {row['state']} / {row['seat']}")
+        if office == "governor":
+            race_id = f"governor:{slug}"
+        else:
+            races = [r for r in json.load(open(f"src/data/states/{slug}.json"))["races"] if r["office"] == office]
+            scored = sorted(((difflib.SequenceMatcher(None, seat_key(seat or ""), seat_key(r["name"] or "")).ratio(), r) for r in races),
+                            key=lambda x: -x[0])
+            # Assembly roster seats are often just the LGA ("Obingwa" for "Obingwa East"), so they need a close match.
+            if not scored or scored[0][0] < (0.9 if office == "assembly" else 0.75):
+                review.append(f"NO SEAT     {office} {state} / {seat}: {name} (closest: {scored[0][1]['name'] if scored else '-'})")
+                continue
+            race_id = scored[0][1]["id"]
+    # The State Assembly roster is not independently verified: when it places someone in one seat
+    # while the candidate sheet marks them as the holder of another, trust neither.
+    if office == "assembly":
+        elsewhere_mark = [k for k, v in out.items() if k.startswith("assembly:") and v.get("runningAgain") and k != race_id and same_person(v["name"], name)]
+        if elsewhere_mark:
+            for k in elsewhere_mark:
+                review.append(f"DROPPED     {k}: {out[k]['name']} is marked as holder here, but the roster puts {name} in {race_id}")
+                del out[k]
+            review.append(f"DROPPED     {race_id}: {name} (roster seat contradicts the candidate sheet)")
             continue
-        # Seat: best fuzzy match on the race name within the state.
-        key = seat_key(row["seat"])
-        scored = sorted(((difflib.SequenceMatcher(None, key, seat_key(r["name"] or "")).ratio(), r) for r in races), key=lambda x: -x[0])
-        score, race = scored[0]
-        if score < 0.6:
-            review.append(f"NO SEAT    {office} {row['state']} / {row['seat']} (closest: {race['name']} {score:.2f})")
-            continue
-        holder = name_tokens(row["name"])
-        cands = [c for c in data["candidates"] if c["race"] == race["id"]]
-        best = max(cands, key=lambda c: len(holder & name_tokens(c["inecName"] + " " + c["name"])), default=None)
-        overlap = len(holder & name_tokens(best["inecName"] + " " + best["name"])) if best else 0
-        if overlap < 2:
-            review.append(f"NOT ON 2027 LIST  {office} {race['name']}: {row['name']}")
-            continue
-        out[race["id"]] = {
-            "name": best["name"],
-            "since": {"senate": "Serving senator", "reps": "Serving member of the House of Representatives", "assembly": "Serving member of the State House of Assembly"}[office],
-            "runningAgain": best["id"],
-            "status": "Running again",
-            "source": row.get("note", ""),
-        }
-        review.append(f"RUNNING    {office} {race['name']}: {row['name']} -> {best['inecName']} ({best['party']})")
+    if race_id in out:
+        if same_person(out[race_id]["name"], name):
+            continue  # the holder running again, listed twice under different spellings
+        if office == "assembly":
+            review.append(f"DROPPED     {race_id}: roster says {name}, candidate sheet marks {out[race_id]['name']} (neither shown)")
+            del out[race_id]
+        else:
+            review.append(f"CONFLICT    {race_id}: {name} is listed as not contesting, but {out[race_id]['name']} is marked as the holder running again (kept)")
+        continue
+    status = str(status or "")
+    if "contesting another office" in status.lower() and elsewhere and "possibl" not in status.lower():
+        text = f"Not running for this seat. On the 2027 list for {elsewhere}"
+    elif status.lower().startswith("term-limited"):
+        text = "Term-limited, so not on this ballot"
+    else:
+        text = "Not found on INEC’s 2027 list for this seat"
+    if "confirm" in status.lower() or "not checked" in status.lower():
+        review.append(f"CHECK       {race_id}: {name}: {status} {elsewhere or ''}".rstrip())
+    out[race_id] = {"name": name, "since": ROLE[office], "status": text, "source": note or ""}
+    placed += 1
 
 json.dump(dict(sorted(out.items())), open("src/data/officeholders.json", "w"), indent=1, ensure_ascii=False)
 open(os.path.join(HERE, "review.txt"), "w").write("\n".join(review) + "\n")
-print(len(out), "officeholders running again;", sum(1 for r in review if not r.startswith("RUNNING")), "rows need no badge or a check")
+print(f"{len(out)} races with an officeholder ({len(out) - placed} running again, {placed} not running); {len(review)} rows to check in review.txt")

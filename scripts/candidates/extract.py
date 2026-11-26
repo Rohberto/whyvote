@@ -96,8 +96,14 @@ def quals(v):
 
 records = []
 
+# Listed by court order in INEC's 16 Nov update, whose "COURT ORDER" remark was later replaced by a
+# photo link in the sheet. Kept so the court-order tag does not silently disappear.
+COURT_ORDER_KEPT = {'MOHAMMED IBRAHIM USMAN', 'ABDULMAJID ISA UMAR', 'ISMAEEL IDRIS SANI', 'OLUMUYIWA OWADARA'}
+
 
 def add(**r):
+    if r['office'] == 'reps' and r['inecName'] in COURT_ORDER_KEPT:
+        r['courtOrder'] = True
     age = r.get('age')
     if age is not None and not (18 <= age <= 110):
         report.append(f"age {age} as printed: {r['inecName']} ({r['office']}, {r.get('state') or 'national'})")
@@ -110,45 +116,99 @@ def link_of(cell):
     return cell.hyperlink.target if cell.hyperlink and cell.hyperlink.target else None
 
 
+def header_map(ws):
+    """Column index by normalised header, so the sheet's column order can change between versions."""
+    cols = {}
+    for i, c in enumerate(next(ws.iter_rows(min_row=1, max_row=1))):
+        if c.value:
+            cols.setdefault(re.sub(r'[^a-z]+', ' ', str(c.value).lower()).strip(), i)
+    return cols
+
+
+def getter(ws):
+    cols = header_map(ws)
+
+    def get(row, *names, cell=False):
+        for n in names:
+            i = cols.get(n)
+            if i is not None and i < len(row):
+                return row[i] if cell else row[i].value
+        return None
+    return get
+
+
+def photo_of(get, row):
+    """The sheet's own photo link first (Remarks or Photo Link), then the ShineYourEye photo.
+    Returns (url, label); the label is the linked file's name, used for the identity check."""
+    for col in ('remarks', 'photo link', 'shineyoureye photo'):
+        c = get(row, col, cell=True)
+        if c is None or c.value in (None, ''):
+            continue
+        url = link_of(c) or (str(c.value).strip() if str(c.value).strip().startswith('http') else None)
+        if url and 'wikipedia.org' not in url:
+            return url, (None if str(c.value).startswith('http') else clean(c.value))
+    return None, None
+
+
+def holder_of(get, row):
+    """CURRENT OFFICEHOLDER = "Yes" marks the sitting holder of the seat being contested.
+    "Flagged" and "Likely, confirm" rows are left unmarked until someone confirms them."""
+    v = (clean(get(row, 'current officeholder')) or '').lower()
+    return v == 'yes', clean(get(row, 'officeholder note'))
+
+
 # ---------------------------------------------------------------- presidential
 ws = wb['Presidential']
+get = getter(ws)
 for row in ws.iter_rows(min_row=2):
-    v = [c.value for c in row]
-    if not v[4]:
+    name = clean(get(row, 'name of candidate'))
+    if not name:
         continue
-    office = 'president' if str(v[3]).strip().lower().startswith('pres') else 'vice-president'
-    add(office=office, ticket=to_int(v[0]), party=clean(v[1]), state=None, stateOfOrigin=clean(v[2]),
-        constituency=None, lgas=None, inecName=clean(v[4]), pwd=pwd(v[5]), age=to_int(v[6]),
-        gender=gender(v[7]), qualifications=quals(v[8]), courtOrder=False,
-        photoUrl=link_of(row[9]), photoLabel=clean(v[9]), note=None)
+    office = 'president' if str(get(row, 'position')).strip().lower().startswith('pres') else 'vice-president'
+    url, label = photo_of(get, row)
+    holder, holder_note = holder_of(get, row)
+    remark = clean(get(row, 'remarks'))
+    add(office=office, ticket=to_int(get(row, 'sn')), party=clean(get(row, 'party')), state=None,
+        stateOfOrigin=clean(get(row, 'state of origin')), constituency=None, lgas=None, inecName=name,
+        pwd=pwd(get(row, 'pwd')), age=to_int(get(row, 'age')), gender=gender(get(row, 'gender')),
+        qualifications=quals(get(row, 'qualification s')), courtOrder=bool(remark and 'COURT' in remark.upper()),
+        photoUrl=url, photoLabel=label, note=None, holder=holder, holderNote=holder_note)
 
 # ---------------------------------------------------------------- legislatures
 for sheet, office in (('Senate', 'senate'), ('House of Reps', 'reps'), ('SHoA', 'assembly')):
     ws = wb[sheet]
+    get = getter(ws)
+    lga_col = header_map(ws).get('lga', 3)  # the House of Reps LGA column has no header
     for row in ws.iter_rows(min_row=2):
-        v = [c.value for c in row][:11]
-        if not v[4] or not v[1]:
+        name, state = clean(get(row, 'name of candidate')), get(row, 'state')
+        if not name or not state:
             continue
-        remark = clean(v[10])
+        remark = clean(get(row, 'remarks'))
         court = bool(remark and 'COURT' in remark.upper())
-        add(office=office, ticket=None, party=clean(v[5]), state=state_name(v[1]), stateOfOrigin=None,
-            constituency=constituency_name(v[2]), lgas=lga_list(v[3]), inecName=clean(v[4]), pwd=pwd(v[6]),
-            age=to_int(v[7]), gender=gender(v[8]), qualifications=quals(v[9]), courtOrder=court,
-            photoUrl=link_of(row[10]) if len(row) > 10 else None, photoLabel=remark if not court else None, note=None)
+        url, label = photo_of(get, row)
+        holder, holder_note = holder_of(get, row)
+        add(office=office, ticket=None, party=clean(get(row, 'party')), state=state_name(state), stateOfOrigin=None,
+            constituency=constituency_name(get(row, 'constituency')), lgas=lga_list(row[lga_col].value), inecName=name,
+            pwd=pwd(get(row, 'pwd')), age=to_int(get(row, 'age')), gender=gender(get(row, 'gender')),
+            qualifications=quals(get(row, 'qualification s')), courtOrder=court,
+            photoUrl=url, photoLabel=label, note=None, holder=holder, holderNote=holder_note)
 
 # ---------------------------------------------------------------- governorship
 ws = wb['Gubernatorial']
+get = getter(ws)
 for row in ws.iter_rows(min_row=2):
-    v = [c.value for c in row][:13]
-    if not v[4] or not v[0]:
+    name, state = clean(get(row, 'name')), get(row, 'state')
+    if not name or not state:
         continue
-    office = 'governor' if str(v[3]).strip().lower().startswith('gov') else 'deputy-governor'
-    remark = clean(v[9])
-    add(office=office, ticket=to_int(v[1]), party=clean(v[2]), state=state_name(v[0]), stateOfOrigin=None,
-        constituency=None, lgas=None, inecName=clean(v[4]), pwd=pwd(v[7]), age=to_int(v[5]),
-        gender=gender(v[6]), qualifications=quals(v[8]), courtOrder=bool(remark and 'COURT' in remark.upper()),
-        photoUrl=link_of(row[11]) if len(row) > 11 else None, photoLabel=clean(v[11]),
-        photoSource=clean(v[12]), note=clean(v[10]))
+    office = 'governor' if str(get(row, 'position')).strip().lower().startswith('gov') else 'deputy-governor'
+    remark = clean(get(row, 'remarks'))
+    url, label = photo_of(get, row)
+    holder, holder_note = holder_of(get, row)
+    add(office=office, ticket=to_int(get(row, 'ticket sn')), party=clean(get(row, 'party')), state=state_name(state),
+        stateOfOrigin=None, constituency=None, lgas=None, inecName=name, pwd=pwd(get(row, 'pwd')),
+        age=to_int(get(row, 'age')), gender=gender(get(row, 'gender')), qualifications=quals(get(row, 'qualification s')),
+        courtOrder=bool(remark and 'COURT' in remark.upper()), photoUrl=url, photoLabel=label,
+        photoSource=clean(get(row, 'photo source')), note=clean(get(row, 'check note')), holder=holder, holderNote=holder_note)
 
 # ---------------------------------------------------------------- ids, slugs, constituency ids
 OFFICE_SHORT = {'president': 'president', 'vice-president': 'vp', 'senate': 'senate', 'reps': 'reps',
@@ -285,6 +345,10 @@ json.dump(slugs, open(f'{SITE}/slugs.json', 'w'), ensure_ascii=False, separators
 json.dump([[r['id'], r['displayName'], r['party'], r['office'], r['state'] or '', r['constituency'] or ''] for r in sorted(records, key=sort_key)],
           open(f'{SITE}/search.json', 'w'), ensure_ascii=False, separators=(',', ':'))
 json.dump(photos, open(f'{OUT}/photos.json', 'w'), ensure_ascii=False, indent=1)
+# Sitting officeholders on the list for their own seat (CURRENT OFFICEHOLDER = Yes), for scripts/officeholders.
+json.dump([{'race': r['constituencyId'], 'id': r['id'], 'name': r['displayName'], 'party': r['party'], 'office': r['office'],
+            'note': r.get('holderNote')} for r in sorted(records, key=sort_key) if r.get('holder')],
+          open(os.path.join(ROOT, 'scripts/officeholders/running.json'), 'w'), ensure_ascii=False, indent=1)
 open(f'{OUT}/report.txt', 'w').write('\n'.join(report))
 
 c = collections.Counter(r['office'] for r in records)

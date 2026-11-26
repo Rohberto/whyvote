@@ -52,7 +52,11 @@ def process(j):
     try:
         im = Image.open(dest); im.load()
     except Exception as e:
-        res['status'] = f'not-an-image ({ctype}, rc={rc})'
+        # The source did not answer with an image this time: keep a photo published by an earlier run.
+        if os.path.exists(f"{SITE}/{j['id']}.webp"):
+            res['status'], res['kept'] = 'ok', 'previous download (source unreachable on refresh)'
+        else:
+            res['status'] = f'not-an-image ({ctype}, rc={rc})'
         return res
     # identity check: served filename (Drive) or URL path (NGF) must share a name token with INEC name
     label = served or urllib.parse.unquote(url.rsplit('/', 1)[-1])
