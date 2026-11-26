@@ -22,7 +22,9 @@ Outputs:
 Notes:
 
 - Names keep INEC's order, title-cased. Common-usage names for well-known candidates are set in `DISPLAY` in `extract.py`; a name change changes that candidate's URL.
-- Photos are only kept when the downloaded file's name matches the candidate. Wikipedia-only photos are skipped.
+- When an updated INEC list corrects a name, add `"old-slug": "new-slug"` to `renamed.json`: `next.config.ts` redirects the old Ziki link. Only for the same person; a substituted candidate gets no redirect.
+- `extract.py` only replaces the candidate files in `src/data`; polling units and officeholders are left alone. Run `scripts/officeholders/build.py` after it, so officeholder badges point at the new candidate ids.
+- Photos are only kept when the downloaded file's name matches the candidate (mismatches are listed in `.cache/candidates/photo-results.json`). Wikipedia-only photos are skipped. Downloads run 8 at a time.
 - Ages INEC printed impossibly (e.g. 147) are shown as "Not given".
 
 ## Hand-fixed photos

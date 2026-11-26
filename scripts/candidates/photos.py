@@ -35,13 +35,12 @@ def tokens(s):
     return {t for t in re.split(r'[^a-z]+', (s or '').lower()) if len(t) > 2}
 
 
-results = []
-for j in jobs:
+def process(j):
     url = j['url']
     res = {'id': j['id'], 'url': url, 'status': None, 'served': None}
     if 'wikipedia.org' in url:
         res['status'] = 'skipped-wikipedia'
-        results.append(res); continue
+        return res
     if 'drive.google.com' in url:
         fid = drive_id(url)
         get = f'https://drive.usercontent.google.com/download?id={fid}&export=download'
@@ -54,7 +53,7 @@ for j in jobs:
         im = Image.open(dest); im.load()
     except Exception as e:
         res['status'] = f'not-an-image ({ctype}, rc={rc})'
-        results.append(res); continue
+        return res
     # identity check: served filename (Drive) or URL path (NGF) must share a name token with INEC name
     label = served or urllib.parse.unquote(url.rsplit('/', 1)[-1])
     overlap = tokens(label) & tokens(j['name'])
@@ -72,9 +71,18 @@ for j in jobs:
         nh = int(w / target); y = int((h - nh) * 0.15)
         im = im.crop((0, y, w, y + nh))
     im = im.resize((480, 600), Image.LANCZOS) if im.width > 480 else im
-    im.save(f"{SITE}/{j['id']}.webp", 'WEBP', quality=80, method=6)
-    results.append(res)
-    print(res['status'], j['id'], '<-', label[:70], res['size'])
+    # Only photos that pass the identity check are published.
+    if res['status'] == 'ok':
+        im.save(f"{SITE}/{j['id']}.webp", 'WEBP', quality=80, method=6)
+    print(res['status'], j['id'], '<-', label[:70], res['size'], flush=True)
+    return res
+
+
+# Downloads run in parallel; results keep the sheet's order.
+from concurrent.futures import ThreadPoolExecutor
+with ThreadPoolExecutor(max_workers=8) as pool:
+    results = list(pool.map(process, jobs))
+
 
 json.dump(results, open(f'{CACHE}/photo-results.json', 'w'), indent=1)
 from collections import Counter

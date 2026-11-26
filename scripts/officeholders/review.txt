@@ -95,7 +95,7 @@ RUNNING    senate Sokoto North: Aliyu Wamakko -> MAGATAKARDA ALIYU WAMAKKO (APC)
 NOT ON 2027 LIST  senate Sokoto South: Aminu Tambuwal
 RUNNING    senate Taraba Central: Haruna Manu -> MANU HARUNA (APC)
 RUNNING    senate Taraba North: Shuaibu Isa Lau -> SHUAIBU ISA LAU (APC)
-RUNNING    senate Taraba South: David Jimkuta -> DAVID JIMKUTA S. (APC)
+RUNNING    senate Taraba South: David Jimkuta -> DAVID JIMKUTA S. U (APC)
 NOT ON 2027 LIST  senate Yobe North: Ahmed Lawan
 RUNNING    senate Yobe South: Ibrahim Mohammed Bomai -> BOMAI IBRAHIM MOHAMMED (APC)
 RUNNING    senate Zamfara North: Sahabi Alhaji Yaú -> YA'U SAHABI ALHAJI (APC)
@@ -156,7 +156,7 @@ NOT ON 2027 LIST  reps Sagbama/Ekeremor: Fred Agbedi
 RUNNING    reps Yenagoa/Kolokuna/Opokuma: Oboku Abonsizibe Oforji -> OBOKU ABONSIZIBE OFORJI (APC)
 NOT ON 2027 LIST  reps Ogbia: Obordor Mitema
 RUNNING    reps Southern Ijaw: Rodney Ebikebina Ambaiowei -> AMBAIOWEI RODNEY EBIKEBINA (APC)
-RUNNING    reps Ado/Ogbadigbo/Okpokwu: Philip Agbese -> AGBESE PHILIP OKANGA (LP)
+RUNNING    reps Ado/Ogbadigbo/Okpokwu: Philip Agbese -> AGBESE PHILIP (LP)
 RUNNING    reps Apa/Agatu: Ojotu Ojema -> OJEMA OJOTU (APC)
 RUNNING    reps Buruku: Dzua Sekav Iyortyom -> IYORTYOM SEKAV DZUA (APC)
 RUNNING    reps Gboko/Tarka: Regina Akume -> AKUME REGINA (APC)

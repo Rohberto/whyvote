@@ -13,7 +13,7 @@ import { pageMetadata, SITE_URL } from "@/lib/site";
 
 type Props = PageProps<"/get-ready/polling-unit/unit/[code]">;
 
-/** 176,846 units: render on first visit, then serve from the cache. One is prerendered as an example. */
+/** About 177,000 units: render on first visit, then serve from the cache. One is prerendered as an example. */
 export function generateStaticParams() {
   return [{ code: "24-02-05-012" }];
 }

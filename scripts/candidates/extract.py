@@ -30,6 +30,7 @@ def clean(s):
     if s is None:
         return None
     s = re.sub(r'\s+', ' ', str(s).replace('*', '')).strip()
+    s = re.sub(r"[\u2019']{2,}", "'", s)  # "O''BRIEN" -> "O'BRIEN"
     return s or None
 
 
@@ -224,7 +225,8 @@ os.makedirs(OUT, exist_ok=True)
 # ---------------------------------------------------------------- site data (src/data)
 SITE = os.path.join(ROOT, 'src/data')
 import shutil
-shutil.rmtree(SITE, ignore_errors=True)
+# Only replace what this script writes: polling units and officeholders live in src/data too.
+shutil.rmtree(f'{SITE}/states', ignore_errors=True)
 os.makedirs(f'{SITE}/states', exist_ok=True)
 have_photo = set()
 pr = f'{OUT}/photo-results.json'
