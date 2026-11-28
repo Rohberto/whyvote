@@ -34,6 +34,13 @@ def ascii_lower(s):
     return unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower().replace("'", "")
 
 
+# Seat names on the not-contesting tab that INEC spells differently (state slug, sheet seat) -> race id.
+SEAT_ALIASES = {
+    ("delta", "Aniocha/Oshimili"): "reps:delta:aniocha-north-aniocha-south-oshimili-north-south",
+    ("rivers", "Emohua/Ikwerre"): "reps:rivers:ikwerre-umohua",
+}
+
+
 def seat_key(s):
     """Order-free key: "Owan West/East" and "Owan East/Owan West" compare equal-ish."""
     s = ascii_lower(s).replace("&", "/").replace(" and ", "/").replace("(lga)", "").replace("federal capital territory", "fct")
@@ -86,6 +93,8 @@ for row in ws.iter_rows(min_row=4, values_only=True):
             continue
         if office == "governor":
             race_id = f"governor:{slug}"
+        elif (slug, str(seat).strip()) in SEAT_ALIASES:
+            race_id = SEAT_ALIASES[(slug, str(seat).strip())]
         else:
             races = [r for r in json.load(open(f"src/data/states/{slug}.json"))["races"] if r["office"] == office]
             scored = sorted(((difflib.SequenceMatcher(None, seat_key(seat or ""), seat_key(r["name"] or "")).ratio(), r) for r in races),
@@ -125,6 +134,11 @@ for row in ws.iter_rows(min_row=4, values_only=True):
         review.append(f"CHECK       {race_id}: {name}: {status} {elsewhere or ''}".rstrip())
     out[race_id] = {"name": name, "since": ROLE[office], "status": text, "source": note or ""}
     placed += 1
+
+# Hand-confirmed entries, each with its source (manual.json).
+for race_id, entry in json.load(open(os.path.join(HERE, "manual.json"))).items():
+    if not race_id.startswith("_"):
+        out[race_id] = entry
 
 json.dump(dict(sorted(out.items())), open("src/data/officeholders.json", "w"), indent=1, ensure_ascii=False)
 open(os.path.join(HERE, "review.txt"), "w").write("\n".join(review) + "\n")

@@ -5839,6 +5839,14 @@
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "No name match on any 2027 sheet."
  },
+ "reps:akwa-ibom:abak-etim-ekpo-ika": {
+  "name": "Jimbo Inemesit Clement",
+  "party": "APC",
+  "since": "Serving member of the House of Representatives",
+  "runningAgain": "jimbo-inemesit-clement",
+  "status": "Running again",
+  "source": "Clement Jimbo, APC member for Abak/Etim Ekpo/Ika: Premium Times, https://www.premiumtimesng.com/regional/south-south-regional/863992-apc-federal-lawmaker-dismisses-adc-defection-allegation.html"
+ },
  "reps:akwa-ibom:eket-onna-esit-eket-ibeno": {
   "name": "Etteh Okpolupm Ikpong",
   "since": "Serving member of the House of Representatives",
@@ -6336,6 +6344,12 @@
   "runningAgain": "egbona-alex-egbona",
   "status": "Running again",
   "source": "Marked in Copy of 2027 (green highlight) and updated file (green highlight). Checked against current roster."
+ },
+ "reps:delta:aniocha-north-aniocha-south-oshimili-north-south": {
+  "name": "Okolie Ngozi Lawrence",
+  "since": "Serving member of the House of Representatives",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "No name match on any 2027 sheet."
  },
  "reps:delta:bomadi-patani": {
   "name": "Mutu Nicholas Ebomo",
@@ -7917,6 +7931,12 @@
   "status": "Running again",
   "source": "Marked in Copy of 2027 (green highlight) and updated file (green highlight). Checked against current roster."
  },
+ "reps:oyo:ibadan-north": {
+  "name": "Folajimi Oyekunle",
+  "party": "PDP",
+  "since": "Serving member since the August 2025 by-election",
+  "source": "PDP's Oyekunle wins Ibadan North by-election: Premium Times, https://www.premiumtimesng.com/news/top-news/814620-pdp-wins-ibadan-north-reps-seat-formerly-held-by-apc.html. The 2027 list has OYEKUNLE FOLA SUNDAY (APM) for this seat; not marked as the same person until confirmed."
+ },
  "reps:oyo:ibadan-north-east-ibadan-south-east": {
   "name": "Adigun Abass Adekunle",
   "party": "APM",
@@ -8100,6 +8120,12 @@
   "runningAgain": "nwogu-godspower-kelechi",
   "status": "Running again",
   "source": "Added: sitting member (missed in source files)."
+ },
+ "reps:rivers:ikwerre-umohua": {
+  "name": "Emerengwa Boniface Sunday",
+  "since": "Serving member of the House of Representatives",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "No name match on any 2027 sheet."
  },
  "reps:rivers:khana-gokana": {
   "name": "Dekor Dumnamene Robinson",

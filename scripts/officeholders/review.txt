@@ -8,11 +8,9 @@ TWO HOLDERS assembly:bayelsa:ogbia-iii: Ogbara Gabriel Michael (APC), Ogoli Naom
 TWO HOLDERS assembly:rivers:akuku-toru-ii: Opuende Lolo Isaiah (APC), Jack Abiye Godwill Major (APM) (none marked)
 TWO HOLDERS assembly:akwa-ibom:esit-eket-ibeno: Udobia Friday Udo (APC), Akpan Perry Samuel (NDC) (none marked)
 CHECK       governor:adamawa: Ahmadu Umaru Fintiri: Term-limited; possible match, confirm Possibly "UMARU AHMADU", Senate, Adamawa North (APC)
-NO SEAT     reps Delta / Aniocha/Oshimili: Okolie Ngozi Lawrence (closest: Aniocha North/Aniocha South/Oshimili North & South)
 CHECK       reps:nasarawa:lafia-obi: Abubakar Sarki Dahiru: Possible match, confirm Possibly "DAHIRU ABUBAKAR", Senate, Nasarawa South (SDP)
 CHECK       reps:niger:gurara-suleja-tapa: Tanko Adamu: Possible match, confirm Possibly "AHMED D TANKO" for the same seat (APGA); flagged on the House sheet
 CHECK       reps:plateau:mikang-qua-an-pan-shedam: (not confirmed): Not checked
-NO SEAT     reps Rivers / Emohua/Ikwerre: Emerengwa Boniface Sunday (closest: Ikwerre/Umohua)
 NO SEAT     assembly Abia / Bende (LGA): Boniface Ndionyenma Isienyi (closest: Bende South)
 DROPPED     assembly:abia:ugwunaagbo: Uruakpa Chijioke is marked as holder here, but the roster puts Chijioke Uruakpa in assembly:abia:umunneochi
 DROPPED     assembly:abia:umunneochi: Chijioke Uruakpa (roster seat contradicts the candidate sheet)
