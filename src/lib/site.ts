@@ -15,6 +15,13 @@ export const SITE_DESCRIPTION =
   "Plain, nonpartisan answers for young Nigerians: why to vote, what is on your 2027 ballot, every candidate from INEC’s final list, and how to get ready for 16 January and 6 February 2027.";
 export const PUBLISHER = "PoliZ";
 
+/** whyVote on X and Instagram; PoliZ (the publisher) on LinkedIn. */
+export const SOCIAL = {
+  x: { label: "X", handle: "@whyvoteng", url: "https://x.com/whyvoteng" },
+  instagram: { label: "Instagram", handle: "@whyvote.ng", url: "https://www.instagram.com/whyvote.ng/" },
+  linkedin: { label: "LinkedIn", handle: "PoliZ", url: "https://www.linkedin.com/company/polizng/" },
+} as const;
+
 const DEFAULT_OG_IMAGE = {
   url: "/opengraph-image",
   width: 1200,
@@ -58,7 +65,7 @@ export function pageMetadata({
       description,
       ...(ownImage ? {} : { images: [DEFAULT_OG_IMAGE] }),
     },
-    twitter: { card: "summary_large_image", title: fullTitle, description, ...(ownImage ? {} : { images: [DEFAULT_OG_IMAGE.url] }) },
+    twitter: { card: "summary_large_image", site: SOCIAL.x.handle, creator: SOCIAL.x.handle, title: fullTitle, description, ...(ownImage ? {} : { images: [DEFAULT_OG_IMAGE.url] }) },
     ...(noIndex ? { robots: { index: false, follow: true } } : {}),
   };
 }

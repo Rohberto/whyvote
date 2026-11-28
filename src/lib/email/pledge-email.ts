@@ -1,6 +1,7 @@
 import type { BallotSummary, SummaryRace } from "@/lib/ballot-summary";
 import type { Candidate } from "@/lib/candidates";
 import { pledgeInviteUrl } from "@/lib/pledge";
+import { SOCIAL } from "@/lib/site";
 
 /**
  * Pledge confirmation email (design C: names, photos and party).
@@ -184,6 +185,7 @@ export function pledgeEmail(input: PledgeEmailInput) {
     <img src="${imageSrc(input, "/images/email/logo.png")}" width="90" height="20" alt="whyVote" style="display:block;height:20px;width:auto">
     <p style="margin:10px 0 0;font-family:${SANS};font-size:12px;line-height:1.6;color:${C.faint}">whyVote is built by PoliZ. We do not support, oppose or endorse any party or candidate. The only ask is that you vote. We never ask who for.</p>
     <p style="margin:8px 0 0;font-family:${SANS};font-size:12px;line-height:1.6;color:${C.faint}">You are getting this email because you pledged at ${esc(siteUrl.replace(/^https?:\/\//, ""))}. <a href="${esc(input.unsubscribeUrl)}" style="color:${C.green}">Unsubscribe</a> · <a href="${siteUrl}/about" style="color:${C.green}">About whyVote</a></p>
+    <p style="margin:8px 0 0;font-family:${SANS};font-size:12px;line-height:1.6;color:${C.faint}">Follow whyVote: <a href="${SOCIAL.x.url}" style="color:${C.green}">X ${SOCIAL.x.handle}</a> · <a href="${SOCIAL.instagram.url}" style="color:${C.green}">Instagram ${SOCIAL.instagram.handle}</a> · <a href="${SOCIAL.linkedin.url}" style="color:${C.green}">LinkedIn</a></p>
     <p style="margin:8px 0 0;font-family:${SANS};font-size:12px;color:${C.faint}">PoliZ · Lagos, Nigeria</p>
   </td></tr>
 </table></td></tr></table>
@@ -212,6 +214,8 @@ export function pledgeEmail(input: PledgeEmailInput) {
     ...STEPS.map((s, i) => `${i + 1}. ${s.title}. ${s.body}`),
     "",
     `Invite your friends to pledge: ${invite}`,
+    "",
+    `Follow whyVote: X ${SOCIAL.x.handle} (${SOCIAL.x.url}) · Instagram ${SOCIAL.instagram.handle} (${SOCIAL.instagram.url}) · LinkedIn (${SOCIAL.linkedin.url})`,
     "",
     `Unsubscribe: ${input.unsubscribeUrl}`,
   ];

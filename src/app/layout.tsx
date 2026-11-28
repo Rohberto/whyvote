@@ -7,7 +7,7 @@ import { ReferralTracker } from "@/components/share/referral-tracker";
 import { SiteHeader } from "@/components/layout/site-header";
 import { TopBar } from "@/components/layout/top-bar";
 import { ELECTION_DAYS } from "@/lib/election";
-import { jsonLd, PUBLISHER, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
+import { jsonLd, PUBLISHER, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL, SOCIAL } from "@/lib/site";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -54,6 +54,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: SOCIAL.x.handle,
+    creator: SOCIAL.x.handle,
     title: `${SITE_NAME}: ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
   },
@@ -78,6 +80,7 @@ const ORGANIZATION = jsonLd({
       name: PUBLISHER,
       url: "https://poliz.ng",
       email: "ijoba@poliz.ng",
+      sameAs: [SOCIAL.x.url, SOCIAL.instagram.url, SOCIAL.linkedin.url],
       address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
     },
     {

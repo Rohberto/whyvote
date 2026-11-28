@@ -2,12 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { NAV_ITEMS, OFFICIAL_SOURCES } from "@/components/layout/nav";
 import logo from "@/assets/logo.png";
+import { SOCIAL } from "@/lib/site";
 
-// whyVote on Instagram and X; PoliZ on LinkedIn.
+// whyVote on X and Instagram; PoliZ on LinkedIn.
 const SOCIALS = [
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/whyvote.ng/",
+    ...SOCIAL.x,
+    icon: (
+      <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z" />
+      </svg>
+    ),
+  },
+  {
+    ...SOCIAL.instagram,
     icon: (
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -17,17 +25,7 @@ const SOCIALS = [
     ),
   },
   {
-    label: "X",
-    href: "https://x.com/whyvoteng",
-    icon: (
-      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-        <path d="M4 4l16 16M20 4L4 20" />
-      </svg>
-    ),
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/polizng/",
+    ...SOCIAL.linkedin,
     icon: (
       <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <path d="M6 10v8M6 6v.5M10 18v-8M10 13c0-2 1.5-3 3.5-3s3.5 1 3.5 3.5V18" />
@@ -102,17 +100,18 @@ export function SiteFooter() {
             whyVote does not support, oppose, endorse or rank any political party or candidate, and takes no money from
             parties or candidates. The only ask is that you vote. We never ask who for.
           </p>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {SOCIALS.map((s) => (
               <a
                 key={s.label}
-                href={s.href}
+                href={s.url}
                 target="_blank"
                 rel="noopener"
-                aria-label={s.label === "LinkedIn" ? "PoliZ on LinkedIn" : `whyVote on ${s.label}`}
-                className="w-11 h-11 rounded-sm bg-white border border-line inline-flex items-center justify-center text-ink hover:bg-mist-deep"
+                aria-label={s.label === "LinkedIn" ? "PoliZ on LinkedIn" : `whyVote on ${s.label}, ${s.handle}`}
+                className="min-h-11 px-3 rounded-sm bg-white border border-line inline-flex items-center gap-2 text-ink no-underline text-[14px] font-semibold hover:bg-mist-deep hover:text-ink"
               >
                 {s.icon}
+                <span aria-hidden="true">{s.handle}</span>
               </a>
             ))}
           </div>
