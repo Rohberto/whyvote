@@ -2,9 +2,11 @@
 
     python3 scripts/officeholders/build.py "path/to/2027 INEC Final List ... officeholders.xlsx"
 
-Two sources, both from the content team's sheet:
-- running.json, written by scripts/candidates/extract.py from the CURRENT OFFICEHOLDER column
-  ("Yes" only; "Flagged" and "Likely, confirm" rows are left out until confirmed).
+Sources, all from the content team's sheet:
+- the "Officeholders Re-contesting" tab: sitting holders on the 2027 list for their own seat.
+  Only "Yes" rows; "Likely, confirm" rows wait for manual.json. This list wins over the others.
+- running.json, written by scripts/candidates/extract.py from the CURRENT OFFICEHOLDER column,
+  for holders the tab does not list (deputy governors, the Vice President).
 - the "Officeholders Not Contesting" tab: sitting holders who are not on the 2027 list for their seat.
 
 Writes src/data/officeholders.json, keyed by race id, and review.txt listing every row that
@@ -61,7 +63,58 @@ def same_person(a, b):
 out, review = {}, []
 
 # ---------------------------------------------------------------- running again
-running = json.load(open(os.path.join(HERE, "running.json")))
+geo = {s["name"].lower(): s["slug"] for s in json.load(open("src/data/geo.json"))}
+geo["fct"] = "fct"
+wb = openpyxl.load_workbook(sys.argv[1])
+candidates = []
+
+
+def walk(x):
+    if isinstance(x, dict):
+        if "id" in x and "office" in x and "inecName" in x:
+            candidates.append(x)
+        for v in x.values():
+            walk(v)
+    elif isinstance(x, list):
+        for v in x:
+            walk(v)
+
+
+walk(json.load(open("src/data/national.json")))
+for f in sorted(os.listdir("src/data/states")):
+    walk(json.load(open(f"src/data/states/{f}")))
+norm = lambda s: re.sub(r"\s+", " ", str(s).replace("*", "")).strip().upper()
+by_name = collections.defaultdict(list)
+for c in candidates:
+    by_name[(c["office"], norm(c["inecName"]), c["party"])].append(c)
+
+running, seen = [], set()
+ws = wb["Officeholders Re-contesting"]
+for row in ws.iter_rows(values_only=True):
+    office, state, seat, name, party, status, note = (list(row) + [None] * 7)[:7]
+    office = OFFICE.get(office)
+    if not office or not name or str(status).strip() != "Yes":
+        if office and name:
+            review.append(f"CHECK       {office} {state} / {seat}: {name} ({party}): {status}, not shown until confirmed")
+        continue
+    match = by_name.get((office, norm(name), str(party).strip()), [])
+    # Same name and party in two states (two "Adamu Sani"s for NDC): keep the one in this state.
+    if len(match) > 1 and state:
+        st = geo.get(str(state).strip().lower())
+        match = [c for c in match if c["race"].split(":")[1] == st] or match
+    if len(match) > 1:
+        review.append(f"AMBIGUOUS   {office} {state} / {seat}: {name} ({party}) matches {', '.join(c['id'] for c in match)}")
+        continue
+    if not match:
+        review.append(f"NO MATCH    {office} {state} / {seat}: {name} ({party}) is not on the candidate data")
+        continue
+    c = match[0]
+    running.append({"race": c["race"], "id": c["id"], "name": c["name"], "party": c["party"], "office": office, "note": note})
+    seen.add(c["id"])
+# Holders marked on the candidate tabs that the re-contesting tab does not list (deputies, Vice President).
+tab_races = {r["race"] for r in running}
+running += [r for r in json.load(open(os.path.join(HERE, "running.json"))) if r["id"] not in seen and r["race"] not in tab_races]
+
 by_race = collections.defaultdict(list)
 for r in running:
     by_race[r["race"]].append(r)
@@ -74,9 +127,6 @@ for race, holders in by_race.items():
                  "status": "Running again", "source": h["note"] or ""}
 
 # ---------------------------------------------------------------- not contesting
-geo = {s["name"].lower(): s["slug"] for s in json.load(open("src/data/geo.json"))}
-geo["fct"] = "fct"
-wb = openpyxl.load_workbook(sys.argv[1])
 ws = wb["Officeholders Not Contesting"]
 placed = 0
 for row in ws.iter_rows(min_row=4, values_only=True):
@@ -104,24 +154,14 @@ for row in ws.iter_rows(min_row=4, values_only=True):
                 review.append(f"NO SEAT     {office} {state} / {seat}: {name} (closest: {scored[0][1]['name'] if scored else '-'})")
                 continue
             race_id = scored[0][1]["id"]
-    # The State Assembly roster is not independently verified: when it places someone in one seat
-    # while the candidate sheet marks them as the holder of another, trust neither.
-    if office == "assembly":
-        elsewhere_mark = [k for k, v in out.items() if k.startswith("assembly:") and v.get("runningAgain") and k != race_id and same_person(v["name"], name)]
-        if elsewhere_mark:
-            for k in elsewhere_mark:
-                review.append(f"DROPPED     {k}: {out[k]['name']} is marked as holder here, but the roster puts {name} in {race_id}")
-                del out[k]
-            review.append(f"DROPPED     {race_id}: {name} (roster seat contradicts the candidate sheet)")
-            continue
+    # The re-contesting list wins: a not-contesting row that puts the same person in another seat,
+    # or someone else in a seat whose holder is running again, is left out.
+    if office == "assembly" and any(k.startswith("assembly:") and k != race_id and v.get("runningAgain") and same_person(v["name"], name) for k, v in out.items()):
+        review.append(f"SKIPPED     {race_id}: {name} is on the re-contesting list for another seat")
+        continue
     if race_id in out:
-        if same_person(out[race_id]["name"], name):
-            continue  # the holder running again, listed twice under different spellings
-        if office == "assembly":
-            review.append(f"DROPPED     {race_id}: roster says {name}, candidate sheet marks {out[race_id]['name']} (neither shown)")
-            del out[race_id]
-        else:
-            review.append(f"CONFLICT    {race_id}: {name} is listed as not contesting, but {out[race_id]['name']} is marked as the holder running again (kept)")
+        if not same_person(out[race_id]["name"], name):
+            review.append(f"SKIPPED     {race_id}: not-contesting tab names {name}, re-contesting list has {out[race_id]['name']} (kept)")
         continue
     status = str(status or "")
     if "contesting another office" in status.lower() and elsewhere and "possibl" not in status.lower():

@@ -1,4 +1,12 @@
 {
+ "assembly:abia:aba-central": {
+  "name": "Ucheonye Stephen Akachukwu",
+  "party": "LP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "ucheonye-stephen-akachukwu",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
  "assembly:abia:aba-north": {
   "name": "Destiny Akaraka Nwangwu",
   "since": "Serving member of the State House of Assembly",
@@ -12,6 +20,22 @@
   "runningAgain": "emeruwa-emmanuel-ihuoma",
   "status": "Running again",
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
+ },
+ "assembly:abia:arochukwu": {
+  "name": "Okoro Uchenna Kalu",
+  "party": "LP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "okoro-uchenna-kalu",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
+ "assembly:abia:bende-north": {
+  "name": "Ibekwe Nnamdi Chimdi",
+  "party": "LP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "ibekwe-nnamdi-chimdi",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
  "assembly:abia:bende-south": {
   "name": "Ndubuisi Emmanuel Chinedu",
@@ -29,6 +53,14 @@
   "status": "Running again",
   "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
+ "assembly:abia:isiala-ngwa-north": {
+  "name": "Iheonunekwu Ugochukwu Collins",
+  "party": "LP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "iheonunekwu-ugochukwu-collins",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
  "assembly:abia:isiala-ngwa-south": {
   "name": "Dennis Rowland Chinwendu",
   "party": "LP",
@@ -38,10 +70,12 @@
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
  },
  "assembly:abia:isuikwuato": {
-  "name": "Solomon Chijioke Akpulonu",
+  "name": "Nweke Johnson Lucky Udoka",
+  "party": "LP",
   "since": "Serving member of the State House of Assembly",
-  "status": "Not found on INEC’s 2027 list for this seat",
-  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+  "runningAgain": "nweke-johnson-lucky-udoka",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
  "assembly:abia:ohafia-south": {
   "name": "Nwoke Kalu Mba",
@@ -68,10 +102,20 @@
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
  },
  "assembly:abia:ugwunaagbo": {
-  "name": "Lewis Obianyi",
+  "name": "Uruakpa Chijioke",
+  "party": "LP",
   "since": "Serving member of the State House of Assembly",
-  "status": "Not found on INEC’s 2027 list for this seat",
-  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+  "runningAgain": "uruakpa-chijioke",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
+ "assembly:abia:ukwa-east": {
+  "name": "Obianyi Lewis Chinemerem",
+  "party": "LP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "obianyi-lewis-chinemerem",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
  "assembly:abia:umuahia-central": {
   "name": "Anthony Chinasa Abiola",
@@ -313,6 +357,22 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Etinan (Uduak Ekpo-Ufot). Not independently verified."
  },
+ "assembly:akwa-ibom:ibesikpo-asutan": {
+  "name": "Attah Ubong Essien",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "attah-ubong-essien",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
+ "assembly:akwa-ibom:ibiono-ibom": {
+  "name": "Essien Moses Edet",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "essien-moses-edet",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
  "assembly:akwa-ibom:ikono": {
   "name": "Udo Asuquo Nana",
   "party": "APC",
@@ -337,11 +397,27 @@
   "status": "Running again",
   "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
+ "assembly:akwa-ibom:ini": {
+  "name": "Udoide Lawrence Ofonmbuk",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "udoide-lawrence-ofonmbuk",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
  "assembly:akwa-ibom:itu": {
   "name": "Kufreabasi Edidem",
   "since": "Serving member of the State House of Assembly",
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:akwa-ibom:mbo": {
+  "name": "Joseph Okon Etim",
+  "party": "ADC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "joseph-okon-etim",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
  "assembly:akwa-ibom:mkpat-enin": {
   "name": "Imoh-Ita Uwem Peter",
@@ -358,6 +434,14 @@
   "runningAgain": "attah-prince-aniefiok-okon",
   "status": "Running again",
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
+ },
+ "assembly:akwa-ibom:nsit-ibom": {
+  "name": "Akpan Eric Effiong",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "akpan-eric-effiong",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
  "assembly:akwa-ibom:nsit-ubium": {
   "name": "Bob Otobong Effiong",
@@ -388,6 +472,22 @@
   "party": "APC",
   "since": "Serving member of the State House of Assembly",
   "runningAgain": "onofiok-kenim-victor",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
+ "assembly:akwa-ibom:oruk-anam": {
+  "name": "Idiong Sampson Bernard",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "idiong-sampson-bernard",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
+ "assembly:akwa-ibom:ukanafun": {
+  "name": "Udom Emem Etokabasi",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "udom-emem-etokabasi",
   "status": "Running again",
   "source": "Marked in Copy of Copy (bold). Not independently verified."
  },
@@ -445,6 +545,12 @@
  },
  "assembly:anambra:awka-north": {
   "name": "Ikwunne Chimezie John",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:anambra:awka-south-i": {
+  "name": "Mbachu Nigeria Henry",
   "since": "Serving member of the State House of Assembly",
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
@@ -610,6 +716,14 @@
   "runningAgain": "saleh-zakariyya",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Zaki (LGA) (Saleh Zakariyya). Not independently verified."
+ },
+ "assembly:bauchi:bauchi-bauchi-i": {
+  "name": "Umar Dahiru Jamilu",
+  "party": "APM",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "umar-dahiru-jamilu",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Bauchi (LGA) (Umar Dahiru Jamilu). Not independently verified."
  },
  "assembly:bauchi:bogoro": {
   "name": "Nakwada Wakilli Musa",
@@ -796,6 +910,12 @@
   "runningAgain": "edward-irigha-brigidi",
   "status": "Running again",
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
+ },
+ "assembly:bayelsa:southern-ijaw-i": {
+  "name": "Felix Bonny Ayah",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
  },
  "assembly:bayelsa:southern-ijaw-iv": {
   "name": "Ben Selekaye Victor",
@@ -1091,6 +1211,14 @@
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
  },
+ "assembly:borno:kaga": {
+  "name": "Baba Ali Hauwa",
+  "party": "ADP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "baba-ali-hauwa",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Mafa (Baba Ali Modu). Not independently verified."
+ },
  "assembly:borno:kala-balge": {
   "name": "Dige Mohammed",
   "since": "Serving member of the State House of Assembly",
@@ -1155,6 +1283,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Shani (Ibrahim Musa Inuwa). Not independently verified."
  },
+ "assembly:cross-river:abi": {
+  "name": "Ukata Joseph Egbe",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "ukata-joseph-egbe",
+  "status": "Running again",
+  "source": "Marked in Copy of Copy (bold). Not independently verified."
+ },
  "assembly:cross-river:akamkpa-i": {
   "name": "Owuna Okon Nyong",
   "party": "APC",
@@ -1214,6 +1350,14 @@
   "runningAgain": "nsemo-stanley-bassey-okon",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Calabar (Stanley Nsemo Okon). Not independently verified."
+ },
+ "assembly:cross-river:calabar-south-i": {
+  "name": "Jimmy Effiong Ekarika",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "jimmy-effiong-ekarika",
+  "status": "Running again",
+  "source": "Bold in Copy of Copy and listed on ShineYourEye."
  },
  "assembly:cross-river:etung": {
   "name": "Kingsley Ntui Isong",
@@ -1393,7 +1537,7 @@
   "since": "Serving member of the State House of Assembly",
   "runningAgain": "anyafulu-ifechukwukwu-bridget",
   "status": "Running again",
-  "source": "Listed on ShineYourEye as member for Oshimili South (Anyafulu Bridget I.). Not independently verified."
+  "source": "Listed on ShineYourEye as member for Oshimili South (Anyafulu Bridget \tI.). Not independently verified."
  },
  "assembly:delta:patani": {
   "name": "Sinebe Amatare E.",
@@ -1414,6 +1558,14 @@
   "since": "Serving member of the State House of Assembly",
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:delta:ughelli-north-i": {
+  "name": "Omonade Matthew Onojighofia",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "omonade-matthew-onojighofia",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Ughelli North (Omonade Matthew O.). Not independently verified."
  },
  "assembly:delta:ughelli-south": {
   "name": "Utuama Festus",
@@ -1731,6 +1883,12 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Oredo Edo (Edosa Osaro Richard). Not independently verified."
  },
+ "assembly:edo:orhionmwon-i": {
+  "name": "Atu Osamwonyi",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
  "assembly:edo:ovia-north-east-ii": {
   "name": "Uzamere Osadolor Andrew Edobor",
   "party": "APC",
@@ -1787,6 +1945,20 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Efon (Yinka Olowookere Bosede). Not independently verified."
  },
+ "assembly:ekiti:ekiti-east-i": {
+  "name": "Ogunsakin Oladele Olaoye",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "ogunsakin-oladele-olaoye",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Ekiti East (Oladele Ogunsakin). Not independently verified."
+ },
+ "assembly:ekiti:ekiti-south-west-i": {
+  "name": "Anthony Adaramodu Kehinde",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
  "assembly:ekiti:ekiti-west-i": {
   "name": "Kareem Atunbiade",
   "since": "Serving member of the State House of Assembly",
@@ -1831,6 +2003,12 @@
  },
  "assembly:ekiti:ilejemeje": {
   "name": "Iyabode Fakunle-Okiemen Lydia",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:ekiti:irepodun-ifelodun-i": {
+  "name": "Hakeem Jamiu ayodeji",
   "since": "Serving member of the State House of Assembly",
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
@@ -1985,7 +2163,7 @@
   "since": "Serving member of the State House of Assembly",
   "runningAgain": "eze-ignatius-osita",
   "status": "Running again",
-  "source": "Listed on ShineYourEye as member for Oji-River (Osita Eze Oji). Not independently verified."
+  "source": "Listed on ShineYourEye as member for Oji-River (Osita Eze  Oji). Not independently verified."
  },
  "assembly:enugu:udenu": {
   "name": "Ijere Obinna Anthony",
@@ -2016,6 +2194,14 @@
   "runningAgain": "ekwueme-chukwuma-martins",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Uzo-Uwani (Ekwueme Chukwuma). Not independently verified."
+ },
+ "assembly:gombe:akko-central": {
+  "name": "Mohammed Abubakar",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "mohammed-abubakar-apc-assembly-gombe",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Akko (LGA) (Abubakar Mohammed). Not independently verified."
  },
  "assembly:gombe:akko-north": {
   "name": "Musa A. Mohammed",
@@ -2056,6 +2242,14 @@
   "runningAgain": "umar-damu-a",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Dukku (Adamu Umar A.). Not independently verified."
+ },
+ "assembly:gombe:funakaye-north": {
+  "name": "Abubakar Muhammad Gurama",
+  "party": "ADC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "abubakar-muhammad-gurama",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Funakaye (Muhammed Abubakar Dayi). Not independently verified."
  },
  "assembly:gombe:kaltungo-west": {
   "name": "Galadima Gabriel Fushison",
@@ -2293,6 +2487,20 @@
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
  },
+ "assembly:jigawa:babura": {
+  "name": "Abdulrahman Mas'ud Naruwa",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:jigawa:birniwa": {
+  "name": "Hassan Keriya Shariff",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "hassan-keriya-shariff",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Birnin Kudu (Keriya Hassan Sherif). Not independently verified."
+ },
  "assembly:jigawa:buji": {
   "name": "Baba Saleh Alhaji",
   "party": "APC",
@@ -2337,6 +2545,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Guri (Tura Usman Abdullahi). Not independently verified."
  },
+ "assembly:jigawa:gwaram": {
+  "name": "Yakubu Ado Zandam",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "yakubu-ado-zandam",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Gwaram (LGA) (Abubakar Ado Zandam). Not independently verified."
+ },
  "assembly:jigawa:gwiwa": {
   "name": "Zakari Aminu",
   "party": "APC",
@@ -2347,6 +2563,12 @@
  },
  "assembly:jigawa:jahun": {
   "name": "Garba Alhaji Idriss",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:jigawa:kafin-hausa": {
+  "name": "Adamu Muhammad",
   "since": "Serving member of the State House of Assembly",
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
@@ -2414,6 +2636,14 @@
   "runningAgain": "muhammad-lawan-dansure",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Roni (Muhammmad Lawan Dansure). Not independently verified."
+ },
+ "assembly:jigawa:sule-tankarkar": {
+  "name": "Abubakar Sa'Idu Mohammed",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "abubakar-sa-idu-mohammed",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Sule-Tankarkar (Abubakar Mohammad Sa'Idu). Not independently verified."
  },
  "assembly:jigawa:taura": {
   "name": "Shehu Dayyabu Gwalo",
@@ -2518,6 +2748,14 @@
   "runningAgain": "usman-danlami-stingo",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Kajuru (Usman Dallami Stingo). Not independently verified."
+ },
+ "assembly:kaduna:kaura": {
+  "name": "Mugu Yusuf",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "mugu-yusuf",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Kaura (LGA) (Yusuf Mugu). Not independently verified."
  },
  "assembly:kaduna:kubau": {
   "name": "Yunusa Shehu",
@@ -2791,6 +3029,14 @@
   "status": "Running again",
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
  },
+ "assembly:kano:rano": {
+  "name": "Muhammad Ibrahim",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "muhammad-ibrahim-apc-assembly-kano",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Rano (Ibrahim Muhammad). Not independently verified."
+ },
  "assembly:kano:rimi-gado-tofa": {
   "name": "Bello Muhammad Butu Butu",
   "party": "APC",
@@ -2942,12 +3188,6 @@
   "runningAgain": "samaila-abduljalal",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Dutsi (Samaila Abduljalal). Not independently verified."
- },
- "assembly:katsina:dutsin-ma": {
-  "name": "Abubakar Muhammad Hamisu",
-  "since": "Serving member of the State House of Assembly",
-  "status": "Not found on INEC’s 2027 list for this seat",
-  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
  },
  "assembly:katsina:faskari": {
   "name": "Muazu Samaila Bawa",
@@ -3118,6 +3358,14 @@
   "runningAgain": "garba-muhammad-sani-tiggi",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Augie (Sani Bawa Tiggi). Not independently verified."
+ },
+ "assembly:kebbi:bagudo-west": {
+  "name": "Mohammed Abubakar Lolo",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "mohammed-abubakar-lolo",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Bagudo (Muhammed Abubakar Lolo). Not independently verified."
  },
  "assembly:kebbi:bunza": {
   "name": "Idrisu Muhammed Bunza",
@@ -3485,6 +3733,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Alimosho (LGA) (Kehinde Jospeh Olaide). Not independently verified."
  },
+ "assembly:lagos:amuwo-odofin-i": {
+  "name": "Osafile Stella Foluke",
+  "party": "NDC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "osafile-stella-foluke",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Amuwo Odofin (LGA) (Stella Foluke Osafile). Not independently verified."
+ },
  "assembly:lagos:amuwo-odofin-ii": {
   "name": "Rauf Olawale Age- Sulaiman",
   "party": "APC",
@@ -3610,6 +3866,14 @@
   "runningAgain": "sanni-ganiyu-babatunde-o",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Kosofe (LGA) (Ganiyu Sanni Babatunde). Not independently verified."
+ },
+ "assembly:lagos:lagos-island-i": {
+  "name": "Lawal-Olumegbon Omolara",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "lawal-olumegbon-omolara",
+  "status": "Running again",
+  "source": "Bold in Copy of Copy and listed on ShineYourEye."
  },
  "assembly:lagos:lagos-island-ii": {
   "name": "Nurudeen Yunus Abiodun",
@@ -3737,6 +4001,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Doma (Muhammed Onyanki Adamu). Not independently verified."
  },
+ "assembly:nasarawa:doma-south": {
+  "name": "Ibrahim Abubakar Musa",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "ibrahim-abubakar-musa",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Doma (Musa Ibrahim Abubakar). Not independently verified."
+ },
  "assembly:nasarawa:karshi-uke": {
   "name": "Saidu Musa Gude",
   "party": "APC",
@@ -3861,12 +4133,6 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Bosso (Suleiman Abubakar Gomna). Not independently verified."
  },
- "assembly:niger:chanchanga": {
-  "name": "Abubakar Mohammed",
-  "since": "Serving member of the State House of Assembly",
-  "status": "Not found on INEC’s 2027 list for this seat",
-  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
- },
  "assembly:niger:edatti": {
   "name": "Mohammed Ahmed",
   "party": "APC",
@@ -3897,6 +4163,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Katcha (Yakubu Abdulmalik Bala). Not independently verified."
  },
+ "assembly:niger:kontagora-i": {
+  "name": "Mohammed Phalal Bako",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "mohammed-phalal-bako",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Kontagora (Falalu Bako Mohammed). Not independently verified."
+ },
  "assembly:niger:lapai": {
   "name": "Musa Idris Vatsa",
   "since": "Serving member of the State House of Assembly",
@@ -3910,6 +4184,14 @@
   "runningAgain": "yusuf-baba-dabban",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Lavun (Yusuf Baba Dabban). Not independently verified."
+ },
+ "assembly:niger:magama": {
+  "name": "Muhammad Isah Auna",
+  "party": "ADP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "muhammad-isah-auna",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Agaie (Muhammad Isa Etsugai). Not independently verified."
  },
  "assembly:niger:mariga": {
   "name": "Matthew Dogara Daje",
@@ -3997,6 +4279,14 @@
   "status": "Running again",
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
  },
+ "assembly:ogun:abeokuta-south-i": {
+  "name": "Atobatele Lukman Olajide",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "atobatele-lukman-olajide",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Abeokuta South (LGA) (Atobatele Lukmon). Not independently verified."
+ },
  "assembly:ogun:egbado-north-i": {
   "name": "Adegoke Olusesi Adeyanju",
   "since": "Serving member of the State House of Assembly",
@@ -4010,6 +4300,14 @@
   "runningAgain": "wahab-haruna-abiodun-egungbohun",
   "status": "Running again",
   "source": "Bold in Copy of Copy and listed on ShineYourEye."
+ },
+ "assembly:ogun:egbado-south": {
+  "name": "Abiodun Sherifat Olayinka",
+  "party": "ADP",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "abiodun-sherifat-olayinka",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for AdoOdo/Ota (Yusuf Sherif Abiodun). Not independently verified."
  },
  "assembly:ogun:ewekoro": {
   "name": "Amosun Yusuf Olawale",
@@ -4035,6 +4333,12 @@
  },
  "assembly:ogun:ijebu-north-east": {
   "name": "Adesanya Oluseun Samuel",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:ogun:ijebu-north-i": {
+  "name": "Bakare Olanrewaju Omolola",
   "since": "Serving member of the State House of Assembly",
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
@@ -4099,6 +4403,14 @@
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
  },
+ "assembly:ogun:sagamu-i-offin": {
+  "name": "Bello Mohammed Oluwadamilare",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "bello-mohammed-oluwadamilare",
+  "status": "Running again",
+  "source": "Bold in Copy of Copy and listed on ShineYourEye."
+ },
  "assembly:ondo:akoko-north-east": {
   "name": "Japhet Victor Oluwatoyin",
   "party": "APC",
@@ -4107,6 +4419,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Akoko North-East (Victor Japhet Toyin). Not independently verified."
  },
+ "assembly:ondo:akoko-north-west-i": {
+  "name": "Tiamiyu Fatai Atere Abolaji",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "tiamiyu-fatai-atere-abolaji",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Akoko North-West (Fatai Tiamiyu Atere). Not independently verified."
+ },
  "assembly:ondo:akoko-south-east": {
   "name": "Suleiman Murtala",
   "party": "APC",
@@ -4114,6 +4434,14 @@
   "runningAgain": "suleiman-murtala",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Akoko South-East (Murtala Suleiman). Not independently verified."
+ },
+ "assembly:ondo:akoko-south-west-i": {
+  "name": "Daodu Oluwatoyin Raymond",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "daodu-oluwatoyin-raymond",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Akoko South-West (Oluwatoyin Daodu Raymond). Not independently verified."
  },
  "assembly:ondo:akure-south-i": {
   "name": "Oguntodu Olajide Johnson",
@@ -4171,7 +4499,7 @@
   "since": "Serving member of the State House of Assembly",
   "runningAgain": "gbegudu-ololade-james",
   "status": "Running again",
-  "source": "Listed on ShineYourEye as member for Okitipupa (Ololade Gbegudu James). Not independently verified."
+  "source": "Listed on ShineYourEye as member for Okitipupa (Ololade  Gbegudu James). Not independently verified."
  },
  "assembly:ondo:ondo-east": {
   "name": "Oladiji O Olamide",
@@ -4399,6 +4727,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Egbeda (Olasunkanmi Samson Babalola). Not independently verified."
  },
+ "assembly:oyo:ibadan-north-east-i": {
+  "name": "Babalola Abiodun",
+  "party": "APM",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "babalola-abiodun",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Ibadan North-East (Babalola Abiodun Oluwaseun). Not independently verified."
+ },
  "assembly:oyo:ibadan-north-i": {
   "name": "Olajide Pat Olufunke Comforter",
   "party": "APM",
@@ -4436,6 +4772,14 @@
   "runningAgain": "olayinka-omikunle-ayobami",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Ibadan South-East (Olayinka Ayobami Omikunle). Not independently verified."
+ },
+ "assembly:oyo:ibadan-south-west-i": {
+  "name": "Adebisi Yusuf Oladeni",
+  "party": "APM",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "adebisi-yusuf-oladeni",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Ibadan South-West (Yusuf Adebisi Oladeni). Not independently verified."
  },
  "assembly:oyo:ibarapa-east": {
   "name": "Adebo Edward Ogundoyin",
@@ -4702,10 +5046,12 @@
   "source": "Listed on ShineYourEye as member for Abua/Odual (John Dominic Iderima). Not independently verified."
  },
  "assembly:rivers:ahoada-east-i": {
-  "name": "Sokari Goodboy Sokari",
+  "name": "Tony-Williams Queen Uwuma",
+  "party": "PDP",
   "since": "Serving member of the State House of Assembly",
-  "status": "Not found on INEC’s 2027 list for this seat",
-  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+  "runningAgain": "tony-williams-queen-uwuma",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Ahoada West (Williams Queen Uwuma T.). Not independently verified."
  },
  "assembly:rivers:andoni-i": {
   "name": "Ofiks Kagbang Christopher",
@@ -4804,6 +5150,14 @@
   "runningAgain": "amadi-emilia-lucky",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Obio/Akpor (LGA) (Amadi Emilia Lucky). Not independently verified."
+ },
+ "assembly:rivers:ogba-egbema-ndoni": {
+  "name": "Nwabochi Frankline Uchenna",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "nwabochi-frankline-uchenna",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Ogba/Egbema/Ndoni (Nwabochi Frankline Uchenna). Not independently verified."
  },
  "assembly:rivers:ogu-bolo": {
   "name": "Somiari- Stewart Linda",
@@ -5069,6 +5423,14 @@
   "status": "Not found on INEC’s 2027 list for this seat",
   "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
  },
+ "assembly:sokoto:yabo": {
+  "name": "Yabo Abubakar Shehu",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "yabo-abubakar-shehu",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Yabo (Shehu Yabo Abubakar). Not independently verified."
+ },
  "assembly:taraba:ardo-kola": {
   "name": "Shonruba Joshua Happy",
   "party": "APC",
@@ -5241,6 +5603,14 @@
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Damaturu (Ibrahim Buba). Not independently verified."
  },
+ "assembly:yobe:geidam-north": {
+  "name": "Mustapha Alhaji Bukar",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "mustapha-alhaji-bukar",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Geidam (Mustapha Alhaji Bukar). Not independently verified."
+ },
  "assembly:yobe:geidam-south": {
   "name": "Ali Mohammed",
   "party": "APC",
@@ -5248,6 +5618,14 @@
   "runningAgain": "ali-mohammed",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Geidam (Mohammed Ali). Not independently verified."
+ },
+ "assembly:yobe:goya-ngeji": {
+  "name": "Zakariya Isa Mohammed",
+  "party": "NDC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "zakariya-isa-mohammed",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Nangere (Isa Mohammed). Not independently verified."
  },
  "assembly:yobe:gujba": {
   "name": "Bukar Bulama",
@@ -5308,6 +5686,20 @@
   "runningAgain": "lawan-musa",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Nguru (Lawan Musa Majakura). Not independently verified."
+ },
+ "assembly:yobe:tarmuwa": {
+  "name": "Buba Chiroma Alhaji",
+  "since": "Serving member of the State House of Assembly",
+  "status": "Not found on INEC’s 2027 list for this seat",
+  "source": "From ShineYourEye roster; no name match for this seat on the 2027 State Assembly list."
+ },
+ "assembly:yobe:yunusari-i": {
+  "name": "Musa Dumbul Ahmed",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "musa-dumbul-ahmed",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Yunusari (Ahmed Musa Dambol). Not independently verified."
  },
  "assembly:yobe:yusufari-ii": {
   "name": "Mohammed Hassan",
@@ -5394,6 +5786,14 @@
   "runningAgain": "ahmed-amiru",
   "status": "Running again",
   "source": "Listed on ShineYourEye as member for Tsafe (Amiru Ahmad Keta). Not independently verified."
+ },
+ "assembly:zamfara:zurmi-east": {
+  "name": "Abdullahi Halilu Kuturu",
+  "party": "APC",
+  "since": "Serving member of the State House of Assembly",
+  "runningAgain": "abdullahi-halilu-kuturu",
+  "status": "Running again",
+  "source": "Listed on ShineYourEye as member for Zurmi (Haliru Abdullhai Kuturu). Not independently verified."
  },
  "assembly:zamfara:zurmi-west": {
   "name": "Isma'Il Bilyaminu",
